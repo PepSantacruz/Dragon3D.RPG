@@ -16,7 +16,7 @@ namespace RPG.Characters {
         [SerializeField] float damagePerHit = 10f;
         [SerializeField] Weapon weaponInUse;
 
-        [SerializeField] SpecialAbilityConfig specialAbility; //temp for debug
+        [SerializeField] private SpecialAbilityConfig[] specialAbilities; //temp for debug
 
         float currentHealthPoints;
         float lastHitTime = 0f;
@@ -30,8 +30,14 @@ namespace RPG.Characters {
             RegisterForMouseClick();
             PutWeaponInHand();
             SetupRuntimeAnimator();
-            specialAbility.AddComponent(gameObject);
+            AddSpecialAbilitiesComponents(specialAbilities);
         }
+
+        private void AddSpecialAbilitiesComponents(SpecialAbilityConfig[] specialAbilitiesToAttach) {
+            foreach(SpecialAbilityConfig config in specialAbilitiesToAttach)
+                config.AttachComponentTo(gameObject); 
+        }
+
 
         private void SetUpEnergyBar() {
             energy = GetComponent<Energy>();
@@ -85,14 +91,16 @@ namespace RPG.Characters {
                 AttackTarget(enemy);
             else {
                 if (Input.GetMouseButtonDown(1))
-                    AttemptSpecialAbility(enemy);
+                    AttemptSpecialAbility(0, enemy);
             }
         }
 
-        private void AttemptSpecialAbility(Enemy enemy) {
+        private void AttemptSpecialAbility(int abilityIndex, Enemy enemy) {
+        
             if (energy.IsEnergyAvailable(10f)) {
                 energy.ConsumeEnergyPoints(10f);
                 //use the ability
+                specialAbilities[abilityIndex].Use();
             }
         }
 
