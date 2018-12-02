@@ -9,8 +9,9 @@ namespace RPG.Characters {
             config = configToSet;
         }
 
-        public void Use(){
-            print("power attack behaviour");
+        public void Use(AbilityParams abilityParams){
+            float damageToDeal = abilityParams.baseDamage + config.GetExtraDamage();
+            abilityParams.target.TakeDamage(damageToDeal);
         }
     }
 }
