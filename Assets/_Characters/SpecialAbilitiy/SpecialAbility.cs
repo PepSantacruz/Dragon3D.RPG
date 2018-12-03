@@ -24,6 +24,10 @@ namespace RPG.Characters {
         public void Use(AbilityParams abilityParams){
             behaviour.Use(abilityParams);
         }
+
+        public float GetEnergyCost(){
+            return energyCost;
+        }
     }
 
     public interface ISpecialAbility {

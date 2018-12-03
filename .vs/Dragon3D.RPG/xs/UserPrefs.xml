@@ -1,10 +1,12 @@
 ﻿<Properties StartupConfiguration="{792937AF-1406-7EE1-AB09-95A5FA983ADB}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Characters/SpecialAbilitiy/PowerAttack/PowerAttackBehaviour.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Characters/SpecialAbilitiy/AreaEffect/AreaAttackConfig.cs">
     <Files>
-      <File FileName="Assets/_Characters/Player/Player.cs" Line="103" Column="50" />
+      <File FileName="Assets/_Characters/Player/Player.cs" Line="42" Column="19" />
       <File FileName="Assets/_Characters/SpecialAbilitiy/PowerAttack/PowerAttackBehaviour.cs" Line="14" Column="59" />
       <File FileName="Assets/_Characters/SpecialAbilitiy/PowerAttack/PowerAttackConfig.cs" Line="13" Column="55" />
-      <File FileName="Assets/_Characters/SpecialAbilitiy/SpecialAbility.cs" Line="30" Column="45" />
+      <File FileName="Assets/_Characters/SpecialAbilitiy/SpecialAbility.cs" Line="29" Column="31" />
+      <File FileName="Assets/_Characters/SpecialAbilitiy/AreaEffect/AreaAttackBehaviour.cs" Line="4" Column="22" />
+      <File FileName="Assets/_Characters/SpecialAbilitiy/AreaEffect/AreaAttackConfig.cs" Line="6" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

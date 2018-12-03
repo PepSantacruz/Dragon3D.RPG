@@ -95,9 +95,10 @@ namespace RPG.Characters {
         }
 
         private void AttemptSpecialAbility(int abilityIndex, Enemy enemy) {
-        
-            if (energy.IsEnergyAvailable(10f)) {
-                energy.ConsumeEnergyPoints(10f);
+            float energyCost = specialAbilities[abilityIndex].GetEnergyCost();
+
+            if (energy.IsEnergyAvailable(energyCost)) {
+                energy.ConsumeEnergyPoints(energyCost);
                 //use the ability
                 AbilityParams abilityParams = new AbilityParams(enemy, baseDamage);
                 specialAbilities[abilityIndex].Use(abilityParams);

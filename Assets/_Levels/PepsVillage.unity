@@ -7818,7 +7818,7 @@ Prefab:
     - target: {fileID: 114955007839303020, guid: 7737647c22c1fc64a88d5cd030c352ce,
         type: 2}
       propertyPath: specialAbilities.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
       propertyPath: m_LocalPosition.x
@@ -7877,7 +7877,13 @@ Prefab:
         type: 2}
       propertyPath: specialAbilities.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 19834ccfd22094ba7b2094ae561dff4d,
+      objectReference: {fileID: 11400000, guid: b332b0bccadb44744aa0ecb3b42667cf,
+        type: 2}
+    - target: {fileID: 114955007839303020, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 2}
+      propertyPath: specialAbilities.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: b332b0bccadb44744aa0ecb3b42667cf,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
