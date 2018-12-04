@@ -1,8 +1,7 @@
-using System;
 using UnityEngine;
 
-namespace UnityStandardAssets.Characters.ThirdPerson
-{
+namespace RPG.Characters{
+
     [RequireComponent(typeof (UnityEngine.AI.NavMeshAgent))]
     [RequireComponent(typeof (ThirdPersonCharacter))]
     public class AICharacterControl : MonoBehaviour
@@ -30,8 +29,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             if (agent.remainingDistance > agent.stoppingDistance)
                 character.Move(agent.desiredVelocity, false);
-            else
+            else {
+                agent.velocity = Vector3.zero;
                 character.Move(Vector3.zero, false);
+            }
         }
 
 
