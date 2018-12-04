@@ -5,11 +5,24 @@ namespace RPG.Characters {
     public class Energy : MonoBehaviour {
         [SerializeField] RawImage energyBar = null;
         [SerializeField] float maxEnergyPoints = 100f;
+        [SerializeField] float regenerationPointsPerSecond = 10f;
 
         float currentEnergyPoints;
 
         void Start() {
             currentEnergyPoints = maxEnergyPoints;
+        }
+
+        void Update() {
+            if (currentEnergyPoints < maxEnergyPoints) {
+                RegenerateBar();
+                UpdateEnergyBar();
+            }
+        }
+
+        private void RegenerateBar() {
+            float regenerationEneryPoints = regenerationPointsPerSecond * Time.deltaTime + currentEnergyPoints;
+            currentEnergyPoints = Mathf.Clamp(regenerationEneryPoints, 0, maxEnergyPoints);
         }
 
         public void ConsumeEnergyPoints(float amount) {
