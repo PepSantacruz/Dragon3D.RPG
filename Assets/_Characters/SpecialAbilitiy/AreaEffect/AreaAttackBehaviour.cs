@@ -16,10 +16,12 @@ namespace RPG.Characters {
             );
 
             foreach(RaycastHit hit in raycastHits){
-                IDamagable damagable = hit.collider.gameObject.GetComponent<IDamagable>();
-                if (damagable != null) {
-                    float damageToDeal = config.GetDamageToEachTarget() + abilityParams.baseDamage;
-                    damagable.TakeDamage(damageToDeal);
+                if (hit.collider.gameObject != gameObject) {
+                    IDamagable damagable = hit.collider.gameObject.GetComponent<IDamagable>();
+                    if (damagable != null) {
+                        float damageToDeal = config.GetDamageToEachTarget() + abilityParams.baseDamage;
+                        damagable.TakeDamage(damageToDeal);
+                    }
                 }
             }
         }
