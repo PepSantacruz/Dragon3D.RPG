@@ -1,7 +1,5 @@
-﻿using System;
+﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.Assertions;
 using RPG.CameraUI;
 using RPG.Weapons;
@@ -17,21 +15,31 @@ namespace RPG.Characters {
         [SerializeField] float baseDamage = 10f;
         [SerializeField] Weapon weaponInUse;
 
-        [SerializeField] private SpecialAbility[] specialAbilities; //temp for debug
+        [SerializeField] private SpecialAbility[] specialAbilities;
+
+        [SerializeField] AudioClip[] damageSounds;
+        [SerializeField] AudioClip[] deathSounds;
 
         float currentHealthPoints;
         float lastHitTime = 0f;
+
         CameraRaycaster cameraRaycaster;
         Animator animator;
         Energy energy;
+        AudioSource audioSource;
 
         void Start() {
+            SetUpAudioSource();
             SetCurrentMaxHealth();
             SetUpEnergyBar();
             RegisterForMouseClick();
             PutWeaponInHand();
             SetupRuntimeAnimator();
             AddSpecialAbilitiesComponents();
+        }
+
+        private void SetUpAudioSource() {
+            audioSource = gameObject.AddComponent<AudioSource>();
         }
 
         private void AddSpecialAbilitiesComponents() {
@@ -53,14 +61,26 @@ namespace RPG.Characters {
             ReduceHealth(damage);
 
             bool playerDies = (currentHealthPoints - damage <= 0);
-            if (playerDies){
+            if (playerDies) {
                 StartCoroutine(KillPlayer());
+            }
+            else {
+                PlayAudioHit();
             }
 
         }
 
+        private void PlayAudioHit() {
+            if (audioSource.isPlaying == false) {
+                audioSource.clip = damageSounds[Random.Range(0, damageSounds.Length)];
+                audioSource.Play();
+            }
+        }
+
         IEnumerator KillPlayer(){
-            yield return new WaitForSecondsRealtime(2f); //use audio clip lenght
+            audioSource.clip = deathSounds[Random.Range(0, deathSounds.Length)];
+            audioSource.Play();
+            yield return new WaitForSecondsRealtime(audioSource.clip.length); //use audio clip lenght
             SceneManager.LoadScene(0);
         }
 

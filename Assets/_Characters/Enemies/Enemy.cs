@@ -24,12 +24,42 @@ namespace RPG.Characters {
         [SerializeField]
         GameObject projectileSocket;
 
-        GameObject player = null;
+        Player player = null;
         AICharacterControl aiCharacterControl = null;
 
         float currentHealthPoints;
         bool isAttacking = false;
 
+        private void Start() {
+            player = FindObjectOfType<Player>();
+            currentHealthPoints = maximumHealthPoints;
+            aiCharacterControl = GetComponent<AICharacterControl>();
+        }
+
+        private void Update() {
+            if (player.healthAsPercentage <= Mathf.Epsilon) {
+                StopAllCoroutines();
+                Destroy(this);  //To stop enemy behaviour
+            }
+
+            float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
+
+            if (distanceToPlayer <= attackRadius && !isAttacking) {
+                isAttacking = true;
+                InvokeRepeating("SpawnProjectile", 0f, secondsBetweenProjectile);
+            }
+
+            if (distanceToPlayer > attackRadius) {
+                isAttacking = false;
+                CancelInvoke();
+            }
+
+            if (distanceToPlayer <= chaseRadius)
+                aiCharacterControl.SetTarget(player.transform);
+            else
+                aiCharacterControl.SetTarget(null);
+
+        }
 
         public float healthAsPercentage {
             get {
@@ -47,31 +77,6 @@ namespace RPG.Characters {
 
             Vector3 unitVectorPlayer = ((player.transform.position + aimOffSet) - projectileSocket.transform.position).normalized;
             newProjectile.GetComponent<Rigidbody>().velocity = unitVectorPlayer * projectile.GetDefaultProjectileSpeed();
-        }
-
-        private void Start() {
-            player = GameObject.FindGameObjectWithTag("Player");
-            currentHealthPoints = maximumHealthPoints;
-            aiCharacterControl = GetComponent<AICharacterControl>();
-        }
-
-        private void Update() {
-            float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
-
-            if (distanceToPlayer <= attackRadius && !isAttacking) {
-                isAttacking = true;
-                InvokeRepeating("SpawnProjectile", 0f, secondsBetweenProjectile);
-            }
-
-            if (distanceToPlayer > attackRadius) {
-                isAttacking = false;
-                CancelInvoke();
-            }
-
-            if (distanceToPlayer <= chaseRadius)
-                aiCharacterControl.SetTarget(player.transform);
-            else
-                aiCharacterControl.SetTarget(null);
         }
 
         public void TakeDamage(float damage) {

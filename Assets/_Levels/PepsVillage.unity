@@ -5192,25 +5192,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4170420076074706, guid: 2954e1b732ad44f46bad8022b3c44819,
     type: 2}
   m_PrefabInternal: {fileID: 1452020177}
---- !u!1 &994156014 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 149790, guid: 7737647c22c1fc64a88d5cd030c352ce,
-    type: 2}
-  m_PrefabInternal: {fileID: 1463920106}
---- !u!114 &994156015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 994156014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ff1ee16fb2c433e94c96c7dbf490c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  energyBar: {fileID: 392937528}
-  maxEnergyPoints: 100
-  regenerationPointsPerSecond: 10
 --- !u!4 &995144261 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4485790557928886, guid: 9462365560fea9046a1b5a2b34b74a38,
@@ -7840,8 +7821,13 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114955007839303020, guid: 7737647c22c1fc64a88d5cd030c352ce,
         type: 2}
-      propertyPath: specialAbilities.Array.size
-      value: 2
+      propertyPath: deathSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114955007839303020, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 2}
+      propertyPath: damageSounds.Array.size
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
       propertyPath: m_LocalPosition.x
@@ -7884,39 +7870,56 @@ Prefab:
       propertyPath: m_Name
       value: 'Player '
       objectReference: {fileID: 0}
+    - target: {fileID: 114527980305466684, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 2}
+      propertyPath: energyBar
+      value: 
+      objectReference: {fileID: 392937528}
     - target: {fileID: 114955007839303020, guid: 7737647c22c1fc64a88d5cd030c352ce,
         type: 2}
-      propertyPath: weaponInUse
+      propertyPath: damageSounds.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 80974093b15194e5a828c6e5ee386aab,
-        type: 2}
+      objectReference: {fileID: 8300000, guid: 5e83bda448f934589b91805205c9af72, type: 3}
     - target: {fileID: 114955007839303020, guid: 7737647c22c1fc64a88d5cd030c352ce,
         type: 2}
-      propertyPath: specialAbility
+      propertyPath: damageSounds.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 19834ccfd22094ba7b2094ae561dff4d,
-        type: 2}
+      objectReference: {fileID: 8300000, guid: e2db471cb68ab4401bf52edb616426de, type: 3}
     - target: {fileID: 114955007839303020, guid: 7737647c22c1fc64a88d5cd030c352ce,
         type: 2}
-      propertyPath: specialAbilities.Array.data[0]
+      propertyPath: damageSounds.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: b332b0bccadb44744aa0ecb3b42667cf,
-        type: 2}
+      objectReference: {fileID: 8300000, guid: db01cd024681c4be7b6a09ada5ed3f5d, type: 3}
     - target: {fileID: 114955007839303020, guid: 7737647c22c1fc64a88d5cd030c352ce,
         type: 2}
-      propertyPath: specialAbilities.Array.data[1]
+      propertyPath: damageSounds.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: b332b0bccadb44744aa0ecb3b42667cf,
+      objectReference: {fileID: 8300000, guid: 8d05d8addc3594095a45cd391c713cce, type: 3}
+    - target: {fileID: 114955007839303020, guid: 7737647c22c1fc64a88d5cd030c352ce,
         type: 2}
-    - target: {fileID: 13615390, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
-      propertyPath: m_Radius
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 195066880872606322, guid: 7737647c22c1fc64a88d5cd030c352ce,
+      propertyPath: damageSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7114b237792df4521aeab2583e7025b6, type: 3}
+    - target: {fileID: 114955007839303020, guid: 7737647c22c1fc64a88d5cd030c352ce,
         type: 2}
-      propertyPath: m_Radius
-      value: 0.1
-      objectReference: {fileID: 0}
+      propertyPath: damageSounds.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: f9da745dcc0ae4ac8a9d0f49c4b473c2, type: 3}
+    - target: {fileID: 114955007839303020, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 2}
+      propertyPath: deathSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 631ef0286be7f45b2a86d38541e8a470, type: 3}
+    - target: {fileID: 114955007839303020, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 2}
+      propertyPath: deathSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 95bfbb8d1b2a64ea2957a92c43598c1b, type: 3}
+    - target: {fileID: 114955007839303020, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 2}
+      propertyPath: deathSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: d0660ce3ce8524a608fce689c5521362, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
   m_IsPrefabAsset: 0

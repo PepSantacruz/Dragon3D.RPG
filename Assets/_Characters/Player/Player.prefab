@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 195066880872606322}
   - component: {fileID: 114067567221939256}
   - component: {fileID: 114955007839303020}
+  - component: {fileID: 114527980305466684}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -30,8 +31,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149790}
-  m_LocalRotation: {x: -0, y: -0.9898348, z: -0, w: -0.14222251}
-  m_LocalPosition: {x: -21.771, y: 0, z: 2.53}
+  m_LocalRotation: {x: 0, y: -0.9996684, z: 0, w: 0.025749167}
+  m_LocalPosition: {x: 29.79, y: 0.0040283203, z: -9.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4563207008178748}
@@ -111,7 +112,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3
+  m_Radius: 0.2
   m_Height: 1.6934748
   m_Direction: 1
   m_Center: {x: 0, y: 1.0927663, z: 0}
@@ -748,6 +749,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2d31f6caa889442eb1c74b8bec4f7af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114527980305466684
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ff1ee16fb2c433e94c96c7dbf490c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  energyBar: {fileID: 0}
+  maxEnergyPoints: 100
+  regenerationPointsPerSecond: 10
 --- !u!114 &114955007839303020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -762,9 +777,22 @@ MonoBehaviour:
   maximumHealthPoints: 1000
   animatorOverrideController: {fileID: 22100000, guid: 2172c960126aa45bfb7657388948c2c3,
     type: 2}
-  damagePerHit: 50
-  enemyLayer: 10
-  weaponInUse: {fileID: 11400000, guid: bfe15618194de4db79798a0865c3ddad, type: 2}
+  baseDamage: 10
+  weaponInUse: {fileID: 11400000, guid: 80974093b15194e5a828c6e5ee386aab, type: 2}
+  specialAbilities:
+  - {fileID: 11400000, guid: b332b0bccadb44744aa0ecb3b42667cf, type: 2}
+  - {fileID: 11400000, guid: b332b0bccadb44744aa0ecb3b42667cf, type: 2}
+  damageSounds:
+  - {fileID: 8300000, guid: 5e83bda448f934589b91805205c9af72, type: 3}
+  - {fileID: 8300000, guid: e2db471cb68ab4401bf52edb616426de, type: 3}
+  - {fileID: 8300000, guid: db01cd024681c4be7b6a09ada5ed3f5d, type: 3}
+  - {fileID: 8300000, guid: 8d05d8addc3594095a45cd391c713cce, type: 3}
+  - {fileID: 8300000, guid: 7114b237792df4521aeab2583e7025b6, type: 3}
+  - {fileID: 8300000, guid: f9da745dcc0ae4ac8a9d0f49c4b473c2, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: 631ef0286be7f45b2a86d38541e8a470, type: 3}
+  - {fileID: 8300000, guid: 95bfbb8d1b2a64ea2957a92c43598c1b, type: 3}
+  - {fileID: 8300000, guid: d0660ce3ce8524a608fce689c5521362, type: 3}
 --- !u!137 &137158095177746394
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -842,7 +870,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 149790}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
