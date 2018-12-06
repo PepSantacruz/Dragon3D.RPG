@@ -8,21 +8,15 @@ namespace RPG.Characters {
         [SerializeField]
         float maximumHealthPoints = 100f;
 
-        [SerializeField]
-        float attackRadius = 5f;
-        [SerializeField]
-        float chaseRadius = 10f;
-        [SerializeField]
-        float damagePerShot = 9f;
-        [SerializeField]
-        float secondsBetweenProjectile = 0.5f;
-        [SerializeField]
-        Vector3 aimOffSet = new Vector3(0f, 1f, 0f);
+        [SerializeField] float attackRadius = 5f;
+        [SerializeField] float chaseRadius = 10f;
+        [SerializeField] float damagePerShot = 9f;
+        [SerializeField] float secondsBetweenAttack = 0.5f;
+        [SerializeField] float secondsVariationBetweenAttack = 0.1f;
+        [SerializeField] Vector3 aimOffSet = new Vector3(0f, 1f, 0f);
 
-        [SerializeField]
-        GameObject projectileToUse;
-        [SerializeField]
-        GameObject projectileSocket;
+        [SerializeField] GameObject projectileToUse;
+        [SerializeField] GameObject projectileSocket;
 
         Player player = null;
         AICharacterControl aiCharacterControl = null;
@@ -46,7 +40,8 @@ namespace RPG.Characters {
 
             if (distanceToPlayer <= attackRadius && !isAttacking) {
                 isAttacking = true;
-                InvokeRepeating("SpawnProjectile", 0f, secondsBetweenProjectile);
+                float delayBetweenAttacks = Random.Range(secondsBetweenAttack-secondsVariationBetweenAttack,secondsBetweenAttack+secondsVariationBetweenAttack);
+                InvokeRepeating("SpawnProjectile", 0f, delayBetweenAttacks);
             }
 
             if (distanceToPlayer > attackRadius) {

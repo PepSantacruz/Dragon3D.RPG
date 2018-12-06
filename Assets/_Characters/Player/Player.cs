@@ -9,6 +9,9 @@ using UnityEngine.SceneManagement;
 namespace RPG.Characters {
 
     public class Player : MonoBehaviour, IDamagable {
+        const string ATTACK_TRIGGER = "Attack";
+        const string DEATH_TRIGGER = "Death";
+
         [SerializeField] float maximumHealthPoints = 100f;
 
         [SerializeField] AnimatorOverrideController animatorOverrideController;
@@ -60,14 +63,12 @@ namespace RPG.Characters {
         public void TakeDamage(float damage) {
             ReduceHealth(damage);
 
-            bool playerDies = (currentHealthPoints - damage <= 0);
-            if (playerDies) {
+            if (currentHealthPoints<=0) {
                 StartCoroutine(KillPlayer());
             }
             else {
                 PlayAudioHit();
             }
-
         }
 
         private void PlayAudioHit() {
@@ -78,9 +79,12 @@ namespace RPG.Characters {
         }
 
         IEnumerator KillPlayer(){
+            animator.SetTrigger(DEATH_TRIGGER); 
+
             audioSource.clip = deathSounds[Random.Range(0, deathSounds.Length)];
             audioSource.Play();
             yield return new WaitForSecondsRealtime(audioSource.clip.length); //use audio clip lenght
+
             SceneManager.LoadScene(0);
         }
 
@@ -95,7 +99,8 @@ namespace RPG.Characters {
         private void SetupRuntimeAnimator() {
             animator = GetComponent<Animator>();
             animator.runtimeAnimatorController = animatorOverrideController;
-            animatorOverrideController["DEFAULT ATTACK"] = weaponInUse.GetAnimationClip();
+            animatorOverrideController["DEFAULT ATTACK"] = weaponInUse.GetAttackAnimationClip();
+            animatorOverrideController["DEFAULT DEATH"] = weaponInUse.GetDeathAnimationClip();
         }
 
         private void PutWeaponInHand() {
@@ -143,7 +148,7 @@ namespace RPG.Characters {
 
         private void AttackTarget(Enemy enemy) {
             if (Time.time - lastHitTime > weaponInUse.GetMinTimeBetweenHits()) {
-                animator.SetTrigger("Attack");
+                animator.SetTrigger(ATTACK_TRIGGER);
                 (enemy as IDamagable).TakeDamage(baseDamage);
                 lastHitTime = Time.time;
             }
