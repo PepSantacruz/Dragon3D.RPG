@@ -25,11 +25,15 @@ namespace RPG.Characters {
 
         float currentHealthPoints;
         float lastHitTime = 0f;
+        bool isCharacterDead = false;
 
         CameraRaycaster cameraRaycaster;
         Animator animator;
         Energy energy;
         AudioSource audioSource;
+
+        public delegate void OnPlayerDeath();
+        public event OnPlayerDeath onPlayerDeath;
 
         void Start() {
             SetUpAudioSource();
@@ -40,7 +44,7 @@ namespace RPG.Characters {
             SetupRuntimeAnimator();
             AddSpecialAbilitiesComponents();
         }
-
+        
         private void SetUpAudioSource() {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
@@ -61,13 +65,16 @@ namespace RPG.Characters {
         }
 
         public void TakeDamage(float damage) {
-            ReduceHealth(damage);
+            if (GetComponent<Rigidbody>().isKinematic == false) { //if the player is already dead
+                ReduceHealth(damage);
 
-            if (currentHealthPoints<=0) {
-                StartCoroutine(KillPlayer());
-            }
-            else {
-                PlayAudioHit();
+                if (currentHealthPoints <= 0) {
+                    GetComponent<Rigidbody>().isKinematic = true; //to prevent player collision when he is dead
+                    StartCoroutine(KillPlayer());
+                }
+                else {
+                    PlayAudioHit();
+                }
             }
         }
 
@@ -79,6 +86,8 @@ namespace RPG.Characters {
         }
 
         IEnumerator KillPlayer(){
+            onPlayerDeath(); //notify the observers
+
             animator.SetTrigger(DEATH_TRIGGER); 
 
             audioSource.clip = deathSounds[Random.Range(0, deathSounds.Length)];
