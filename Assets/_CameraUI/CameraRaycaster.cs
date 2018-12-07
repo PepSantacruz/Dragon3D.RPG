@@ -68,7 +68,7 @@ namespace RPG.CameraUI {
             RaycastHit hitInfo;
             LayerMask terrainLayerMask = 1 << WALKABLE_LAYER;
             bool terrainHit=Physics.Raycast(ray, out hitInfo, maxRaycastDepth,terrainLayerMask);
-
+            Debug.Log("raycast:"+terrainHit);
             if (terrainHit) {
                 Cursor.SetCursor(walkCursor, cursorHotspot, CursorMode.Auto);
                 onMouseOverTerrain(hitInfo.point);
