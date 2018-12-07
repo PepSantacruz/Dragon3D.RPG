@@ -11,32 +11,37 @@ namespace RPG.Characters{
         [SerializeField] public Transform target;                                    // target to aim for
 
         Player player;
-        bool isCharacterDead = false;
+        Rigidbody playerRigidBody;
+        Animator animator;
 
         private void Start() {
-            // get the components on the object we need ( should not be null due to require component so no need to check )
-            agent = GetComponentInChildren<UnityEngine.AI.NavMeshAgent>();
-            character = GetComponent<ThirdPersonCharacter>();
+            FindComponents();
             RegistrationOnPlayerDeath();
 
             agent.updateRotation = false;
             agent.updatePosition = true;
         }
 
-        private void RegistrationOnPlayerDeath() {
+        private void FindComponents() {
+            agent = GetComponentInChildren<UnityEngine.AI.NavMeshAgent>();
+            character = GetComponent<ThirdPersonCharacter>();
             player = FindObjectOfType<Player>();
+            playerRigidBody = player.GetComponent<Rigidbody>();
+            animator = GetComponent<Animator>();
+        }
+
+        private void RegistrationOnPlayerDeath() {
             player.onPlayerDeath += OnPlayerDeath;
         }
 
         void OnPlayerDeath() {
-            isCharacterDead = true;
             agent.SetDestination(gameObject.transform.position);
-            StopCharacterMovement();
+            animator.SetFloat("Forward", 0f);
         }
 
         private void Update()
         {
-            if (!isCharacterDead) {
+            if (!playerRigidBody.isKinematic) {  //if player is dead don't allow click on terrain to move
                 if (target != null)
                     agent.SetDestination(target.position);
 

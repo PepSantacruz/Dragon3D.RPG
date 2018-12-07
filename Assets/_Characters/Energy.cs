@@ -3,13 +3,14 @@ using UnityEngine.UI;
 
 namespace RPG.Characters {
     public class Energy : MonoBehaviour {
-        [SerializeField] RawImage energyBar = null;
+        [SerializeField] Image energyOrb = null;
         [SerializeField] float maxEnergyPoints = 100f;
         [SerializeField] float regenerationPointsPerSecond = 10f;
 
         float currentEnergyPoints;
 
         void Start() {
+            UpdateEnergyBar();
             currentEnergyPoints = maxEnergyPoints;
         }
 
@@ -35,8 +36,7 @@ namespace RPG.Characters {
         }
 
         private void UpdateEnergyBar() {
-            float xValue = -(getCurrentEnergyPointsAsPercent() / 2f) - 0.5f;
-            energyBar.uvRect = new Rect(xValue, 0f, 0.5f, 1f);
+            energyOrb.fillAmount = getCurrentEnergyPointsAsPercent();
         }
 
         private float getCurrentEnergyPointsAsPercent() {

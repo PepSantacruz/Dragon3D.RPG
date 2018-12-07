@@ -65,7 +65,7 @@ namespace RPG.Characters {
         }
 
         public void TakeDamage(float damage) {
-            if (GetComponent<Rigidbody>().isKinematic == false) { //if the player is already dead
+            if (GetComponent<Rigidbody>().isKinematic == false) { //if the player is not already dead
                 ReduceHealth(damage);
 
                 if (currentHealthPoints <= 0) {

@@ -49,10 +49,12 @@ namespace RPG.Characters {
                 CancelInvoke();
             }
 
-            if (distanceToPlayer <= chaseRadius)
+            if (distanceToPlayer <= chaseRadius) {
                 aiCharacterControl.SetTarget(player.transform);
-            else
+            }
+            else {
                 aiCharacterControl.SetTarget(null);
+            }
 
         }
 
