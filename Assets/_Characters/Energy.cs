@@ -10,8 +10,8 @@ namespace RPG.Characters {
         float currentEnergyPoints;
 
         void Start() {
-            UpdateEnergyBar();
             currentEnergyPoints = maxEnergyPoints;
+            UpdateEnergyBar();
         }
 
         void Update() {

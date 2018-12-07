@@ -22,12 +22,12 @@ GameObject:
   - component: {fileID: 33903220131135202}
   - component: {fileID: 23322225222203350}
   - component: {fileID: 111645311464841532}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1411653383371380
 GameObject:
@@ -37,7 +37,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4170420076074706}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 33821672226896872}
   - component: {fileID: 23733530835907596}
   - component: {fileID: 65010705210559670}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PathBridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1663973674673972}
   m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.11, z: 0}
   m_LocalScale: {x: 2.0800018, y: 10.190011, z: 0.39648047}
   m_Children: []
   m_Father: {fileID: 4170420076074706}
@@ -94,9 +94,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1411653383371380}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 39, y: -0.36, z: -5.86}
+  m_LocalScale: {x: 1.848206, y: 1.615, z: 1.615}
   m_Children:
   - {fileID: 4142309020232462}
   - {fileID: 4164808552610208}
