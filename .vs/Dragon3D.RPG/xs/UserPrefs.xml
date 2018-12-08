@@ -1,16 +1,16 @@
 ﻿<Properties StartupConfiguration="{792937AF-1406-7EE1-AB09-95A5FA983ADB}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Characters/SpecialAbilitiy/HealingEffect/HealingEffectConfig.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_CameraUI/CameraRaycaster.cs">
     <Files>
       <File FileName="Assets/_Characters/Player/Player.cs" Line="95" Column="76" />
       <File FileName="Assets/_Characters/Player/PlayerMovement.cs" Line="55" Column="35" />
       <File FileName="Assets/_Characters/Enemies/Enemy.cs" Line="57" Column="1" />
       <File FileName="Assets/_Weapons/Weapon.cs" Line="32" Column="37" />
-      <File FileName="Assets/_Characters/AICharacterControl.cs" Line="38" Column="1" />
-      <File FileName="Assets/_CameraUI/CameraRaycaster.cs" Line="71" Column="44" />
+      <File FileName="Assets/_Characters/AICharacterControl.cs" Line="38" Column="68" />
+      <File FileName="Assets/_CameraUI/CameraRaycaster.cs" Line="31" Column="62" />
       <File FileName="Assets/_Characters/Player/PlayerHealthBar.cs" Line="19" Column="47" />
       <File FileName="Assets/_Characters/Energy.cs" Line="12" Column="23" />
-      <File FileName="Assets/_Characters/SpecialAbilitiy/HealingEffect/HealingEffectBehaviour.cs" Line="5" Column="31" />
-      <File FileName="Assets/_Characters/SpecialAbilitiy/HealingEffect/HealingEffectConfig.cs" Line="5" Column="54" />
+      <File FileName="Assets/_Characters/SpecialAbilitiy/HealingEffect/HealingEffectBehaviour.cs" Line="15" Column="62" />
+      <File FileName="Assets/_Characters/SpecialAbilitiy/HealingEffect/HealingEffectConfig.cs" Line="17" Column="38" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

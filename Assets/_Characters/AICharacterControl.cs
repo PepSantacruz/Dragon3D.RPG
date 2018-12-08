@@ -35,8 +35,10 @@ namespace RPG.Characters{
         }
 
         void OnPlayerDeath() {
-            agent.SetDestination(gameObject.transform.position);
-            animator.SetFloat("Forward", 0f);
+            if (agent != null) { //death event after player's death
+                agent.SetDestination(gameObject.transform.position);
+                animator.SetFloat("Forward", 0f);
+            }
         }
 
         private void Update()
