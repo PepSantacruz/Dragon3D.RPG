@@ -13,7 +13,7 @@ namespace RPG.Characters {
 
         public void Use(AbilityParams abilityParams) {
             DealRadialDamage(abilityParams);
-            InstantiateParticleEffect(transform.position, Quaternion.identity);
+            InstantiateParticleEffect(transform.position, config.GetParticleEffectPrefab().transform.rotation);
         }
 
         private void InstantiateParticleEffect(Vector3 position, Quaternion quaternion) {

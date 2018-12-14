@@ -501,3 +501,7 @@
 /Users/pepsantacruz/Documents/GitHub/RPG.Dragon/Dragon RPG/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
 /Users/pepsantacruz/Documents/GitHub/RPG.Dragon/Dragon RPG/Temp/bin/Debug/Unity.IvyParser.dll.mdb
 /Users/pepsantacruz/Documents/GitHub/RPG.Dragon/Dragon RPG/obj/Debug/Assembly-CSharp.csproj.CopyComplete
+/Users/Shared/Unity/DragonRPG/Dragon3D.RPG/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache
+/Users/Shared/Unity/DragonRPG/Dragon3D.RPG/obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache
+/Users/Shared/Unity/DragonRPG/Dragon3D.RPG/obj/Debug/Assembly-CSharp.dll
+/Users/Shared/Unity/DragonRPG/Dragon3D.RPG/obj/Debug/Assembly-CSharp.pdb

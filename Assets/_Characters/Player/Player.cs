@@ -14,15 +14,20 @@ namespace RPG.Characters {
         const string DEATH_TRIGGER = "Death";
 
         [SerializeField] float maximumHealthPoints = 100f;
+        [SerializeField] float baseDamage = 10f;
+        [Range(0.1f, 1)] [SerializeField] float criticalHitChance = 0.1f;
+        [SerializeField] float crititicalHitMultiplier = .25f;
+        [SerializeField] GameObject criticalParticleEffectPrefab = null;
 
         [SerializeField] AnimatorOverrideController animatorOverrideController;
-        [SerializeField] float baseDamage = 10f;
-        [SerializeField] Weapon weaponInUse;
 
-        [SerializeField] private AbilityConfig[] specialAbilities;
+        [SerializeField] Weapon weaponInUse = null;
+
+        [SerializeField] private AbilityConfig[] specialAbilities = null;
 
         [SerializeField] AudioClip[] damageSounds;
         [SerializeField] AudioClip[] deathSounds;
+
 
         float currentHealthPoints;
         float lastHitTime = 0f;
@@ -159,7 +164,7 @@ namespace RPG.Characters {
                 AttackTarget();
             else {
                 if (Input.GetMouseButtonDown(1))
-                    AttemptSpecialAbility(currentAbilityIndex);  //TODO always the 0 hability
+                    AttemptSpecialAbility(currentAbilityIndex);  //TODO always the last ability, exclude healing?
             }
         }
 
@@ -177,9 +182,29 @@ namespace RPG.Characters {
         private void AttackTarget() {
             if (Time.time - lastHitTime > weaponInUse.GetMinTimeBetweenHits()) {
                 animator.SetTrigger(ATTACK_TRIGGER);
-                (enemy as IDamagable).TakeDamage(baseDamage);
+                (enemy as IDamagable).TakeDamage(CalculateDamage());
                 lastHitTime = Time.time;
             }
+        }
+
+        private float CalculateDamage() {
+            float damage = baseDamage + weaponInUse.GetWeaponDamage();
+
+            if (UnityEngine.Random.Range(0, 1f) <= criticalHitChance) {
+                damage *= crititicalHitMultiplier;
+                InstantiateCriticalParticleEffect();
+            }
+
+            return damage;
+        }
+
+        private void InstantiateCriticalParticleEffect() {
+                GameObject effectPrefab = Instantiate(criticalParticleEffectPrefab, transform.position, Quaternion.identity);
+                effectPrefab.transform.parent = transform; //attach effect to the player
+                ParticleSystem myParticleSystem = effectPrefab.GetComponent<ParticleSystem>();
+                myParticleSystem.Play();
+                Destroy(effectPrefab, myParticleSystem.main.duration);
+
         }
 
         private bool IsTargetInRange(GameObject target) {

@@ -12,6 +12,7 @@ namespace RPG.Weapons {
         [SerializeField] AnimationClip deathAnimation;
         [SerializeField] float minTimeBetweenHits = 0.5f;
         [SerializeField] float maxAttackRange = 2f;
+        [SerializeField] float weaponDamage = 10f;
 
         public Transform weaponTransform;
 
@@ -41,6 +42,10 @@ namespace RPG.Weapons {
 
         public GameObject GetWeaponPrefab() {
             return weaponPrefab;
+        }
+
+        public float GetWeaponDamage() {
+            return weaponDamage;
         }
 
     }
