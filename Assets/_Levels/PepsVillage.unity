@@ -9030,14 +9030,19 @@ Prefab:
         type: 2}
       propertyPath: specialAbilities.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: b332b0bccadb44744aa0ecb3b42667cf,
+      objectReference: {fileID: 11400000, guid: 7c849968e2c7d4d2e97716a766d026be,
         type: 2}
     - target: {fileID: 114955007839303020, guid: 7737647c22c1fc64a88d5cd030c352ce,
         type: 2}
       propertyPath: specialAbilities.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 19834ccfd22094ba7b2094ae561dff4d,
+      objectReference: {fileID: 11400000, guid: b332b0bccadb44744aa0ecb3b42667cf,
         type: 2}
+    - target: {fileID: 114955007839303020, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 2}
+      propertyPath: maximumHealthPoints
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
   m_IsPrefabAsset: 0

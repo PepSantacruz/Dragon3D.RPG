@@ -3,7 +3,7 @@
 namespace RPG.Characters {
 
     [CreateAssetMenu(menuName = "RPG/Special Ability/Healing Effect")]
-    public class HealingEffectConfig : SpecialAbility {
+    public class HealingEffectConfig : AbilityConfig {
 
         [Header("Specific Healing")]
         [SerializeField] float healingPoints = 10f;

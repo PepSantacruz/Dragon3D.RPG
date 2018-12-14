@@ -5,6 +5,7 @@ using RPG.CameraUI;
 using RPG.Weapons;
 using RPG.Core;
 using UnityEngine.SceneManagement;
+using System;
 
 namespace RPG.Characters {
 
@@ -18,7 +19,7 @@ namespace RPG.Characters {
         [SerializeField] float baseDamage = 10f;
         [SerializeField] Weapon weaponInUse;
 
-        [SerializeField] private SpecialAbility[] specialAbilities;
+        [SerializeField] private AbilityConfig[] specialAbilities;
 
         [SerializeField] AudioClip[] damageSounds;
         [SerializeField] AudioClip[] deathSounds;
@@ -27,16 +28,19 @@ namespace RPG.Characters {
         float lastHitTime = 0f;
         bool isCharacterDead = false;
 
-        CameraRaycaster cameraRaycaster;
-        Animator animator;
-        Energy energy;
-        AudioSource audioSource;
+        CameraRaycaster cameraRaycaster = null;
+        Animator animator = null;
+        Energy energy = null;
+        AudioSource audioSource = null;
+        Enemy enemy = null;
+        int currentAbilityIndex = 0;
 
         public delegate void OnPlayerDeath();
         public event OnPlayerDeath onPlayerDeath;
 
         void Start() {
             SetUpAudioSource();
+
             SetCurrentMaxHealth();
             SetUpEnergyBar();
             RegisterForMouseClick();
@@ -44,13 +48,26 @@ namespace RPG.Characters {
             SetupRuntimeAnimator();
             AddSpecialAbilitiesComponents();
         }
-        
+
+        void Update() {
+            if (currentHealthPoints > Mathf.Epsilon)
+                ScanForAbilityKeyDown();
+        }
+
+        private void ScanForAbilityKeyDown() {
+            for (int key = 1; key < specialAbilities.Length; key++)
+                if (Input.GetKeyDown(key.ToString())) {
+                    AttemptSpecialAbility(key);
+                    currentAbilityIndex = key;
+                }
+        }
+
         private void SetUpAudioSource() {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
 
         private void AddSpecialAbilitiesComponents() {
-            foreach(SpecialAbility config in specialAbilities)
+            foreach(AbilityConfig config in specialAbilities)
                 config.AttachComponentTo(gameObject); 
         }
 
@@ -65,11 +82,12 @@ namespace RPG.Characters {
         }
 
         public void TakeDamage(float damage) {
-            if (GetComponent<Rigidbody>().isKinematic == false) { //if the player is not already dead
-                ReduceHealth(damage);
+            if (GetComponent<Rigidbody>().isKinematic == false) { //if the player is not already dead TODO necessary? another way?
 
+                currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maximumHealthPoints);
                 if (currentHealthPoints <= 0) {
-                    GetComponent<Rigidbody>().isKinematic = true; //to prevent player collision when he is dead
+                    GetComponent<Rigidbody>().isKinematic = true; //to prevent player collision when he is dead TODO error new unity version
+                    
                     StartCoroutine(KillPlayer());
                 }
                 else {
@@ -78,9 +96,13 @@ namespace RPG.Characters {
             }
         }
 
+        public void Heal(float healthToHeal) {
+            currentHealthPoints = Mathf.Clamp(currentHealthPoints + healthToHeal, 0f, maximumHealthPoints);
+        }
+
         private void PlayAudioHit() {
             if (audioSource.isPlaying == false) {
-                audioSource.clip = damageSounds[Random.Range(0, damageSounds.Length)];
+                audioSource.clip = damageSounds[UnityEngine.Random.Range(0, damageSounds.Length)];
                 audioSource.Play();
             }
         }
@@ -90,15 +112,11 @@ namespace RPG.Characters {
 
             animator.SetTrigger(DEATH_TRIGGER); 
 
-            audioSource.clip = deathSounds[Random.Range(0, deathSounds.Length)];
+            audioSource.clip = deathSounds[UnityEngine.Random.Range(0, deathSounds.Length)];
             audioSource.Play();
             yield return new WaitForSecondsRealtime(audioSource.clip.length); //use audio clip lenght
 
             SceneManager.LoadScene(0);
-        }
-
-        private void ReduceHealth(float damage) {
-            currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maximumHealthPoints);
         }
 
         private void SetCurrentMaxHealth() {
@@ -134,17 +152,18 @@ namespace RPG.Characters {
             cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
         }
 
-        void OnMouseOverEnemy(Enemy enemy) {
+        void OnMouseOverEnemy(Enemy enemyToSet) {
+            enemy = enemyToSet;
 
             if (Input.GetMouseButton(0) && IsTargetInRange(enemy.gameObject))
-                AttackTarget(enemy);
+                AttackTarget();
             else {
                 if (Input.GetMouseButtonDown(1))
-                    AttemptSpecialAbility(0, enemy);
+                    AttemptSpecialAbility(currentAbilityIndex);  //TODO always the 0 hability
             }
         }
 
-        private void AttemptSpecialAbility(int abilityIndex, Enemy enemy) {
+        private void AttemptSpecialAbility(int abilityIndex) {
             float energyCost = specialAbilities[abilityIndex].GetEnergyCost();
 
             if (energy.IsEnergyAvailable(energyCost)) {
@@ -155,7 +174,7 @@ namespace RPG.Characters {
             }
         }
 
-        private void AttackTarget(Enemy enemy) {
+        private void AttackTarget() {
             if (Time.time - lastHitTime > weaponInUse.GetMinTimeBetweenHits()) {
                 animator.SetTrigger(ATTACK_TRIGGER);
                 (enemy as IDamagable).TakeDamage(baseDamage);

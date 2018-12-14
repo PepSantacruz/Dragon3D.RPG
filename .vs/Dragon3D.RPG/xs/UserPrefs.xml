@@ -1,12 +1,15 @@
 ﻿<Properties StartupConfiguration="{792937AF-1406-7EE1-AB09-95A5FA983ADB}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Characters/SpecialAbilitiy/PowerAttack/PowerAttackBehaviour.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Characters/SpecialAbilitiy/AbilityConfig.cs">
     <Files>
-      <File FileName="Assets/_Characters/Player/Player.cs" Line="95" Column="76" />
+      <File FileName="Assets/_Characters/Player/Player.cs" Line="85" Column="131" />
       <File FileName="Assets/_Characters/Player/PlayerMovement.cs" Line="55" Column="35" />
-      <File FileName="Assets/_CameraUI/CameraRaycaster.cs" Line="31" Column="62" />
-      <File FileName="Assets/_Characters/SpecialAbilitiy/SpecialAbility.cs" Line="35" Column="10" />
-      <File FileName="Assets/_Characters/SpecialAbilitiy/AreaAttack/AreaAttackBehaviour.cs" Line="6" Column="62" />
-      <File FileName="Assets/_Characters/SpecialAbilitiy/PowerAttack/PowerAttackBehaviour.cs" Line="14" Column="71" />
+      <File FileName="Assets/_CameraUI/CameraRaycaster.cs" Line="72" Column="1" />
+      <File FileName="Assets/_Characters/SpecialAbilitiy/AreaAttack/AreaAttackBehaviour.cs" Line="6" Column="59" />
+      <File FileName="Assets/_Characters/SpecialAbilitiy/PowerAttack/PowerAttackBehaviour.cs" Line="22" Column="10" />
+      <File FileName="Assets/_Characters/SpecialAbilitiy/HealingEffect/HealingEffectBehaviour.cs" Line="19" Column="9" />
+      <File FileName="Assets/_Characters/SpecialAbilitiy/AreaAttack/AreaAttackConfig.cs" Line="13" Column="28" />
+      <File FileName="Assets/_Characters/AICharacterControl.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Characters/SpecialAbilitiy/AbilityConfig.cs" Line="16" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

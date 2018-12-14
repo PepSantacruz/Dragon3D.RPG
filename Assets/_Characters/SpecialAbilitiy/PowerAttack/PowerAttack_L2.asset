@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6565e814d8faa4a0f9359e83645db34c, type: 3}
   m_Name: PowerAttack_L2
   m_EditorClassIdentifier: 
-  energyCost: 10
+  energyCost: 35
   particleEffectPrefab: {fileID: 1539812507986856, guid: 6e60be46135104e368921a0b997c989e,
     type: 2}
-  extraDamage: 20
+  extraDamage: 200

@@ -3,7 +3,7 @@
 namespace RPG.Characters {
 
     [CreateAssetMenu(menuName = "RPG/Special Ability/Area Attack")]
-    public class AreaAttackConfig : SpecialAbility {
+    public class AreaAttackConfig : AbilityConfig {
 
         [Header("Specific Area Attack")]
         [SerializeField] float radius = 3f;
