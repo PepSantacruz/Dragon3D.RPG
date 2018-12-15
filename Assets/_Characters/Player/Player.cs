@@ -73,7 +73,7 @@ namespace RPG.Characters {
 
         private void AddSpecialAbilitiesComponents() {
             foreach(AbilityConfig config in specialAbilities)
-                config.AttachComponentTo(gameObject); 
+                config.AttachAbilityTo(gameObject); 
         }
 
         private void SetUpEnergyBar() {

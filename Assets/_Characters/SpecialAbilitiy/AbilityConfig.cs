@@ -21,7 +21,11 @@ namespace RPG.Characters {
 
         protected AbilityBehaviour behaviour;
 
-        abstract public void AttachComponentTo(GameObject gameObjectToAttachTo);
+        public void AttachAbilityTo(GameObject gameObjectToAttachTo) {
+            AbilityBehaviour behaviourComponent = GetBehaviourComponent(gameObjectToAttachTo); 
+            behaviourComponent.SetConfiguration(this);
+            behaviour = behaviourComponent;
+        }
 
         public void Use(AbilityParams abilityParams){
             behaviour.Use(abilityParams);
@@ -38,5 +42,8 @@ namespace RPG.Characters {
         public AudioClip GetRandomAudioEffect(){
             return audioEffects[Random.Range(0,audioEffects.Length)];
         }
+
+        abstract protected AbilityBehaviour GetBehaviourComponent(GameObject gameObjectToAttachTo);
+
     }
 }

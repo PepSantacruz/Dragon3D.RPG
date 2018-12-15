@@ -8,10 +8,8 @@ namespace RPG.Characters {
         [Header("Specific Healing")]
         [SerializeField] float healingPoints = 10f;
 
-        public override void AttachComponentTo(GameObject gameObjectToAttachTo) {
-            HealingEffectBehaviour behaviourComponent = gameObjectToAttachTo.AddComponent<HealingEffectBehaviour>();
-            behaviourComponent.SetConfiguration(this);
-            behaviour = behaviourComponent;
+        protected override AbilityBehaviour GetBehaviourComponent(GameObject gameObjectToAttachTo) {
+            return (gameObjectToAttachTo.AddComponent<HealingEffectBehaviour>());
         }
 
         public float GetHealingPoints(){
