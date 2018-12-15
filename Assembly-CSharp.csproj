@@ -72,6 +72,7 @@
     <Compile Include="Assets\_Characters\Player\Player.cs" />
     <Compile Include="Assets\_Characters\Player\PlayerHealthBar.cs" />
     <Compile Include="Assets\_Characters\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\_Characters\SpecialAbilitiy\AbilityBehaviour.cs" />
     <Compile Include="Assets\_Characters\SpecialAbilitiy\AbilityConfig.cs" />
     <Compile Include="Assets\_Characters\SpecialAbilitiy\AreaAttack\AreaAttackBehaviour.cs" />
     <Compile Include="Assets\_Characters\SpecialAbilitiy\AreaAttack\AreaAttackConfig.cs" />

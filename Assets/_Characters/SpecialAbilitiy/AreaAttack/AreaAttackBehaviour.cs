@@ -3,36 +3,25 @@ using RPG.Core;
 using System;
 
 namespace RPG.Characters {
-    public class AreaAttackBehaviour : MonoBehaviour, ISpecialAbility {
+    public class AreaAttackBehaviour : AbilityBehaviour {
 
-        AreaAttackConfig config = null;
-
-        public void SetConfiguration(AreaAttackConfig configToSet){
-            config = configToSet;
-        }
-
-        public void Use(AbilityParams abilityParams) {
+        public override void Use(AbilityParams abilityParams) {
+            PlayAbilitySound();
             DealRadialDamage(abilityParams);
-            InstantiateParticleEffect(transform.position, config.GetParticleEffectPrefab().transform.rotation);
-        }
-
-        private void InstantiateParticleEffect(Vector3 position, Quaternion quaternion) {
-            GameObject effectPrefab = Instantiate(config.GetParticleEffectPrefab(), position, quaternion);
-            ParticleSystem myParticleSystem = effectPrefab.GetComponent<ParticleSystem>();
-            myParticleSystem.Play();
-            Destroy(effectPrefab, myParticleSystem.main.duration);
+            PlayParticleEffect();
         }
 
         private void DealRadialDamage(AbilityParams abilityParams) {
+            float radius = (config as AreaAttackConfig).GetRadius();
             RaycastHit[] raycastHits = Physics.SphereCastAll(
-                            transform.position, config.GetRadius(), Vector3.up, config.GetRadius()
+                            transform.position, radius, Vector3.up, radius
                         );
 
             foreach (RaycastHit hit in raycastHits) {
                 if (hit.collider.gameObject != gameObject) {
                     IDamagable damagable = hit.collider.gameObject.GetComponent<IDamagable>();
                     if (damagable != null) {
-                        float damageToDeal = config.GetDamageToEachTarget() + abilityParams.baseDamage;
+                        float damageToDeal = (config as AreaAttackConfig).GetDamageToEachTarget() + abilityParams.baseDamage;
                         damagable.TakeDamage(damageToDeal);
                     }
                 }

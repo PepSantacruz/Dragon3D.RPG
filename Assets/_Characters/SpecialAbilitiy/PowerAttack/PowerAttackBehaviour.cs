@@ -1,28 +1,16 @@
 ﻿using UnityEngine;
 
 namespace RPG.Characters {
-    public class PowerAttackBehaviour : MonoBehaviour, ISpecialAbility {
+    public class PowerAttackBehaviour : AbilityBehaviour {
 
-        PowerAttackConfig config;
-
-        public void SetConfiguration(PowerAttackConfig configToSet){
-            config = configToSet;
-        }
-
-        public void Use(AbilityParams abilityParams) {
+        public override void Use(AbilityParams abilityParams) {
+            PlayAbilitySound();
             DealDamageOnTarget(abilityParams);
-            InstantiateParticleEffect(transform.position, Quaternion.identity);
-        }
-
-        private void InstantiateParticleEffect(Vector3 position, Quaternion quaternion) {
-            GameObject effectPrefab = Instantiate(config.GetParticleEffectPrefab(), position, quaternion);
-            ParticleSystem myParticleSystem = effectPrefab.GetComponent<ParticleSystem>();
-            myParticleSystem.Play();
-            Destroy(effectPrefab, myParticleSystem.main.duration);
+            PlayParticleEffect();
         }
 
         private void DealDamageOnTarget(AbilityParams abilityParams) {
-            float damageToDeal = abilityParams.baseDamage + config.GetExtraDamage();
+            float damageToDeal = abilityParams.baseDamage + (config as PowerAttackConfig).GetExtraDamage();
             abilityParams.target.TakeDamage(damageToDeal);
         }
     }

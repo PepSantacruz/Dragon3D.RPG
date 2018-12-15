@@ -1,41 +1,22 @@
 ﻿using UnityEngine;
-using RPG.Core;
-using System;
 
 namespace RPG.Characters {
-    public class HealingEffectBehaviour : MonoBehaviour, ISpecialAbility {
+    public class HealingEffectBehaviour : AbilityBehaviour {
 
-        HealingEffectConfig config = null;
         Player player = null;
-        AudioSource audioSource = null;
 
-        public void SetConfiguration(HealingEffectConfig configToSet){
-            config = configToSet;
+        void Start() {
             player = GetComponent<Player>();
-            audioSource = GetComponent<AudioSource>();
         }
 
-        public void Use(AbilityParams abilityParams) {
+        public override void Use(AbilityParams abilityParams) {
+            PlayAbilitySound();
             HealCharacter();
-            InstantiateParticleEffect(transform.position,Quaternion.identity);
-            PlaySound(); //TODO move to parent class with particle effect
-        }
-
-        private void PlaySound() {
-            audioSource.clip = config.GetAudioEffect();
-            audioSource.Play();
+            PlayParticleEffect();
         }
 
         private void HealCharacter() {
-            player.Heal(config.GetHealingPoints());
-        }
-
-        private void InstantiateParticleEffect(Vector3 position, Quaternion quaternion) {
-            GameObject effectPrefab = Instantiate(config.GetParticleEffectPrefab(), position, quaternion);
-            effectPrefab.transform.parent = transform; //attach effect to the player
-            ParticleSystem myParticleSystem = effectPrefab.GetComponent<ParticleSystem>();
-            myParticleSystem.Play();
-            Destroy(effectPrefab, myParticleSystem.main.duration);
+            player.Heal((config as HealingEffectConfig).GetHealingPoints());
         }
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HealingEffect
   m_EditorClassIdentifier: 
   energyCost: 10
-  particleEffectPrefab: {fileID: 1539812507986856, guid: 11283d504bdc847b0ac8f590e58f42e5,
+  particleEffectPrefab: {fileID: 1770094935522392, guid: 7098bdbdcde165049872f566c6a00e5f,
     type: 3}
   audioEffect: {fileID: 8300000, guid: cf8dab9060ae74f5792e264ea971d5ca, type: 3}
   healingPoints: 100
