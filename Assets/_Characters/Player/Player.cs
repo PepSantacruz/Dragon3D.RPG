@@ -12,6 +12,8 @@ namespace RPG.Characters {
     public class Player : MonoBehaviour, IDamagable {
         const string ATTACK_TRIGGER = "Attack";
         const string DEATH_TRIGGER = "Death";
+        const string DEFAULT_ATTACK = "DEFAULT ATTACK";
+        const string DEFAULT_DEATH = "DEFAULT DEATH";
 
         [SerializeField] float maximumHealthPoints = 100f;
         [SerializeField] float baseDamage = 10f;
@@ -21,7 +23,7 @@ namespace RPG.Characters {
 
         [SerializeField] AnimatorOverrideController animatorOverrideController;
 
-        [SerializeField] Weapon weaponInUse = null;
+        [SerializeField] Weapon currentWeaponConfig = null;
 
         [SerializeField] private AbilityConfig[] specialAbilities = null;
 
@@ -39,6 +41,7 @@ namespace RPG.Characters {
         AudioSource audioSource = null;
         Enemy enemy = null;
         int currentAbilityIndex = 0;
+        GameObject weaponGameObject;
 
         public delegate void OnPlayerDeath();
         public event OnPlayerDeath onPlayerDeath;
@@ -49,8 +52,8 @@ namespace RPG.Characters {
             SetCurrentMaxHealth();
             SetUpEnergyBar();
             RegisterForMouseClick();
-            PutWeaponInHand();
-            SetupRuntimeAnimator();
+            PutWeaponInHand(currentWeaponConfig);
+            SetupAttackAndDeathAnimation();
             AddSpecialAbilitiesComponents();
         }
 
@@ -128,24 +131,21 @@ namespace RPG.Characters {
             currentHealthPoints = maximumHealthPoints;
         }
 
-        private void SetupRuntimeAnimator() {
+        private void SetupAttackAndDeathAnimation() {
             animator = GetComponent<Animator>();
             animator.runtimeAnimatorController = animatorOverrideController;
-            animatorOverrideController["DEFAULT ATTACK"] = weaponInUse.GetAttackAnimationClip();
-            animatorOverrideController["DEFAULT DEATH"] = weaponInUse.GetDeathAnimationClip();
+            animatorOverrideController[DEFAULT_ATTACK] = currentWeaponConfig.GetAttackAnimationClip();
+            animatorOverrideController[DEFAULT_DEATH] = currentWeaponConfig.GetDeathAnimationClip();
         }
 
         public void PutWeaponInHand(Weapon weaponConfig) {
-            weaponInUse = weaponConfig;
-            PutWeaponInHand();
-        }
-
-        private void PutWeaponInHand() {
-            var weaponPrefab = weaponInUse.GetWeaponPrefab();
+            currentWeaponConfig = weaponConfig;
+            var weaponPrefab = weaponConfig.GetWeaponPrefab();
             GameObject weaponSocket = RequestDominantHand();
-            GameObject weapon = Instantiate(weaponPrefab, weaponSocket.transform);
-            weapon.transform.localPosition = weaponInUse.weaponTransform.localPosition;
-            weapon.transform.localRotation = weaponInUse.weaponTransform.localRotation;
+            Destroy(weaponGameObject);
+            weaponGameObject = Instantiate(weaponPrefab, weaponSocket.transform);
+            weaponGameObject.transform.localPosition = currentWeaponConfig.weaponTransform.localPosition;
+            weaponGameObject.transform.localRotation = currentWeaponConfig.weaponTransform.localRotation;
         }
 
         private GameObject RequestDominantHand() {
@@ -185,7 +185,8 @@ namespace RPG.Characters {
         }
 
         private void AttackTarget() {
-            if (Time.time - lastHitTime > weaponInUse.GetMinTimeBetweenHits()) {
+            if (Time.time - lastHitTime > currentWeaponConfig.GetMinTimeBetweenHits()) {
+                SetupAttackAndDeathAnimation();  //update animation attack and death
                 animator.SetTrigger(ATTACK_TRIGGER);
                 (enemy as IDamagable).TakeDamage(CalculateDamage());
                 lastHitTime = Time.time;
@@ -193,7 +194,7 @@ namespace RPG.Characters {
         }
 
         private float CalculateDamage() {
-            float damage = baseDamage + weaponInUse.GetWeaponDamage();
+            float damage = baseDamage + currentWeaponConfig.GetWeaponDamage();
 
             if (UnityEngine.Random.Range(0, 1f) <= criticalHitChance) {
                 damage *= crititicalHitMultiplier;
@@ -214,7 +215,7 @@ namespace RPG.Characters {
 
         private bool IsTargetInRange(GameObject target) {
             float distanceToTarget = (target.transform.position - transform.position).magnitude;
-            return (distanceToTarget <= weaponInUse.GetMaxAttackRange());
+            return (distanceToTarget <= currentWeaponConfig.GetMaxAttackRange());
         }
     }
 }

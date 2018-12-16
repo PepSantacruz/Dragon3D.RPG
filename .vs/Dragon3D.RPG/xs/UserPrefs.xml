@@ -9,8 +9,8 @@
       <File FileName="Assets/_Characters/SpecialAbilitiy/AbilityConfig.cs" Line="26" Column="55" />
       <File FileName="Assets/_Characters/SpecialAbilitiy/HealingEffect/HealingEffectConfig.cs" Line="6" Column="55" />
       <File FileName="Assets/_Characters/SpecialAbilitiy/PowerAttack/PowerAttackConfig.cs" Line="12" Column="75" />
-      <File FileName="Assets/_Weapons/WeaponPickupPoint.cs" Line="22" Column="13" />
-      <File FileName="Assets/_Characters/Player/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Weapons/WeaponPickupPoint.cs" Line="25" Column="54" />
+      <File FileName="Assets/_Characters/Player/Player.cs" Line="141" Column="59" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
