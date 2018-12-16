@@ -95,6 +95,7 @@
     <Compile Include="Assets\_Environment\Water\Water\Scripts\WaterTile.cs" />
     <Compile Include="Assets\_Weapons\Projectiles\Projectile.cs" />
     <Compile Include="Assets\_Weapons\Weapon.cs" />
+    <Compile Include="Assets\_Weapons\WeaponPickupPoint.cs" />
     <None Include="Assets\_Environment\Water\Water\Shaders\FXWaterPro.shader" />
     <None Include="Assets\_Weapons\Projectiles\Ball\RollerBall\RollerBallGuidelines.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">

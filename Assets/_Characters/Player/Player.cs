@@ -135,6 +135,11 @@ namespace RPG.Characters {
             animatorOverrideController["DEFAULT DEATH"] = weaponInUse.GetDeathAnimationClip();
         }
 
+        public void PutWeaponInHand(Weapon weaponConfig) {
+            weaponInUse = weaponConfig;
+            PutWeaponInHand();
+        }
+
         private void PutWeaponInHand() {
             var weaponPrefab = weaponInUse.GetWeaponPrefab();
             GameObject weaponSocket = RequestDominantHand();
