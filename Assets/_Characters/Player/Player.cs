@@ -2,10 +2,8 @@
 using System.Collections;
 using UnityEngine.Assertions;
 using RPG.CameraUI;
-using RPG.Weapons;
 using RPG.Core;
 using UnityEngine.SceneManagement;
-using System;
 
 namespace RPG.Characters {
 

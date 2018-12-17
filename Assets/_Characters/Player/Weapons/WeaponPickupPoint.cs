@@ -1,8 +1,6 @@
-﻿using RPG.Characters;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace RPG.Weapons {
-
+namespace RPG.Characters {
     public class WeaponPickupPoint : MonoBehaviour {
         [SerializeField] Weapon weaponConfig;
         [SerializeField] AudioClip pickupSoundEffect;

@@ -72,6 +72,9 @@
     <Compile Include="Assets\_Characters\Player\Player.cs" />
     <Compile Include="Assets\_Characters\Player\PlayerHealthBar.cs" />
     <Compile Include="Assets\_Characters\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\_Characters\Player\Weapons\Projectiles\Projectile.cs" />
+    <Compile Include="Assets\_Characters\Player\Weapons\Weapon.cs" />
+    <Compile Include="Assets\_Characters\Player\Weapons\WeaponPickupPoint.cs" />
     <Compile Include="Assets\_Characters\SpecialAbilitiy\AbilityBehaviour.cs" />
     <Compile Include="Assets\_Characters\SpecialAbilitiy\AbilityConfig.cs" />
     <Compile Include="Assets\_Characters\SpecialAbilitiy\AreaAttack\AreaAttackBehaviour.cs" />
@@ -93,11 +96,8 @@
     <Compile Include="Assets\_Environment\Water\Water\Scripts\Water.cs" />
     <Compile Include="Assets\_Environment\Water\Water\Scripts\WaterBase.cs" />
     <Compile Include="Assets\_Environment\Water\Water\Scripts\WaterTile.cs" />
-    <Compile Include="Assets\_Weapons\Projectiles\Projectile.cs" />
-    <Compile Include="Assets\_Weapons\Weapon.cs" />
-    <Compile Include="Assets\_Weapons\WeaponPickupPoint.cs" />
     <None Include="Assets\_Environment\Water\Water\Shaders\FXWaterPro.shader" />
-    <None Include="Assets\_Weapons\Projectiles\Ball\RollerBall\RollerBallGuidelines.txt" />
+    <None Include="Assets\_Characters\Player\Weapons\Projectiles\Ball\RollerBall\RollerBallGuidelines.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/Shared/Unity/DragonRPG/Dragon3D.RPG/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
