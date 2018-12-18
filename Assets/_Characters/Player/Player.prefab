@@ -14,11 +14,10 @@ GameObject:
   - component: {fileID: 13615390}
   - component: {fileID: 11444856}
   - component: {fileID: 11469404}
-  - component: {fileID: 114123312422662838}
   - component: {fileID: 195066880872606322}
-  - component: {fileID: 114067567221939256}
   - component: {fileID: 114955007839303020}
   - component: {fileID: 114527980305466684}
+  - component: {fileID: 178836827}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -123,18 +122,6 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 0.7
   m_AnimSpeedMultiplier: 1.5
   m_GroundCheckDistance: 2
---- !u!114 &114123312422662838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2d31f6caa889442eb1c74b8bec4f7af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!195 &195066880872606322
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -157,19 +144,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &114067567221939256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c5335f0882fe4d478883cc8c58ce906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!114 &114955007839303020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,13 +158,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maximumHealthPoints: 100
   baseDamage: 10
-  criticalHitChance: 0.1
+  criticalHitChance: 1
   crititicalHitMultiplier: 1.25
   criticalParticleEffectPrefab: {fileID: 1539812507986856, guid: 18164568f7dd64530987fcd1d34b2f2a,
     type: 3}
   animatorOverrideController: {fileID: 22100000, guid: 2172c960126aa45bfb7657388948c2c3,
     type: 2}
-  weaponInUse: {fileID: 11400000, guid: 80974093b15194e5a828c6e5ee386aab, type: 2}
+  currentWeaponConfig: {fileID: 11400000, guid: 80974093b15194e5a828c6e5ee386aab,
+    type: 2}
   specialAbilities:
   - {fileID: 11400000, guid: 7c849968e2c7d4d2e97716a766d026be, type: 2}
   - {fileID: 11400000, guid: b332b0bccadb44744aa0ecb3b42667cf, type: 2}
@@ -221,6 +196,19 @@ MonoBehaviour:
   energyOrb: {fileID: 0}
   maxEnergyPoints: 100
   regenerationPointsPerSecond: 10
+--- !u!114 &178836827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318ada95456af4911b121f2890b35864, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stoppingDistance: 0.2
 --- !u!1 &1013879047754174
 GameObject:
   m_ObjectHideFlags: 0

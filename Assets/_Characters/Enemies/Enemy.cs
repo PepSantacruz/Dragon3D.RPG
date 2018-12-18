@@ -18,7 +18,6 @@ namespace RPG.Characters {
         [SerializeField] GameObject projectileSocket;
 
         Player player = null;
-        AICharacterControl aiCharacterControl = null;
 
         float currentHealthPoints;
         bool isAttacking = false;
@@ -26,7 +25,6 @@ namespace RPG.Characters {
         private void Start() {
             player = FindObjectOfType<Player>();
             currentHealthPoints = maximumHealthPoints;
-            aiCharacterControl = GetComponent<AICharacterControl>();
         }
 
         private void Update() {
@@ -49,10 +47,10 @@ namespace RPG.Characters {
             }
 
             if (distanceToPlayer <= chaseRadius) {
-                aiCharacterControl.SetTarget(player.transform);
+                //aiCharacterControl.SetTarget(player.transform);
             }
             else {
-                aiCharacterControl.SetTarget(null);
+                //aiCharacterControl.SetTarget(null);
             }
 
         }
