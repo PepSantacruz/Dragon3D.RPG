@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 5426510}
   - component: {fileID: 13615390}
   - component: {fileID: 11444856}
-  - component: {fileID: 11469404}
   - component: {fileID: 195066880872606322}
   - component: {fileID: 114955007839303020}
   - component: {fileID: 114527980305466684}
+  - component: {fileID: 11469404}
   - component: {fileID: 178836827}
   m_Layer: 12
   m_Name: Player
@@ -102,26 +102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521b611700410be45810047f0a74e899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11469404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MovingTurnSpeed: 1800
-  m_StationaryTurnSpeed: 900
-  m_JumpPower: 0
-  m_GravityMultiplier: 2
-  m_RunCycleLegOffset: 0.2
-  m_MoveSpeedMultiplier: 0.7
-  m_AnimSpeedMultiplier: 1.5
-  m_GroundCheckDistance: 2
 --- !u!195 &195066880872606322
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -196,6 +176,20 @@ MonoBehaviour:
   energyOrb: {fileID: 0}
   maxEnergyPoints: 100
   regenerationPointsPerSecond: 10
+--- !u!114 &11469404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingTurnSpeed: 360
+  stationaryTurnSpeed: 180
 --- !u!114 &178836827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stoppingDistance: 0.2
+  moveSpeedMultiplier: 2
 --- !u!1 &1013879047754174
 GameObject:
   m_ObjectHideFlags: 0
