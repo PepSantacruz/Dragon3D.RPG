@@ -82,8 +82,6 @@
     <Compile Include="Assets\_Characters\SpecialAbilitiy\HealingEffect\HealingEffectConfig.cs" />
     <Compile Include="Assets\_Characters\SpecialAbilitiy\PowerAttack\PowerAttackBehaviour.cs" />
     <Compile Include="Assets\_Characters\SpecialAbilitiy\PowerAttack\PowerAttackConfig.cs" />
-    <Compile Include="Assets\_Characters\ThirdPersonCharacter.cs" />
-    <Compile Include="Assets\_Characters\ThirdPersonUserControl.cs" />
     <Compile Include="Assets\_Core\AudioTrigger.cs" />
     <Compile Include="Assets\_Core\IDamagable.cs" />
     <Compile Include="Assets\_Core\SpinMe.cs" />
