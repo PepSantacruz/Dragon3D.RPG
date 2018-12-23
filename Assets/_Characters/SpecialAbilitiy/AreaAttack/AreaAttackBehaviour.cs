@@ -5,13 +5,13 @@ using System;
 namespace RPG.Characters {
     public class AreaAttackBehaviour : AbilityBehaviour {
 
-        public override void Use(AbilityParams abilityParams) {
+        public override void Use(GameObject target) {
             PlayAbilitySound();
-            DealRadialDamage(abilityParams);
+            DealRadialDamage();
             PlayParticleEffect();
         }
 
-        private void DealRadialDamage(AbilityParams abilityParams) {
+        private void DealRadialDamage() {
             float radius = (config as AreaAttackConfig).GetRadius();
             RaycastHit[] raycastHits = Physics.SphereCastAll(
                             transform.position, radius, Vector3.up, radius
@@ -19,9 +19,9 @@ namespace RPG.Characters {
 
             foreach (RaycastHit hit in raycastHits) {
                 if (hit.collider.gameObject != gameObject) {
-                    IDamagable damagable = hit.collider.gameObject.GetComponent<IDamagable>();
+                    HealthSystem damagable = hit.collider.gameObject.GetComponent<HealthSystem>();
                     if (damagable != null) {
-                        float damageToDeal = (config as AreaAttackConfig).GetDamageToEachTarget() + abilityParams.baseDamage;
+                        float damageToDeal = (config as AreaAttackConfig).GetDamageToEachTarget();
                         damagable.TakeDamage(damageToDeal);
                     }
                 }

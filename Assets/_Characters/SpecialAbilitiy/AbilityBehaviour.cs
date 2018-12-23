@@ -14,7 +14,7 @@ namespace RPG.Characters {
             config = configToSet;
         }
 
-        public abstract void Use(AbilityParams abilityParams);
+        public abstract void Use(GameObject target = null);
 
         protected void PlayParticleEffect() {
             GameObject particlePrefab = config.GetParticleEffectPrefab();

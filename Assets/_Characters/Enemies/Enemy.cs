@@ -3,7 +3,7 @@ using RPG.Core;
 
 namespace RPG.Characters {
 
-    public class Enemy : MonoBehaviour, IDamagable {
+    public class Enemy : MonoBehaviour {
 
         [SerializeField] float attackRadius = 5f;
         [SerializeField] float chaseRadius = 10f;

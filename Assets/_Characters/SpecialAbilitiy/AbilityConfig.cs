@@ -3,16 +3,6 @@ using RPG.Core;
 
 namespace RPG.Characters {
 
-    public struct AbilityParams{
-        public IDamagable target;
-        public float baseDamage;
-
-        public AbilityParams(IDamagable target, float baseDamage){
-            this.target = target;
-            this.baseDamage = baseDamage;
-        }
-    }
-
     public abstract class AbilityConfig : ScriptableObject {
         [Header("Special Ability Section")]
         [SerializeField] float energyCost = 10f;
@@ -27,8 +17,8 @@ namespace RPG.Characters {
             behaviour = behaviourComponent;
         }
 
-        public void Use(AbilityParams abilityParams){
-            behaviour.Use(abilityParams);
+        public void Use(GameObject gameObject){
+            behaviour.Use(gameObject);
         }
 
         public float GetEnergyCost(){

@@ -31,10 +31,10 @@ namespace RPG.Characters {
         }
 
         private void DamageIfDamagable(Collision collision) {
-            Component damagableComponent = collision.gameObject.GetComponent((typeof(IDamagable)));
+            HealthSystem damagableComponent = collision.gameObject.GetComponent<HealthSystem>();
 
             if (damagableComponent) {
-                (damagableComponent as IDamagable).TakeDamage(damageCaused);
+                damagableComponent.TakeDamage(damageCaused);
             }
         }
     }

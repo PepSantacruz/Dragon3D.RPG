@@ -9,7 +9,7 @@ namespace RPG.Characters {
             healthSystem = GetComponent<HealthSystem>();
         }
 
-        public override void Use(AbilityParams abilityParams) {
+        public override void Use(GameObject gameObject) {
             PlayAbilitySound();
             HealCharacter();
             PlayParticleEffect();
