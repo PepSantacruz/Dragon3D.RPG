@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 114955007839303020}
   - component: {fileID: 114527980305466684}
   - component: {fileID: 178836827}
+  - component: {fileID: 4351813826410965819}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -122,7 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ea3e52022d740e185ad6b166993fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximumHealthPoints: 100
   baseDamage: 10
   criticalHitChance: 1
   crititicalHitMultiplier: 1.25
@@ -136,17 +136,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7c849968e2c7d4d2e97716a766d026be, type: 2}
   - {fileID: 11400000, guid: b332b0bccadb44744aa0ecb3b42667cf, type: 2}
   - {fileID: 11400000, guid: 552033f6d4aea4365ab938e2ea287b71, type: 2}
-  damageSounds:
-  - {fileID: 8300000, guid: 5e83bda448f934589b91805205c9af72, type: 3}
-  - {fileID: 8300000, guid: e2db471cb68ab4401bf52edb616426de, type: 3}
-  - {fileID: 8300000, guid: db01cd024681c4be7b6a09ada5ed3f5d, type: 3}
-  - {fileID: 8300000, guid: 8d05d8addc3594095a45cd391c713cce, type: 3}
-  - {fileID: 8300000, guid: 7114b237792df4521aeab2583e7025b6, type: 3}
-  - {fileID: 8300000, guid: f9da745dcc0ae4ac8a9d0f49c4b473c2, type: 3}
-  deathSounds:
-  - {fileID: 8300000, guid: 631ef0286be7f45b2a86d38541e8a470, type: 3}
-  - {fileID: 8300000, guid: 95bfbb8d1b2a64ea2957a92c43598c1b, type: 3}
-  - {fileID: 8300000, guid: d0660ce3ce8524a608fce689c5521362, type: 3}
 --- !u!114 &114527980305466684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,7 +145,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 149790}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1ff1ee16fb2c433e94c96c7dbf490c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b5898073dc754646b2b60220f4a1495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   energyOrb: {fileID: 0}
@@ -180,6 +169,24 @@ MonoBehaviour:
   movingTurnSpeed: 360
   stationaryTurnSpeed: 180
   moveThreshold: 1
+--- !u!114 &4351813826410965819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e525d8d1143e4161bec964fcb3e5bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DEFAULT_DEATH: DEFAULT DEATH
+  maximumHealthPoints: 100
+  deathVanishSeconds: 2
+  healthBar: {fileID: 0}
+  damageSounds: []
+  deathSounds: []
 --- !u!1 &1013879047754174
 GameObject:
   m_ObjectHideFlags: 0

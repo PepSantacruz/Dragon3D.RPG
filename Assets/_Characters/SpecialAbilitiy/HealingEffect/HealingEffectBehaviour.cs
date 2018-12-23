@@ -3,10 +3,10 @@
 namespace RPG.Characters {
     public class HealingEffectBehaviour : AbilityBehaviour {
 
-        Player player = null;
+        HealthSystem healthSystem = null;
 
         void Start() {
-            player = GetComponent<Player>();
+            healthSystem = GetComponent<HealthSystem>();
         }
 
         public override void Use(AbilityParams abilityParams) {
@@ -16,7 +16,7 @@ namespace RPG.Characters {
         }
 
         private void HealCharacter() {
-            player.Heal((config as HealingEffectConfig).GetHealingPoints());
+            healthSystem.Heal((config as HealingEffectConfig).GetHealingPoints());
         }
     }
 }

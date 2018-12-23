@@ -11,7 +11,7 @@ namespace RPG.CameraUI {
         [SerializeField] Texture2D questionCursor = null;
         [SerializeField] Vector2 cursorHotspot = new Vector2(0, 0);
 
-        [SerializeField] GameObject gm;
+        [SerializeField] GameObject gm; //TODO just for debugging purposes
 
         const int WALKABLE_LAYER = 9;
         float maxRaycastDepth = 100f;
