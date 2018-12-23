@@ -100,10 +100,9 @@ namespace RPG.Characters {
                 AttackTarget();
             else {
                 if (Input.GetMouseButtonDown(1))
-                   specialAbilities.AttemptSpecialAbility(currentAbilityIndex);  //TODO always the last ability, exclude healing?
+                   specialAbilities.AttemptSpecialAbility(currentAbilityIndex,enemy.gameObject);  //TODO always the last ability, exclude healing?
             }
         }
-
        
         void AttackTarget() {
             if (Time.time - lastHitTime > currentWeaponConfig.GetMinTimeBetweenHits()) {
