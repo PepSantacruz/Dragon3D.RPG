@@ -69,7 +69,7 @@
     <Compile Include="Assets\_Characters\Player\Weapons\Projectiles\Projectile.cs" />
     <Compile Include="Assets\_Characters\Player\Weapons\Weapon.cs" />
     <Compile Include="Assets\_Characters\Player\Weapons\WeaponPickupPoint.cs" />
-    <Compile Include="Assets\_Characters\Scripts\CharacterMovement.cs" />
+    <Compile Include="Assets\_Characters\Scripts\Character.cs" />
     <Compile Include="Assets\_Characters\Scripts\DominantHand.cs" />
     <Compile Include="Assets\_Characters\Scripts\HealthSystem.cs" />
     <Compile Include="Assets\_Characters\Scripts\SpecialAbilities.cs" />

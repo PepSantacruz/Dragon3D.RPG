@@ -16,14 +16,14 @@ namespace RPG.Characters {
 
         Animator animator;
         AudioSource audioSource;
-        CharacterMovement characterMovement;
+        Character characterMovement;
 
         float currentHealthPoints;
 
         void Start() {
             animator = GetComponent<Animator>();
             audioSource = GetComponent<AudioSource>();
-            characterMovement = GetComponent<CharacterMovement>();
+            characterMovement = GetComponent<Character>();
 
             currentHealthPoints = maximumHealthPoints;
         }
