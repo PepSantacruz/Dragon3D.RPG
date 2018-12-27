@@ -6,31 +6,36 @@ using System;
 namespace RPG.Characters {
 
     [SelectionBase]
-    [RequireComponent(typeof(NavMeshAgent))]
-    [RequireComponent(typeof(Rigidbody))]
     public class Character : MonoBehaviour {
-        [Header("Capsule Collider Setup")]
-        [SerializeField] Vector3 colliderCenter;
-        [SerializeField] float colliderRadius;
-        [SerializeField] float colliderHeight;
 
         [Header("Animator Setup")]
         [SerializeField] RuntimeAnimatorController animatorController;
         [SerializeField] AnimatorOverrideController animatorOverrideController;
         [SerializeField] Avatar characterAvatar;
 
+        [Header("Audio Setup")]
+        [SerializeField] float spatialBlend;
 
-        [Header("Movement Section Setup")]
-        [SerializeField] float stoppingDistance = 1f;
+        [Header("CapsuleCollider Setup")]
+        [SerializeField] Vector3 colliderCenter;
+        [SerializeField] float colliderRadius;
+        [SerializeField] float colliderHeight;
+
+        [Header("Movement Setup")]
         [SerializeField] float moveSpeedMultiplier = 1.3f;
         [SerializeField] float animationSpeedMultiplier = 1.5f;
         [SerializeField] float movingTurnSpeed = 360;
         [SerializeField] float stationaryTurnSpeed = 180;
         [SerializeField] float moveThreshold = 1f;
 
+        [Header("NavAgent Setup")]
+        [SerializeField] float navMeshAgentSteeringSpeed=1.0f;
+        [SerializeField] float navMeshAgentStopingDistance=1.3f;
+
+
         Animator animator;
         Rigidbody rigidBody;
-        NavMeshAgent agent;
+        NavMeshAgent navAgent;
 
         float turnAmount;
         float forwardAmount;
@@ -45,32 +50,34 @@ namespace RPG.Characters {
             capsuleCollider.radius = colliderRadius;
             capsuleCollider.height = colliderHeight;
 
+            AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.spatialBlend = spatialBlend;
+
+            rigidBody = gameObject.AddComponent<Rigidbody>();
+            rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+
             animator = gameObject.AddComponent<Animator>();
             animator.runtimeAnimatorController = animatorController;
             animator.avatar = characterAvatar;
+
+            navAgent = gameObject.AddComponent<NavMeshAgent>();
+            navAgent.speed = navMeshAgentSteeringSpeed;
+            navAgent.stoppingDistance = navMeshAgentStopingDistance;
+            navAgent.autoBraking = false;
+            navAgent.updateRotation = false;
+            navAgent.updatePosition = true;
         }
 
         void Start() {
             CameraRaycaster cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
-
-            //animator = GetComponent<Animator>();
-
-            rigidBody = GetComponent<Rigidbody>();
-            rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
-
-            agent = GetComponent<NavMeshAgent>();
-            agent.updateRotation = false;
-            agent.updatePosition = true;
-
-            agent.stoppingDistance = stoppingDistance;
             
             cameraRaycaster.onMouseOverTerrain += OnMouseOverTerrain;
             cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
         }
 
         void Update() {
-            if (agent.remainingDistance > agent.stoppingDistance) {
-                Move(agent.desiredVelocity);
+            if (navAgent.remainingDistance > navAgent.stoppingDistance) {
+                Move(navAgent.desiredVelocity);
             }
             else {
                 Move(Vector3.zero);
@@ -79,12 +86,12 @@ namespace RPG.Characters {
 
         void OnMouseOverTerrain(Vector3 destination) {
             if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
-                agent.SetDestination(destination);
+                navAgent.SetDestination(destination);
         }
 
         void OnMouseOverEnemy(Enemy enemy) {
             if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
-                agent.SetDestination(enemy.transform.position);
+                navAgent.SetDestination(enemy.transform.position);
         }
 
         //Callback! don't delete it
