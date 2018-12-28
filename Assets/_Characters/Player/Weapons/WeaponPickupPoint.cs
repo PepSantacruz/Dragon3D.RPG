@@ -5,12 +5,12 @@ namespace RPG.Characters {
         [SerializeField] Weapon weaponConfig;
         [SerializeField] AudioClip pickupSoundEffect;
 
-        Player player;
+        PlayerMovement player;
         AudioSource audioSource;
 
         // Start is called before the first frame update
         void Start() {
-            player = FindObjectOfType<Player>();
+            player = FindObjectOfType<PlayerMovement>();
             audioSource = GetComponent<AudioSource>();
 
             var weaponPrefab = weaponConfig.GetWeaponPrefab();

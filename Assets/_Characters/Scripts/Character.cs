@@ -32,19 +32,19 @@ namespace RPG.Characters {
         [SerializeField] float navMeshAgentSteeringSpeed=1.0f;
         [SerializeField] float navMeshAgentStopingDistance=1.3f;
 
-
         Animator animator;
         Rigidbody rigidBody;
         NavMeshAgent navAgent;
 
         float turnAmount;
         float forwardAmount;
+        bool isAlive = true;
 
         void Awake() {
             AddRequiredComponents();
         }
 
-        private void AddRequiredComponents() {
+        void AddRequiredComponents() {
             CapsuleCollider capsuleCollider = gameObject.AddComponent<CapsuleCollider>();
             capsuleCollider.center = colliderCenter;
             capsuleCollider.radius = colliderRadius;
@@ -68,30 +68,13 @@ namespace RPG.Characters {
             navAgent.updatePosition = true;
         }
 
-        void Start() {
-            CameraRaycaster cameraRaycaster = Camera.main.GetComponent<CameraRaycaster>();
-            
-            cameraRaycaster.onMouseOverTerrain += OnMouseOverTerrain;
-            cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
-        }
-
         void Update() {
-            if (navAgent.remainingDistance > navAgent.stoppingDistance) {
+            if (navAgent.remainingDistance > navAgent.stoppingDistance && isAlive) {
                 Move(navAgent.desiredVelocity);
             }
             else {
                 Move(Vector3.zero);
             }
-        }
-
-        void OnMouseOverTerrain(Vector3 destination) {
-            if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
-                navAgent.SetDestination(destination);
-        }
-
-        void OnMouseOverEnemy(Enemy enemy) {
-            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
-                navAgent.SetDestination(enemy.transform.position);
         }
 
         //Callback! don't delete it
@@ -114,7 +97,7 @@ namespace RPG.Characters {
             UpdateAnimator();
         }
 
-        private void SetupForwardAndTurn(Vector3 move) {
+        void SetupForwardAndTurn(Vector3 move) {
             // convert the world relative moveInput vector into a local-relative
             // turn amount and forward amount required to head in the desired
             // direction.
@@ -139,7 +122,11 @@ namespace RPG.Characters {
         }
 
         public void Kill() {
-            //kill signaling
+            isAlive = false;
+        }
+
+        public void SetDestination(Vector3 worldPosition) {
+            navAgent.destination = worldPosition;
         }
 
     }
