@@ -67,12 +67,14 @@
     <Compile Include="Assets\_Characters\Enemies\EnemyUI.cs" />
     <Compile Include="Assets\_Characters\Player\PlayerMovement.cs" />
     <Compile Include="Assets\_Characters\Player\Weapons\Projectiles\Projectile.cs" />
-    <Compile Include="Assets\_Characters\Player\Weapons\Weapon.cs" />
+    <Compile Include="Assets\_Characters\Player\Weapons\WeaponConfig.cs" />
     <Compile Include="Assets\_Characters\Player\Weapons\WeaponPickupPoint.cs" />
+    <Compile Include="Assets\_Characters\Scripts\AnimationConstants.cs" />
     <Compile Include="Assets\_Characters\Scripts\Character.cs" />
     <Compile Include="Assets\_Characters\Scripts\DominantHand.cs" />
     <Compile Include="Assets\_Characters\Scripts\HealthSystem.cs" />
     <Compile Include="Assets\_Characters\Scripts\SpecialAbilities.cs" />
+    <Compile Include="Assets\_Characters\Scripts\WeaponSystem.cs" />
     <Compile Include="Assets\_Characters\SpecialAbilitiy\AbilityBehaviour.cs" />
     <Compile Include="Assets\_Characters\SpecialAbilitiy\AbilityConfig.cs" />
     <Compile Include="Assets\_Characters\SpecialAbilitiy\AreaAttack\AreaAttackBehaviour.cs" />

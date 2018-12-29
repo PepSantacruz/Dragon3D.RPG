@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 namespace RPG.Characters {
     public class HealthSystem : MonoBehaviour {
-        const string DEATH_TRIGGER = "Death";
-        public  string DEFAULT_DEATH = "DEFAULT DEATH"; //TODO make it private?
-
         [SerializeField] float maximumHealthPoints = 100f;
         [SerializeField] float deathVanishSeconds = 2f;
         [SerializeField] Image healthBar;
@@ -82,7 +79,7 @@ namespace RPG.Characters {
 
             audioSource.clip = deathSounds[UnityEngine.Random.Range(0, deathSounds.Length)];
             audioSource.Play();
-            animator.SetTrigger(DEATH_TRIGGER);
+            animator.SetTrigger(AnimationConstants.DEATH_TRIGGER);
 
             if (playerComponent && playerComponent.isActiveAndEnabled) {
                 yield return new WaitForSecondsRealtime(audioSource.clip.length);

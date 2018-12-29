@@ -1,17 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &8416452094910519986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8416452096399889091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a98c76f3095db45edaf6356a9f84dfe7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8416452095298716586
 GameObject:
   m_ObjectHideFlags: 0
@@ -22,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8416452095298716585}
   - component: {fileID: 8416452095298716584}
+  - component: {fileID: 8367780709725691670}
   m_Layer: 0
   m_Name: Enemy 101
   m_TagString: Untagged
@@ -71,6 +60,21 @@ MonoBehaviour:
   moveThreshold: 1
   navMeshAgentSteeringSpeed: 1
   navMeshAgentStopingDistance: 1.3
+--- !u!114 &8367780709725691670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8416452095298716586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ceccd8a3f714336a83ed4f97758f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseDamage: 10
+  currentWeaponConfig: {fileID: 11400000, guid: 80974093b15194e5a828c6e5ee386aab,
+    type: 2}
 --- !u!1 &8416452095843302900
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,6 +106,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8416452094910519986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8416452096399889091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98c76f3095db45edaf6356a9f84dfe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8416452096399974289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -157,6 +173,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 161708, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9505156, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
       propertyPath: m_Controller
       value: 
@@ -165,10 +185,6 @@ PrefabInstance:
     - target: {fileID: 162502, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 161708, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9505156, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}

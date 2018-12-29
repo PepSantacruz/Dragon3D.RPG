@@ -2,15 +2,15 @@
 
 namespace RPG.Characters {
     public class WeaponPickupPoint : MonoBehaviour {
-        [SerializeField] Weapon weaponConfig;
+        [SerializeField] WeaponConfig weaponConfig;
         [SerializeField] AudioClip pickupSoundEffect;
 
-        PlayerMovement player;
+        WeaponSystem weaponSystem;
         AudioSource audioSource;
 
         // Start is called before the first frame update
         void Start() {
-            player = FindObjectOfType<PlayerMovement>();
+            weaponSystem = FindObjectOfType<WeaponSystem>(); //TODO find the player not any weapon system
             audioSource = GetComponent<AudioSource>();
 
             var weaponPrefab = weaponConfig.GetWeaponPrefab();
@@ -19,7 +19,7 @@ namespace RPG.Characters {
         }
 
         void OnTriggerEnter(Collider other) {
-            player.PutWeaponInHand(weaponConfig);
+            weaponSystem.PutWeaponInHand(weaponConfig);
             audioSource.PlayOneShot(pickupSoundEffect);
         }
     }

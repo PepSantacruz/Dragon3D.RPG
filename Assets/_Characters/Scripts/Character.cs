@@ -129,6 +129,10 @@ namespace RPG.Characters {
             navAgent.destination = worldPosition;
         }
 
+        public AnimatorOverrideController GetAnimatorOverrideController() {
+            return animatorOverrideController;
+        }
+
     }
 }
 
