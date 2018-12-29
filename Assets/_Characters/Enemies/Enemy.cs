@@ -62,14 +62,9 @@ namespace RPG.Characters {
         private void OnDrawGizmos() {
             Gizmos.color = new Color(0, 0, 255, 0.5f);
             Gizmos.DrawWireSphere(transform.position, chaseRadius);
-
-
             Gizmos.color = new Color(255, 0, 0, 0.5f);
             Gizmos.DrawWireSphere(transform.position, attackRadius);
         }
 
-        public void TakeDamage(float changePoints) {
-            //TODO Get rid of the IDamagable interface
-        }
     }
 }

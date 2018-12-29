@@ -10,7 +10,7 @@ namespace RPG.Characters {
 
         // Start is called before the first frame update
         void Start() {
-            weaponSystem = FindObjectOfType<WeaponSystem>(); //TODO find the player not any weapon system
+            weaponSystem = GameObject.FindWithTag("Player").GetComponent<WeaponSystem>(); 
             audioSource = GetComponent<AudioSource>();
 
             var weaponPrefab = weaponConfig.GetWeaponPrefab();
