@@ -30,7 +30,7 @@ namespace RPG.Characters {
             if (distanceToPlayer <= attackRadius && !isAttacking) {
                 isAttacking = true;
                 float delayBetweenAttacks = Random.Range(secondsBetweenAttack-secondsVariationBetweenAttack,secondsBetweenAttack+secondsVariationBetweenAttack);
-                InvokeRepeating("SpawnProjectile", 0f, delayBetweenAttacks);
+             //   InvokeRepeating("SpawnProjectile", 0f, delayBetweenAttacks);
             }
 
             if (distanceToPlayer > attackRadius) {
@@ -48,7 +48,6 @@ namespace RPG.Characters {
         }
 
         private void SpawnProjectile() {
-
 
             GameObject newProjectile = Instantiate(projectileToUse, projectileSocket.transform.position, Quaternion.identity);
             Projectile projectile = newProjectile.GetComponent<Projectile>();
