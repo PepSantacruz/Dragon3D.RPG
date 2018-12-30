@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using RPG.Core;
+using System;
 
 namespace RPG.Characters {
     [RequireComponent(typeof(WeaponSystem))]
@@ -8,13 +9,16 @@ namespace RPG.Characters {
         enum State { idle, attacking, patrolling, chasing };
 
         [SerializeField] float chaseRadius = 10f;
-       
+        [SerializeField] PatrollPathContainer patrollPathContainer;
+        [SerializeField] float waypointTolerance = 2f;
+
         PlayerMovement player;
         Character character;
 
         State state = State.idle;
         float currentWeaponRange;
         float distanceToPlayer;
+        int nextWaypointIndex = 0;
 
         private void Start() {
             player = FindObjectOfType<PlayerMovement>(); //TODO Find player by tag?
@@ -29,7 +33,7 @@ namespace RPG.Characters {
 
             if (distanceToPlayer > chaseRadius && state != State.patrolling) {
                 StopAllCoroutines();
-                state = State.patrolling;
+                StartCoroutine(Patroll());
             }
 
             if (distanceToPlayer <= chaseRadius && state != State.chasing) {
@@ -41,8 +45,23 @@ namespace RPG.Characters {
                 StopAllCoroutines();
                 state = State.attacking;
             }
+        }
 
+        IEnumerator Patroll() {
+            state = State.patrolling;
 
+            while (true) {
+                Vector3 nextWaypointPosition = patrollPathContainer.transform.GetChild(nextWaypointIndex).position;
+                character.SetDestination(nextWaypointPosition);
+                CycleWaypointWhenClose(nextWaypointPosition);
+                yield return new WaitForSeconds(.5f);
+            }
+        }
+
+        private void CycleWaypointWhenClose(Vector3 nextWaypointPosition) {
+            float distanceToWayPoint = Vector3.Distance(nextWaypointPosition, transform.position);
+            if (distanceToWayPoint <= waypointTolerance)
+                nextWaypointIndex = (nextWaypointIndex + 1) % patrollPathContainer.transform.childCount;
         }
 
         IEnumerator ChasePlayer() {

@@ -54,7 +54,7 @@ MonoBehaviour:
   colliderCenter: {x: 0, y: 1.092766, z: 0}
   colliderRadius: 0.2
   colliderHeight: 1.7
-  moveSpeedMultiplier: 1.3
+  moveSpeedMultiplier: 0.7
   animationSpeedMultiplier: 1.5
   movingTurnSpeed: 360
   stationaryTurnSpeed: 180
@@ -88,7 +88,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 096b1b130c56c4eb5af5d80f0549cae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseRadius: 10
+  chaseRadius: 3.64
+  patrollPathContainer: {fileID: 0}
 --- !u!114 &972596207861932742
 MonoBehaviour:
   m_ObjectHideFlags: 0
