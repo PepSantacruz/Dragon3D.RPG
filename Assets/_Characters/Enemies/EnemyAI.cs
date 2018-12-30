@@ -4,7 +4,11 @@ using RPG.Core;
 using System;
 
 namespace RPG.Characters {
+
+    [RequireComponent(typeof(Character))]
+    [RequireComponent(typeof(HealthSystem))]
     [RequireComponent(typeof(WeaponSystem))]
+
     public class EnemyAI : MonoBehaviour {
         enum State { idle, attacking, patrolling, chasing };
 

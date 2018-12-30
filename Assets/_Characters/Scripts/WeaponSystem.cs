@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -28,11 +29,17 @@ namespace RPG.Characters {
         }
 
         void SetupAttackAndDeathAnimation() {
-            AnimatorOverrideController animatorOverrideController = character.GetAnimatorOverrideController();
 
-            animator.runtimeAnimatorController = animatorOverrideController;
-            animatorOverrideController[AnimationConstants.DEFAULT_ATTACK] = currentWeaponConfig.GetAttackAnimationClip();
-            animatorOverrideController[AnimationConstants.DEFAULT_DEATH] = currentWeaponConfig.GetDeathAnimationClip();
+            if (!character.GetAnimatorOverrideController()) {
+                Debug.Break();
+                Debug.LogAssertion("Provide " +gameObject+" with an animation Override Controller");
+            }
+            else {
+                AnimatorOverrideController animatorOverrideController = character.GetAnimatorOverrideController();
+                animator.runtimeAnimatorController = animatorOverrideController;
+                animatorOverrideController[AnimationConstants.DEFAULT_ATTACK] = currentWeaponConfig.GetAttackAnimationClip();
+                animatorOverrideController[AnimationConstants.DEFAULT_DEATH] = currentWeaponConfig.GetDeathAnimationClip();
+            }
         }
 
         GameObject RequestDominantHand() {
@@ -58,8 +65,39 @@ namespace RPG.Characters {
 
         public void AttackTarget(GameObject targetToAttack) {
             target = targetToAttack;
-            print("attack to:" + targetToAttack);
-            // TODO Use a repeat attack coroutine
+            StartCoroutine(AttackTargetRepeatedly());
+        }
+
+        IEnumerator AttackTargetRepeatedly() {
+            bool attackerStillAlive = GetComponent<HealthSystem>().healthAsPercentage >= Mathf.Epsilon;
+            bool targetStillAlive = target.GetComponent<HealthSystem>().healthAsPercentage >= Mathf.Epsilon;
+
+            while (attackerStillAlive && targetStillAlive) {
+                float weaponHitPeriod = currentWeaponConfig.GetMinTimeBetweenHits();
+                float timeToWait = weaponHitPeriod * character.GetAnimationSpeedMultiplier();
+
+                bool isTimeToHitAgain = Time.time - lastHitTime > timeToWait;
+
+                if (isTimeToHitAgain) {
+                    AttackTargetOnce();
+                    lastHitTime = Time.time;
+                }
+
+                yield return new WaitForSeconds(timeToWait);
+            }
+        }
+
+        void AttackTargetOnce() {
+            transform.LookAt(target.transform);
+            animator.SetTrigger(AnimationConstants.ATTACK_TRIGGER);
+            float damageDelay = 1f;
+            SetupAttackAndDeathAnimation();
+            StartCoroutine(DamageAfterDelay(damageDelay));
+        }
+
+        IEnumerator DamageAfterDelay(float damageAfterDealay) {
+            yield return new WaitForSecondsRealtime(damageAfterDealay);
+            target.GetComponent<HealthSystem>().TakeDamage(CalculateDamage());
         }
 
         public void PutWeaponInHand(WeaponConfig weaponConfig) {
