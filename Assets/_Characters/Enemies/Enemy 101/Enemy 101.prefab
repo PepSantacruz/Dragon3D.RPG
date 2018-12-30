@@ -85,17 +85,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 972596208489216990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c039a0581583a4227983228130edae04, type: 3}
+  m_Script: {fileID: 11500000, guid: 096b1b130c56c4eb5af5d80f0549cae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRadius: 5
   chaseRadius: 10
-  damagePerShot: 9
-  secondsBetweenAttack: 0.5
-  secondsVariationBetweenAttack: 0.1
-  aimOffSet: {x: 0, y: 1, z: 0}
-  projectileToUse: {fileID: 0}
-  projectileSocket: {fileID: 0}
 --- !u!114 &972596207861932742
 MonoBehaviour:
   m_ObjectHideFlags: 0

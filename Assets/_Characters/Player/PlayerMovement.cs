@@ -8,7 +8,7 @@ namespace RPG.Characters {
 
         Character character;
         SpecialAbilities specialAbilities;
-        Enemy enemy;
+        EnemyAI enemy;
 
         int currentAbilityIndex = 0;
 
@@ -45,7 +45,7 @@ namespace RPG.Characters {
             specialAbilities = GetComponent<SpecialAbilities>();
         }
 
-        void OnMouseOverEnemy(Enemy enemyToSet) {
+        void OnMouseOverEnemy(EnemyAI enemyToSet) {
             this.enemy = enemyToSet;
 
             if (Input.GetMouseButton(0) && IsTargetInRange(enemy.gameObject))
