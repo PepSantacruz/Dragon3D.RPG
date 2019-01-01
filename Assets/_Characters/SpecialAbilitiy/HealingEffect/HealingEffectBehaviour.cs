@@ -13,6 +13,7 @@ namespace RPG.Characters {
             PlayAbilitySound();
             HealCharacter();
             PlayParticleEffect();
+            PlayAbilityAnimation();
         }
 
         private void HealCharacter() {

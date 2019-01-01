@@ -39,7 +39,6 @@ namespace RPG.Characters {
                 targetOutOfRange = distanceToTarget <= Mathf.Epsilon;
             }
 
-
             float characterHealth = character.GetComponent<HealthSystem>().healthAsPercentage;
             bool characterIsDead = characterHealth <= Mathf.Epsilon;
 

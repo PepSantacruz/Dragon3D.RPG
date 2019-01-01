@@ -28,6 +28,16 @@ namespace RPG.Characters {
             Destroy(effectPrefab, PARTICLE_CLEAN_UP_DELAY);
         }
 
+        protected void PlayAbilityAnimation() {
+            AnimatorOverrideController animatorOverrideController = GetComponent<Character>().GetAnimatorOverrideController();
+            Animator animator = GetComponent<Animator>();
+
+            animator.runtimeAnimatorController = animatorOverrideController;
+            animatorOverrideController[AnimationConstants.DEFAULT_ATTACK] = config.GetSpecialAbilityAnimation();
+            animator.SetTrigger(AnimationConstants.ATTACK_TRIGGER);
+
+        }
+
         protected void PlayAbilitySound(){
             var audioClip = config.GetRandomAudioEffect();
             var audioSource = GetComponent<AudioSource>();
