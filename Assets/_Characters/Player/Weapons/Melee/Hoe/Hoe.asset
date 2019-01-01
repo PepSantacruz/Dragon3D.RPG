@@ -19,5 +19,6 @@ MonoBehaviour:
   minTimeBetweenHits: 0.5
   maxAttackRange: 2
   weaponDamage: 10
+  damageDelay: 2
   weaponTransform: {fileID: 4850878898023034, guid: 56660ee87a69342108076c3d49fa6255,
     type: 3}

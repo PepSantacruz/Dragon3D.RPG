@@ -5,8 +5,6 @@ using UnityEngine.Assertions;
 
 namespace RPG.Characters {
     public class WeaponSystem : MonoBehaviour {
-
-
         [SerializeField] float baseDamage = 10f;
         [SerializeField] WeaponConfig currentWeaponConfig = null;
 
@@ -111,13 +109,13 @@ namespace RPG.Characters {
         void AttackTargetOnce() {
             transform.LookAt(target.transform);
             animator.SetTrigger(AnimationConstants.ATTACK_TRIGGER);
-            float damageDelay = 1f; //to know exactly when in the animation we're gona hit
+            float damageDelay = currentWeaponConfig.GetDamageDelay(); //TODO to know exactly when in the animation we're gona hit
             SetupAttackAndDeathAnimation();
             StartCoroutine(DamageAfterDelay(damageDelay));
         }
 
         IEnumerator DamageAfterDelay(float damageAfterDealay) {
-            yield return new WaitForSecondsRealtime(damageAfterDealay);
+            yield return new WaitForSecondsRealtime(damageAfterDealay); //TODO unity never calls the next line
             target.GetComponent<HealthSystem>().TakeDamage(CalculateDamage());
         }
 

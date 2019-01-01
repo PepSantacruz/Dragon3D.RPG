@@ -11,6 +11,7 @@ namespace RPG.Characters {
         [SerializeField] float minTimeBetweenHits = 0.5f;
         [SerializeField] float maxAttackRange = 2f;
         [SerializeField] float weaponDamage = 10f;
+        [SerializeField] float damageDelay = .5f;
 
         public Transform weaponTransform;
 
@@ -46,5 +47,8 @@ namespace RPG.Characters {
             return weaponDamage;
         }
 
+        public float GetDamageDelay() {
+            return damageDelay;
+        }
     }
 }

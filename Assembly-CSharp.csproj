@@ -66,7 +66,6 @@
     <Compile Include="Assets\_Characters\Enemies\EnemyAI.cs" />
     <Compile Include="Assets\_Characters\Enemies\FaceCamera.cs" />
     <Compile Include="Assets\_Characters\Player\PlayerControl.cs" />
-    <Compile Include="Assets\_Characters\Player\Weapons\Projectiles\Projectile.cs" />
     <Compile Include="Assets\_Characters\Player\Weapons\WeaponConfig.cs" />
     <Compile Include="Assets\_Characters\Player\Weapons\WeaponPickupPoint.cs" />
     <Compile Include="Assets\_Characters\Scripts\AnimationConstants.cs" />
@@ -95,7 +94,6 @@
     <Compile Include="Assets\_Environment\Water\Water\Scripts\WaterBase.cs" />
     <Compile Include="Assets\_Environment\Water\Water\Scripts\WaterTile.cs" />
     <None Include="Assets\_Environment\Water\Water\Shaders\FXWaterPro.shader" />
-    <None Include="Assets\_Characters\Player\Weapons\Projectiles\Ball\RollerBall\RollerBallGuidelines.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/Shared/Unity/DragonRPG/Dragon3D.RPG/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

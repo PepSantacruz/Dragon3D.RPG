@@ -36,18 +36,24 @@ namespace RPG.Characters {
 
         private void Update() {
             distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
+            currentWeaponRange = weaponSystem.GetWeaponConfig().GetMaxAttackRange();
 
-            if (distanceToPlayer > chaseRadius && state != State.patrolling) {
+            bool inWeaponCircle = distanceToPlayer <= currentWeaponRange; 
+            bool inChaseRing = distanceToPlayer > currentWeaponRange      
+                                 &&
+                               distanceToPlayer <= chaseRadius;
+
+            bool outsideChaseRing = distanceToPlayer > chaseRadius;   
+
+            if (outsideChaseRing) {
                 StopAttacking();
-                StartCoroutine(Patroll());
+                StartCoroutine(Patrol());
             }
-
-            if (distanceToPlayer <= chaseRadius && state != State.chasing) {
+            if (inChaseRing) {
                 StopAttacking();
                 StartCoroutine(ChasePlayer());
             }
-
-            if (distanceToPlayer <= currentWeaponRange && state != State.attacking) {
+            if (inWeaponCircle) {
                 StopAllCoroutines();
                 state = State.attacking;
                 weaponSystem.AttackTarget(player.gameObject);
@@ -59,7 +65,7 @@ namespace RPG.Characters {
             weaponSystem.StopAttacking();
         }
 
-        IEnumerator Patroll() {
+        IEnumerator Patrol() {
             state = State.patrolling;
 
             while (patrollPathContainer != null) {
@@ -84,7 +90,6 @@ namespace RPG.Characters {
                 character.SetDestination(player.transform.position);
                 yield return new WaitForEndOfFrame();
             }
-
         }
 
         private void OnDrawGizmos() {
