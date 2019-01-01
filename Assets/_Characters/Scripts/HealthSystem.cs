@@ -75,7 +75,7 @@ namespace RPG.Characters {
             StopAllCoroutines();
             characterMovement.Kill();
 
-            var playerComponent = GetComponent<PlayerMovement>();
+            var playerComponent = GetComponent<PlayerControl>();
 
             audioSource.clip = deathSounds[UnityEngine.Random.Range(0, deathSounds.Length)];
             audioSource.Play();

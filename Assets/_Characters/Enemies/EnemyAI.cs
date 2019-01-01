@@ -15,9 +15,11 @@ namespace RPG.Characters {
         [SerializeField] float chaseRadius = 10f;
         [SerializeField] PatrollPathContainer patrollPathContainer;
         [SerializeField] float waypointTolerance = 2f;
+        [SerializeField] float dwellTime = 0.5f;
 
-        PlayerMovement player;
+        PlayerControl player;
         Character character;
+        WeaponSystem weaponSystem;
 
         State state = State.idle;
         float currentWeaponRange;
@@ -25,10 +27,10 @@ namespace RPG.Characters {
         int nextWaypointIndex = 0;
 
         private void Start() {
-            player = FindObjectOfType<PlayerMovement>(); //TODO Find player by tag?
+            player = FindObjectOfType<PlayerControl>(); //TODO Find player by tag?
             character = GetComponent<Character>();
+            weaponSystem = GetComponent<WeaponSystem>();
 
-            WeaponSystem weaponSystem = GetComponent<WeaponSystem>();
             currentWeaponRange = weaponSystem.GetWeaponConfig().GetMaxAttackRange();
         }
 
@@ -36,30 +38,37 @@ namespace RPG.Characters {
             distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
 
             if (distanceToPlayer > chaseRadius && state != State.patrolling) {
-                StopAllCoroutines();
+                StopAttacking();
                 StartCoroutine(Patroll());
             }
 
             if (distanceToPlayer <= chaseRadius && state != State.chasing) {
-                StopAllCoroutines();
+                StopAttacking();
                 StartCoroutine(ChasePlayer());
             }
 
             if (distanceToPlayer <= currentWeaponRange && state != State.attacking) {
                 StopAllCoroutines();
                 state = State.attacking;
+                weaponSystem.AttackTarget(player.gameObject);
             }
+        }
+
+        private void StopAttacking() {
+            StopAllCoroutines();
+            weaponSystem.StopAttacking();
         }
 
         IEnumerator Patroll() {
             state = State.patrolling;
 
-            while (true) {
+            while (patrollPathContainer != null) {
                 Vector3 nextWaypointPosition = patrollPathContainer.transform.GetChild(nextWaypointIndex).position;
                 character.SetDestination(nextWaypointPosition);
                 CycleWaypointWhenClose(nextWaypointPosition);
-                yield return new WaitForSeconds(.5f);
+                yield return new WaitForSeconds(dwellTime);
             }
+            yield return new WaitForEndOfFrame();
         }
 
         private void CycleWaypointWhenClose(Vector3 nextWaypointPosition) {

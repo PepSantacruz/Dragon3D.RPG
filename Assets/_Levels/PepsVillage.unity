@@ -8838,8 +8838,8 @@ PrefabInstance:
       objectReference: {fileID: 137281837}
     - target: {fileID: 3546666262343954114, guid: de9dfdcc1fbb94adb980dbafa7bb87fc,
         type: 3}
-      propertyPath: waypointTolerance
-      value: 2
+      propertyPath: chaseRadius
+      value: 2.16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de9dfdcc1fbb94adb980dbafa7bb87fc, type: 3}

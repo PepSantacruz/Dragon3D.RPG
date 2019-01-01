@@ -34,6 +34,7 @@ namespace RPG.Characters {
 
             animator.runtimeAnimatorController = animatorOverrideController;
             animatorOverrideController[AnimationConstants.DEFAULT_ATTACK] = config.GetSpecialAbilityAnimation();
+
             animator.SetTrigger(AnimationConstants.ATTACK_TRIGGER);
 
         }

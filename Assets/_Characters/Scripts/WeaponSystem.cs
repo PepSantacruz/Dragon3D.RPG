@@ -47,6 +47,10 @@ namespace RPG.Characters {
             }
         }
 
+        public void StopAttacking() {
+            StopAllCoroutines();
+        }
+
         void SetUpReferencesToComponents() {
             animator = GetComponent<Animator>();
             character = GetComponent<Character>();
@@ -103,6 +107,7 @@ namespace RPG.Characters {
             }
         }
 
+        //TODO make abilitybehaviour call this method instead of doing it itself?
         void AttackTargetOnce() {
             transform.LookAt(target.transform);
             animator.SetTrigger(AnimationConstants.ATTACK_TRIGGER);
