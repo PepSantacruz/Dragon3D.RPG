@@ -23,6 +23,31 @@ namespace RPG.Characters {
             SetupAttackAndDeathAnimation();
         }
 
+        void Update() {
+            bool targetIsDead;
+            bool targetOutOfRange;
+
+            if (target == null) {
+                targetIsDead = false;
+                targetOutOfRange = false;
+            }
+            else {
+                float targetHealth = target.GetComponent<HealthSystem>().healthAsPercentage;
+                targetIsDead = targetHealth <= Mathf.Epsilon;
+
+                float distanceToTarget = Vector3.Distance(target.transform.position, transform.position);
+                targetOutOfRange = distanceToTarget <= Mathf.Epsilon;
+            }
+
+
+            float characterHealth = character.GetComponent<HealthSystem>().healthAsPercentage;
+            bool characterIsDead = characterHealth <= Mathf.Epsilon;
+
+            if (characterIsDead || targetOutOfRange || targetIsDead) {
+                StopAllCoroutines();
+            }
+        }
+
         void SetUpReferencesToComponents() {
             animator = GetComponent<Animator>();
             character = GetComponent<Character>();
@@ -55,14 +80,6 @@ namespace RPG.Characters {
             return baseDamage + currentWeaponConfig.GetWeaponDamage();
         }
 
-        void AttackTarget() {
-            if (Time.time - lastHitTime > currentWeaponConfig.GetMinTimeBetweenHits()) {
-                SetupAttackAndDeathAnimation();  //update animation attack and death
-                animator.SetTrigger(AnimationConstants.ATTACK_TRIGGER);
-                lastHitTime = Time.time;
-            }
-        }
-
         public void AttackTarget(GameObject targetToAttack) {
             target = targetToAttack;
             StartCoroutine(AttackTargetRepeatedly());
@@ -90,7 +107,7 @@ namespace RPG.Characters {
         void AttackTargetOnce() {
             transform.LookAt(target.transform);
             animator.SetTrigger(AnimationConstants.ATTACK_TRIGGER);
-            float damageDelay = 1f;
+            float damageDelay = 1f; //to know exactly when in the animation we're gona hit
             SetupAttackAndDeathAnimation();
             StartCoroutine(DamageAfterDelay(damageDelay));
         }
