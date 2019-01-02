@@ -22,10 +22,10 @@ MonoBehaviour:
     y: 30
     width: 1419
     height: 715
-  m_MinSize: {x: 709, y: 498}
-  m_MaxSize: {x: 18004, y: 14048}
+  m_MinSize: {x: 713, y: 498}
+  m_MaxSize: {x: 18008, y: 14048}
   vertical: 0
-  controlID: 2149
+  controlID: 101
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 498}
   m_MaxSize: {x: 10002, y: 14048}
   vertical: 1
-  controlID: 2150
+  controlID: 102
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -189,9 +189,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 14.209999, y: 0, z: 4.08}
+    m_Target: {x: 10.83, y: 2.79, z: -0.57748526}
     speed: 2
-    m_Value: {x: 14.209999, y: 0, z: 4.08}
+    m_Value: {x: 10.83, y: 2.79, z: -0.57748526}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -223,9 +223,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0.39989886, y: -0.29867238, z: 0.13966142, w: 0.855202}
   m_Size:
-    m_Target: 8.0107355
+    m_Target: 11.369608
     speed: 2
-    m_Value: 8.0107355
+    m_Value: 11.369608
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -303,20 +303,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_Characters/Enemies
+    - Assets/_Characters/Player/Weapons/Melee/Sword
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/_Characters/Enemies
+  - Assets/_Characters/Player/Weapons/Melee/Sword
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/Shared/Unity/DragonRPG/Dragon3D.RPG
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 4c490000
-    m_LastClickedID: 18764
-    m_ExpandedIDs: 00000000c4270000562c00005031000010370000d63c0000d6420000924700004c490000
+    scrollPos: {x: 0, y: 154.9986}
+    m_SelectedIDs: 3e1d0000
+    m_LastClickedID: 7486
+    m_ExpandedIDs: 000000000e0b00009e0f000098140000521a00001620000014260000cc2a0000842c0000082d000012330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -344,7 +344,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c4270000562c00005031000010370000d63c0000d6420000924700004c490000
+    m_ExpandedIDs: 000000000e0b00009e0f000098140000521a00001620000014260000cc2a0000842c0000082d000012330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -369,8 +369,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 2033feff
-    m_LastClickedInstanceID: -117984
+    m_SelectedInstanceIDs: ccb1ffff
+    m_LastClickedInstanceID: -20020
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:
@@ -388,7 +388,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 6}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -524,8 +524,8 @@ MonoBehaviour:
     y: 0
     width: 327
     height: 715
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 204, y: 224}
+  m_MaxSize: {x: 4004, y: 4024}
   m_ActualView: {fileID: 11}
   m_Panes:
   - {fileID: 11}
@@ -560,9 +560,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 2033feff
-      m_LastClickedID: -117984
-      m_ExpandedIDs: 02ecfffff8f4ffffe0f6ffffcafbffffee50000044510000
+      m_SelectedIDs: ccb1ffff
+      m_LastClickedID: -20020
+      m_ExpandedIDs: 6eecffff70ecffffd2ecffffeaecfffff0ecfffffeecffffd4fbffff1c34000072340000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
