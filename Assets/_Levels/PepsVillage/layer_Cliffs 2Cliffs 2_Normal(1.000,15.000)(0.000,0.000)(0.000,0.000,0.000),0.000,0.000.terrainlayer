@@ -7,8 +7,8 @@ TerrainLayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: layer_Cliffs 2Cliffs 2_Normal(1.000,15.000)(0.000,0.000)(0.000,0.000,0.000),0.000,0.000
-  m_DiffuseTexture: {fileID: 2800000, guid: f53ffa06e2af3492692617da34d814bb, type: 3}
-  m_NormalMapTexture: {fileID: 2800000, guid: 6addf4c905c744ebe8c8855e10291a08, type: 3}
+  m_DiffuseTexture: {fileID: 2800000, guid: 3afea743c11e2df44b3fb4149bc120c6, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: 6496f5857193f674f80f6d0426e042cf, type: 3}
   m_MaskMapTexture: {fileID: 0}
   m_TileSize: {x: 1, y: 15}
   m_TileOffset: {x: 0, y: 0}
