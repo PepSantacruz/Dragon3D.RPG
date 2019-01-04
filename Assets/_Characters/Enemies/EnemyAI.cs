@@ -72,7 +72,7 @@ namespace RPG.Characters {
                 Vector3 nextWaypointPosition = patrollPathContainer.transform.GetChild(nextWaypointIndex).position;
                 character.SetDestination(nextWaypointPosition);
                 CycleWaypointWhenClose(nextWaypointPosition);
-                yield return new WaitForSeconds(dwellTime);
+                yield return new WaitForSecondsRealtime(dwellTime);
             }
             yield return new WaitForEndOfFrame();
         }
