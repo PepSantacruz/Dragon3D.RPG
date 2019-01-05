@@ -17,7 +17,7 @@ MonoBehaviour:
   attackAnimation: {fileID: 7400000, guid: 65ab56ec63abae340b7646d2ed24c864, type: 3}
   deathAnimation: {fileID: 7400000, guid: 9a26352c93a81e947b73b8e47cc931bb, type: 3}
   minTimeBetweenHits: 0.2
-  maxAttackRange: 1.02
+  maxAttackRange: 1.2
   weaponDamage: 0
   damageDelay: 0
   weaponTransform: {fileID: 4850878898023034, guid: 3b77baa13762942d7b93b571e259b20e,

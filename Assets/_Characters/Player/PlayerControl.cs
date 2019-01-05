@@ -46,8 +46,10 @@ namespace RPG.Characters {
         }
 
         void OnMouseOverTerrain(Vector3 destination) {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0)) {
+                weaponSystem.StopAttacking();
                 character.SetDestination(destination);
+            }
         }
 
         bool IsTargetInRange(EnemyAI target) {
