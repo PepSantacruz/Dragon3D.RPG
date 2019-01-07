@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_CameraUI\CameraChange.cs" />
     <Compile Include="Assets\_CameraUI\CameraFollow.cs" />
     <Compile Include="Assets\_CameraUI\CameraRaycaster.cs" />
     <Compile Include="Assets\_Characters\Enemies\EnemyAI.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Assets\_Environment\Water\Water\Scripts\Water.cs" />
     <Compile Include="Assets\_Environment\Water\Water\Scripts\WaterBase.cs" />
     <Compile Include="Assets\_Environment\Water\Water\Scripts\WaterTile.cs" />
+    <Compile Include="Assets\ChangeCameraPoint.cs" />
     <None Include="Assets\_Environment\Water\Water\Shaders\FXWaterPro.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>/Users/Shared/Unity/DragonRPG/Dragon3D.RPG/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
