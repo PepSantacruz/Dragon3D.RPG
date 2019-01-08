@@ -6,15 +6,16 @@ namespace RPG.CameraUI {
     public class CameraFollow : MonoBehaviour {
 
         Transform playerTransform;
-        // Use this for initialization
+        RectTransform cameraRectTransform;
+
         void Start() {
             playerTransform = GameObject.FindWithTag("Player").transform;
-            //TODO Point To the player
-            //Camera.main.GetComponent<RectTransform>().LookAt(playerTransform);
+            cameraRectTransform = Camera.main.GetComponent<RectTransform>();
         }
 
         void LateUpdate() {
             transform.position = playerTransform.position;
+            cameraRectTransform.LookAt(playerTransform);
         }
     }
 }
