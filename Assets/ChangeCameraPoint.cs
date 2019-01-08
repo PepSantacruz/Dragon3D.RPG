@@ -3,7 +3,10 @@ using UnityEngine;
 
 namespace RPG.CameraUI {
     public class ChangeCameraPoint : MonoBehaviour {
-        [SerializeField] float timeOfTravel = 2;
+        [SerializeField] float timeOfTravel = 0.5f;
+
+        //Start vector : pos = new Vector3(5, 8 -11);  
+        //Bridge vector : pos = new Vector3(10, 8 1);  
 
         RectTransform rectTransformCamera;
 
@@ -12,9 +15,11 @@ namespace RPG.CameraUI {
         }
 
         private void OnTriggerEnter(Collider other) {
-            // TODO use scriptable object to store the desired position
+            // TODO use scriptable object to store the desired position or 4 predefined
+            // TODO only if collides with the player
             print("Enter camera change");
-            StartCoroutine(LerpObject(other.gameObject.transform,rectTransformCamera.anchoredPosition3D, new Vector3(0, 8, -10)));
+            StopAllCoroutines();
+            StartCoroutine(LerpObject(other.gameObject.transform,rectTransformCamera.anchoredPosition3D, new Vector3(10, 8, 1)));
         }
 
         IEnumerator LerpObject(Transform targetToLook, Vector3 startPosition, Vector3 endPosition) {

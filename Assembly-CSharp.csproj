@@ -61,7 +61,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\_CameraUI\CameraChange.cs" />
     <Compile Include="Assets\_CameraUI\CameraFollow.cs" />
     <Compile Include="Assets\_CameraUI\CameraRaycaster.cs" />
     <Compile Include="Assets\_Characters\Enemies\EnemyAI.cs" />
