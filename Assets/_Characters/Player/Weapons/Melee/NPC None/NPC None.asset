@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 584c79a8796b14c14bcdf820d34a17e6, type: 3}
+  m_Name: NPC None
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 6155769008298726592, guid: fba418532bf894f30a08f6a0e2aba8fd,
+    type: 3}
+  attackAnimation: {fileID: 7400000, guid: ce17781955d25c647922801319f24e9e, type: 3}
+  deathAnimation: {fileID: 7400000, guid: 589a11892e95f834dbf23f9e1cc1f090, type: 3}
+  minTimeBetweenHits: 0.5
+  maxAttackRange: 0
+  weaponDamage: 0
+  damageDelay: 0.5
+  weaponTransform: {fileID: 4850878898023034, guid: 044175291068a49029c8210ea867b15a,
+    type: 3}

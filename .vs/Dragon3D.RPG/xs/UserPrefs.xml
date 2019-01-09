@@ -1,7 +1,10 @@
 ﻿<Properties StartupConfiguration="{792937AF-1406-7EE1-AB09-95A5FA983ADB}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ChangeCameraPoint.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Characters/Scripts/Character.cs">
     <Files>
-      <File FileName="Assets/ChangeCameraPoint.cs" Line="8" Column="9" />
+      <File FileName="Assets/ChangeCameraPoint.cs" Line="18" Column="56" />
+      <File FileName="Assets/_Characters/Enemies/EnemyAI.cs" Line="34" Column="1" />
+      <File FileName="Assets/_Characters/Player/Weapons/WeaponConfig.cs" Line="38" Column="24" />
+      <File FileName="Assets/_Characters/Scripts/Character.cs" Line="15" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

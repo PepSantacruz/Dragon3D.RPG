@@ -15,6 +15,7 @@ namespace RPG.CameraUI {
         private void OnTriggerEnter(Collider other) {
        
             if (other.gameObject.tag == "Player") {
+                print("Camera change"+ other.gameObject);
                 StopAllCoroutines();
                 Vector3 oldPointOfView = rectTransformCamera.anchoredPosition3D;
                 StartCoroutine(LerpObject(other.gameObject.transform, rectTransformCamera.anchoredPosition3D, pointOfView));
