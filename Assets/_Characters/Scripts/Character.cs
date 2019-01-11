@@ -7,7 +7,7 @@ namespace RPG.Characters {
 
     [SelectionBase]
     public class Character : MonoBehaviour {
-
+        //TODO create a collider just for the cursor click on enemy to attack
         [Header("Animator Setup")]
         [SerializeField] RuntimeAnimatorController animatorController;
         [SerializeField] AnimatorOverrideController animatorOverrideController;

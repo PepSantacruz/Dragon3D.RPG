@@ -72,8 +72,8 @@ namespace RPG.Characters {
         GameObject RequestDominantHand() {
             DominantHand[] dominantHands = GetComponentsInChildren<DominantHand>();
             int numberOfDominantHands = dominantHands.Length;
-            Assert.IsFalse(numberOfDominantHands <= 0, "No DominantHand script found in Player, please add one");
-            Assert.IsFalse(numberOfDominantHands > 1, "Multiple DominantHand script found, please remove " + (numberOfDominantHands - 1));
+            Assert.IsFalse(numberOfDominantHands <= 0, "No DominantHand script found in "+gameObject+", please add one");
+            Assert.IsFalse(numberOfDominantHands > 1, "Multiple DominantHand script found in "+gameObject+", please remove " + (numberOfDominantHands - 1));
 
             return dominantHands[0].gameObject;
         }
@@ -92,8 +92,9 @@ namespace RPG.Characters {
             bool targetStillAlive = target.GetComponent<HealthSystem>().healthAsPercentage >= Mathf.Epsilon;
 
             while (attackerStillAlive && targetStillAlive) {
-                float weaponHitPeriod = currentWeaponConfig.GetMinTimeBetweenHits();
-                float timeToWait = weaponHitPeriod * character.GetAnimationSpeedMultiplier();
+                float animationClipTime = currentWeaponConfig.GetDeathAnimationClip().length;
+                animationClipTime /= character.GetAnimationSpeedMultiplier();
+                float timeToWait = animationClipTime + currentWeaponConfig.GetMinTimeBetweenAnimationCycles();
 
                 bool isTimeToHitAgain = Time.time - lastHitTime > timeToWait;
 
