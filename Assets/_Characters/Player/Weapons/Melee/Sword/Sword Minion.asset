@@ -19,6 +19,6 @@ MonoBehaviour:
   timeBetweenAnimationCycles: 3
   maxAttackRange: 1.2
   weaponDamage: 0
-  damageDelay: 0.5
+  damageDelay: 0.15
   weaponTransform: {fileID: 4850878898023034, guid: 3b77baa13762942d7b93b571e259b20e,
     type: 3}

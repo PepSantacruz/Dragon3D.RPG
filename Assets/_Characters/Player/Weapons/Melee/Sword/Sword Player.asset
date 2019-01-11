@@ -16,7 +16,7 @@ MonoBehaviour:
     type: 3}
   attackAnimation: {fileID: 7400000, guid: d82669b37833c5f4db716b82428a5ad6, type: 3}
   deathAnimation: {fileID: 7400000, guid: 9a26352c93a81e947b73b8e47cc931bb, type: 3}
-  timeBetweenAnimationCycles: 2
+  timeBetweenAnimationCycles: 0
   maxAttackRange: 2.14
   weaponDamage: 25
   damageDelay: 0.15

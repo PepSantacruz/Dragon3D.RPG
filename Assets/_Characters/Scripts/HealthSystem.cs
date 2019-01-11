@@ -79,10 +79,10 @@ namespace RPG.Characters {
             audioSource.Play();
             animator.SetTrigger(AnimationConstants.DEATH_TRIGGER);
 
-            if (playerComponent && playerComponent.isActiveAndEnabled) {
-                yield return new WaitForSecondsRealtime(audioSource.clip.length);
+            yield return new WaitForSecondsRealtime(audioSource.clip.length);
+
+            if (playerComponent && playerComponent.isActiveAndEnabled) 
                 SceneManager.LoadScene(0);
-            }
             else
                 Destroy(gameObject, deathVanishSeconds);
 
