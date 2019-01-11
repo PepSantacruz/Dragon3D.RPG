@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 178836827}
   - component: {fileID: 8687568338715952814}
   - component: {fileID: 3735105487155283971}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -100,6 +100,7 @@ MonoBehaviour:
   animatorOverrideController: {fileID: 22100000, guid: 2172c960126aa45bfb7657388948c2c3,
     type: 2}
   characterAvatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
+  animatorForward: 1
   spatialBlend: 0
   colliderCenter: {x: 0, y: 1.092766, z: 0}
   colliderRadius: 0.2
