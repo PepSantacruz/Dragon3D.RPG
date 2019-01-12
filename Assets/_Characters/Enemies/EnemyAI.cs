@@ -25,6 +25,7 @@ namespace RPG.Characters {
         float currentWeaponRange;
         float distanceToPlayer;
         int nextWaypointIndex = 0;
+        private Vector3 P = new Vector3(0,0,0);
 
         private void Start() {
             player = FindObjectOfType<PlayerControl>(); //TODO Find player by tag?
@@ -87,7 +88,12 @@ namespace RPG.Characters {
             state = State.chasing;
 
             while (distanceToPlayer >= currentWeaponRange) {
-                character.SetDestination(player.transform.position);
+                Vector3 A = transform.position; 
+                Vector3 B = player.transform.position;
+
+                P = Vector3.Lerp(A, B, 1 -  currentWeaponRange*0.7f/ (A - B).magnitude);
+               
+                character.SetDestination(P);
                 yield return new WaitForEndOfFrame();
             }
         }
@@ -97,6 +103,9 @@ namespace RPG.Characters {
             Gizmos.DrawWireSphere(transform.position, chaseRadius);
             Gizmos.color = new Color(255, 0, 0, 0.5f);
             Gizmos.DrawWireSphere(transform.position, currentWeaponRange);
+
+            Gizmos.color = new Color(0, 255, 0, 1);
+            Gizmos.DrawSphere(P, 0.2f);
         }
 
     }
