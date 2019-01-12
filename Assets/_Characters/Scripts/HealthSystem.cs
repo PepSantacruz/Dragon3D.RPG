@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using RPG.CameraUI;
 
 namespace RPG.Characters {
     public class HealthSystem : MonoBehaviour {
@@ -79,9 +80,18 @@ namespace RPG.Characters {
             audioSource.Play();
             animator.SetTrigger(AnimationConstants.DEATH_TRIGGER);
 
+            if (playerComponent) {
+                //to prevent the player move when is dead and the uses clicks on terrain
+                FindObjectOfType<CameraRaycaster>().enabled = false;
+            }
+            else {
+                //to prevent the enemy to follow the player while he is dead 
+                GetComponent<EnemyAI>().enabled = false;
+            }
+
             yield return new WaitForSecondsRealtime(audioSource.clip.length);
 
-            if (playerComponent && playerComponent.isActiveAndEnabled) 
+            if (playerComponent && playerComponent.isActiveAndEnabled)
                 SceneManager.LoadScene(0);
             else
                 Destroy(gameObject, deathVanishSeconds);

@@ -30,8 +30,8 @@ namespace RPG.Characters {
         [SerializeField] float moveThreshold = 1f;
 
         [Header("NavAgent Setup")]
-        [SerializeField] float navMeshAgentSteeringSpeed=1.0f;
-        [SerializeField] float navMeshAgentStopingDistance=1.3f;
+        [SerializeField] float navMeshAgentSteeringSpeed = 1.0f;
+        [SerializeField] float navMeshAgentStopingDistance = 1.3f;
 
         Animator animator;
         Rigidbody rigidBody;
@@ -75,6 +75,8 @@ namespace RPG.Characters {
             }
             else {
                 Move(Vector3.zero);
+                if (!isAlive)
+                    SetDestination(transform.position);
             }
         }
 
@@ -89,7 +91,6 @@ namespace RPG.Characters {
                 velocity.y = rigidBody.velocity.y;
                 rigidBody.velocity = velocity;
             }
-
         }
 
         void Move(Vector3 movement) {
@@ -117,7 +118,7 @@ namespace RPG.Characters {
         }
 
         void UpdateAnimator() {
-            animator.SetFloat("Forward", forwardAmount*animatorForward, 0.1f, Time.deltaTime);
+            animator.SetFloat("Forward", forwardAmount * animatorForward, 0.1f, Time.deltaTime);
             animator.SetFloat("Turn", turnAmount, 0.1f, Time.deltaTime);
             animator.speed = animationSpeedMultiplier;
         }
@@ -137,7 +138,6 @@ namespace RPG.Characters {
         public float GetAnimationSpeedMultiplier() {
             return animator.speed;
         }
-
     }
 }
 
