@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 3546666262343954114}
   - component: {fileID: 5332946869827005972}
   m_Layer: 0
-  m_Name: Enemy 101
+  m_Name: EnemyBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,6 +64,7 @@ MonoBehaviour:
   animatorOverrideController: {fileID: 22100000, guid: f723f8f42197f4a1e90b91a1a6ddd157,
     type: 2}
   characterAvatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
+  animatorForward: 1
   spatialBlend: 0
   colliderCenter: {x: 0, y: 1.092766, z: 0}
   colliderRadius: 0.2
@@ -105,6 +106,7 @@ MonoBehaviour:
   chaseRadius: 1.47
   patrollPathContainer: {fileID: 0}
   waypointTolerance: 2
+  dwellTime: 0.5
 --- !u!114 &5332946869827005972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,16 +123,12 @@ MonoBehaviour:
   deathVanishSeconds: 2
   healthBar: {fileID: 2654359365122532564}
   damageSounds:
-  - {fileID: 8300000, guid: 5e83bda448f934589b91805205c9af72, type: 3}
-  - {fileID: 8300000, guid: e2db471cb68ab4401bf52edb616426de, type: 3}
-  - {fileID: 8300000, guid: db01cd024681c4be7b6a09ada5ed3f5d, type: 3}
-  - {fileID: 8300000, guid: 8d05d8addc3594095a45cd391c713cce, type: 3}
-  - {fileID: 8300000, guid: 7114b237792df4521aeab2583e7025b6, type: 3}
-  - {fileID: 8300000, guid: f9da745dcc0ae4ac8a9d0f49c4b473c2, type: 3}
+  - {fileID: 8300000, guid: 36e34ee827e2f40e492cb4087f1ed5cf, type: 3}
   deathSounds:
-  - {fileID: 8300000, guid: 631ef0286be7f45b2a86d38541e8a470, type: 3}
-  - {fileID: 8300000, guid: 95bfbb8d1b2a64ea2957a92c43598c1b, type: 3}
-  - {fileID: 8300000, guid: d0660ce3ce8524a608fce689c5521362, type: 3}
+  - {fileID: 8300000, guid: 0771327b81dfc46b38db0b3b6e2e98f9, type: 3}
+  - {fileID: 8300000, guid: 85fb9b15c60854a019095241b831ea14, type: 3}
+  - {fileID: 8300000, guid: 731acff73b464488a9991ceb1b8565a0, type: 3}
+  - {fileID: 8300000, guid: fb9cb4ccb92aa47b68fda46b7106cdae, type: 3}
 --- !u!114 &972596207861932742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +266,27 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224618958594901938, guid: 9a9d70d10b9331d469e57254147e0430,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 224618958594901938, guid: 9a9d70d10b9331d469e57254147e0430,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 2654359364423238751, guid: 9a9d70d10b9331d469e57254147e0430,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bfb410d1f6d1742eeb4544b62e3a2704,
+        type: 3}
+    - target: {fileID: 2654359364423238751, guid: 9a9d70d10b9331d469e57254147e0430,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 0.485
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a9d70d10b9331d469e57254147e0430, type: 3}

@@ -10406,6 +10406,11 @@ PrefabInstance:
       objectReference: {fileID: 900538786}
     - target: {fileID: 4351813826410965819, guid: 7737647c22c1fc64a88d5cd030c352ce,
         type: 3}
+      propertyPath: damageSounds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351813826410965819, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1587172551}
@@ -10414,6 +10419,31 @@ PrefabInstance:
       propertyPath: maximumHealthPoints
       value: 150
       objectReference: {fileID: 0}
+    - target: {fileID: 4351813826410965819, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 3}
+      propertyPath: damageSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 28d1713ff621b45d1a9dfa8de73b3ea0, type: 3}
+    - target: {fileID: 4351813826410965819, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 3}
+      propertyPath: damageSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: c753ed19787a048d0ad0cd9f277a067c, type: 3}
+    - target: {fileID: 4351813826410965819, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 3}
+      propertyPath: damageSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f646aca69a1f4ba58935ff1f994b019, type: 3}
+    - target: {fileID: 4351813826410965819, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 3}
+      propertyPath: damageSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: dbeb82be52bed485f8bda20b33b8aae1, type: 3}
+    - target: {fileID: 4351813826410965819, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 3}
+      propertyPath: damageSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: eee64514324c54c0888781b281a687df, type: 3}
     - target: {fileID: 3735105487155283971, guid: 7737647c22c1fc64a88d5cd030c352ce,
         type: 3}
       propertyPath: baseDamage
