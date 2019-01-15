@@ -75,7 +75,7 @@ MonoBehaviour:
   stationaryTurnSpeed: 180
   moveThreshold: 1
   navMeshAgentSteeringSpeed: 1
-  navMeshAgentStopingDistance: 1.3
+  navMeshAgentStopingDistance: 0.5
 --- !u!114 &977898731211564898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +136,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972596209593789111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98c76f3095db45edaf6356a9f84dfe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6772138941285654842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7607827231671094963}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a98c76f3095db45edaf6356a9f84dfe7, type: 3}
@@ -325,6 +337,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_Knights_Soldier_02
       objectReference: {fileID: 0}
+    - target: {fileID: 191330, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 435482, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -369,6 +385,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 127938, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7271964943126375670, guid: 679ff741e12a7e740819ede24a7000b7,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300026, guid: 6efd29ca7218646dfbbcd1d2d5c5e452, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
 --- !u!4 &972596209594057471 stripped
@@ -380,6 +405,12 @@ Transform:
 --- !u!1 &972596209593789111 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 183634, guid: 679ff741e12a7e740819ede24a7000b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 972596209593640933}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7607827231671094963 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7271964943140055382, guid: 679ff741e12a7e740819ede24a7000b7,
     type: 3}
   m_PrefabInstance: {fileID: 972596209593640933}
   m_PrefabAsset: {fileID: 0}

@@ -111,7 +111,7 @@ MonoBehaviour:
   stationaryTurnSpeed: 800
   moveThreshold: 1
   navMeshAgentSteeringSpeed: 1
-  navMeshAgentStopingDistance: 1.3
+  navMeshAgentStopingDistance: 0.5
 --- !u!114 &8687568338715952814
 MonoBehaviour:
   m_ObjectHideFlags: 0

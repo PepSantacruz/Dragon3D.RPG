@@ -37,6 +37,7 @@ namespace RPG.Characters {
         Rigidbody rigidBody;
         NavMeshAgent navAgent;
 
+        float currentAnimatorForward = 1f;
         float turnAmount;
         float forwardAmount;
         bool isAlive = true;
@@ -60,6 +61,7 @@ namespace RPG.Characters {
             animator = gameObject.AddComponent<Animator>();
             animator.runtimeAnimatorController = animatorController;
             animator.avatar = characterAvatar;
+            currentAnimatorForward = animatorForward;
 
             navAgent = gameObject.AddComponent<NavMeshAgent>();
             navAgent.speed = navMeshAgentSteeringSpeed;
@@ -118,7 +120,7 @@ namespace RPG.Characters {
         }
 
         void UpdateAnimator() {
-            animator.SetFloat("Forward", forwardAmount * animatorForward, 0.1f, Time.deltaTime);
+            animator.SetFloat("Forward", forwardAmount * currentAnimatorForward, 0.1f, Time.deltaTime);
             animator.SetFloat("Turn", turnAmount, 0.1f, Time.deltaTime);
             animator.speed = animationSpeedMultiplier;
         }
@@ -137,6 +139,14 @@ namespace RPG.Characters {
 
         public float GetAnimationSpeedMultiplier() {
             return animator.speed;
+        }
+
+        public void setMaximumAnimatorForward() {
+            currentAnimatorForward = 1; 
+        }
+
+        public void setSelectedAnimatorForward() {
+            currentAnimatorForward = animatorForward;
         }
     }
 }

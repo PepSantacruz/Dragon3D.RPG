@@ -48,9 +48,11 @@ namespace RPG.Characters {
 
             if (outsideChaseRing) {
                 StopAttacking();
+                character.setSelectedAnimatorForward();
                 StartCoroutine(Patrol());
             }
             if (inChaseRing) {
+                character.setMaximumAnimatorForward();
                 StopAttacking();
                 StartCoroutine(ChasePlayer());
             }

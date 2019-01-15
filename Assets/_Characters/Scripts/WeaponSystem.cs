@@ -5,7 +5,7 @@ using UnityEngine.Assertions;
 
 namespace RPG.Characters {
     public class WeaponSystem : MonoBehaviour {
-        const float PARTICLE_CLEAN_UP_DELAY = 10.0f;
+        const float PARTICLE_CLEAN_UP_DELAY = 5.0f;
         const float PARTICLE_Y_OFFSET = 1.2f;
 
         [SerializeField] float baseDamage = 10f;
