@@ -6,6 +6,7 @@ namespace RPG.Characters {
     public class WeaponConfig : ScriptableObject {
 
         [SerializeField] GameObject weaponPrefab;
+        [SerializeField] GameObject weaponHitParticlePrefab;
         [SerializeField] AnimationClip attackAnimation;
         [SerializeField] AnimationClip deathAnimation;
         [SerializeField] float timeBetweenAnimationCycles = 0.5f;
@@ -45,6 +46,10 @@ namespace RPG.Characters {
 
         public float GetWeaponDamage() {
             return weaponDamage;
+        }
+
+        public GameObject GetWeaponHitParticlePrefab() {
+            return weaponHitParticlePrefab;
         }
 
         public float GetDamageDelay() {

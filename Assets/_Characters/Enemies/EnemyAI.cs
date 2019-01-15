@@ -88,10 +88,11 @@ namespace RPG.Characters {
             state = State.chasing;
 
             while (distanceToPlayer >= currentWeaponRange) {
+                //TODO creat a common function with the player control
                 Vector3 A = transform.position; 
                 Vector3 B = player.transform.position;
 
-                P = Vector3.Lerp(A, B, 1 -  currentWeaponRange*0.7f/ (A - B).magnitude);
+                P = Vector3.Lerp(A, B, 1 -  (currentWeaponRange*0.7f)/ (A - B).magnitude);
                
                 character.SetDestination(P);
                 yield return new WaitForEndOfFrame();

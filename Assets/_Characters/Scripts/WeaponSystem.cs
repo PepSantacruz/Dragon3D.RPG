@@ -5,6 +5,9 @@ using UnityEngine.Assertions;
 
 namespace RPG.Characters {
     public class WeaponSystem : MonoBehaviour {
+        const float PARTICLE_CLEAN_UP_DELAY = 10.0f;
+        const float PARTICLE_Y_OFFSET = 1.2f;
+
         [SerializeField] float baseDamage = 10f;
         [SerializeField] WeaponConfig currentWeaponConfig = null;
 
@@ -117,8 +120,24 @@ namespace RPG.Characters {
         }
 
         IEnumerator DamageAfterDelay(float damageAfterDealay) {
-            yield return new WaitForSecondsRealtime(damageAfterDealay); //TODO unity never calls the next line
+            yield return new WaitForSecondsRealtime(damageAfterDealay); 
             target.GetComponent<HealthSystem>().TakeDamage(CalculateDamage());
+            PlayParticleEffect();
+        }
+
+        //TODO Move the instantiate code to an utility static function
+        private void PlayParticleEffect() {
+            Vector3 particlePosition = target.transform.position;
+            particlePosition.y += PARTICLE_Y_OFFSET;
+            GameObject particlePrefab = currentWeaponConfig.GetWeaponHitParticlePrefab();
+            GameObject effectPrefab = Instantiate(  //the particle effect configures the local or world coordinates
+                particlePrefab,
+                particlePosition,
+                particlePrefab.transform.rotation);
+            effectPrefab.transform.parent = target.transform;
+
+            effectPrefab.GetComponent<ParticleSystem>().Play();
+            Destroy(effectPrefab, PARTICLE_CLEAN_UP_DELAY);
         }
 
         public void PutWeaponInHand(WeaponConfig weaponConfig) {

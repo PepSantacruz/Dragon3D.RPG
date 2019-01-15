@@ -12,6 +12,10 @@ namespace RPG.Characters {
 
         int currentAbilityIndex = 0;
 
+        //TODO only for debug purposes, make them local
+        Vector3 P = Vector3.zero;
+        float currentWeaponRange = 0f;
+
         void Start() {
             SetUpCharacterAndSystems();
             SetUpEnergyBar();
@@ -74,10 +78,15 @@ namespace RPG.Characters {
         }
 
         IEnumerator MoveToTarget(EnemyAI target) {
-
+            currentWeaponRange = weaponSystem.GetWeaponConfig().GetMaxAttackRange();
             //Move to the target
             while (!IsTargetInRange(target)) {
-                character.SetDestination(target.transform.position);
+                Vector3 A = transform.position;
+                Vector3 B = target.transform.position;
+
+                P = Vector3.Lerp(A, B, 1 - (currentWeaponRange * 0.7f) / (A - B).magnitude);
+
+                character.SetDestination(P);
                 yield return new WaitForEndOfFrame();
             }
 
@@ -92,6 +101,15 @@ namespace RPG.Characters {
         IEnumerator MoveAndPowerAttack(EnemyAI target) {
             yield return StartCoroutine(MoveToTarget(target));
             specialAbilities.AttemptSpecialAbility(currentAbilityIndex, target.gameObject);
+        }
+
+        private void OnDrawGizmos() {
+
+            Gizmos.color = new Color(255, 0, 0, 0.5f);
+            Gizmos.DrawWireSphere(transform.position, currentWeaponRange);
+
+            Gizmos.color = new Color(0, 0, 255, 1);
+            Gizmos.DrawSphere(P, 0.2f);
         }
     }
 }
