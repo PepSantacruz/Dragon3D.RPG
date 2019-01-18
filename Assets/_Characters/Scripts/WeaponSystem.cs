@@ -37,7 +37,7 @@ namespace RPG.Characters {
                 targetIsDead = targetHealth <= Mathf.Epsilon;
 
                 float distanceToTarget = Vector3.Distance(target.transform.position, transform.position);
-                targetOutOfRange = distanceToTarget <= Mathf.Epsilon;
+                targetOutOfRange = distanceToTarget > currentWeaponConfig.GetMaxAttackRange();
             }
 
             float characterHealth = character.GetComponent<HealthSystem>().healthAsPercentage;
@@ -114,13 +114,18 @@ namespace RPG.Characters {
         void AttackTargetOnce() {
             transform.LookAt(target.transform);
             animator.SetTrigger(AnimationConstants.ATTACK_TRIGGER);
-            float damageDelay = currentWeaponConfig.GetDamageDelay(); //TODO to know exactly when in the animation we're gona hit
             SetupAttackAndDeathAnimation();
+            DoDamage();
+        }
+
+        protected virtual void DoDamage() {
+            print("Old doDamage");
+            float damageDelay = currentWeaponConfig.GetDamageDelay(); //TODO to know exactly when in the animation we're gona hit
             StartCoroutine(DamageAfterDelay(damageDelay));
         }
 
-        IEnumerator DamageAfterDelay(float damageAfterDealay) {
-            yield return new WaitForSecondsRealtime(damageAfterDealay); 
+        IEnumerator DamageAfterDelay(float damageAfterDelay) {
+            yield return new WaitForSecondsRealtime(damageAfterDelay); 
             target.GetComponent<HealthSystem>().TakeDamage(CalculateDamage());
             PlayParticleEffect();
         }
