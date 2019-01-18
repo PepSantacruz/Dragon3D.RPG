@@ -6,15 +6,15 @@ using UnityEngine.Assertions;
 namespace RPG.Characters {
     public class WeaponSystem : MonoBehaviour {
         const float PARTICLE_CLEAN_UP_DELAY = 5.0f;
-        const float PARTICLE_Y_OFFSET = 1.2f;
+        protected float PARTICLE_Y_OFFSET = 1.2f;
 
         [SerializeField] float baseDamage = 10f;
         [SerializeField] WeaponConfig currentWeaponConfig = null;
 
+        protected Character character;
         Animator animator;
         GameObject target;
         GameObject weaponGameObject;
-        Character character;
 
         float lastHitTime;
 
@@ -81,7 +81,7 @@ namespace RPG.Characters {
             return dominantHands[0].gameObject;
         }
 
-        float CalculateDamage() {
+        protected float CalculateDamage() {
             return baseDamage + currentWeaponConfig.GetWeaponDamage();
         }
 
@@ -119,7 +119,6 @@ namespace RPG.Characters {
         }
 
         protected virtual void DoDamage() {
-            print("Old doDamage");
             float damageDelay = currentWeaponConfig.GetDamageDelay(); //TODO to know exactly when in the animation we're gona hit
             StartCoroutine(DamageAfterDelay(damageDelay));
         }

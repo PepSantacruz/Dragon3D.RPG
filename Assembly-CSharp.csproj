@@ -66,6 +66,7 @@
     <Compile Include="Assets\_Characters\Enemies\EnemyAI.cs" />
     <Compile Include="Assets\_Characters\Enemies\FaceCamera.cs" />
     <Compile Include="Assets\_Characters\Player\PlayerControl.cs" />
+    <Compile Include="Assets\_Characters\Player\Weapons\Ranged\Bow\Projectile.cs" />
     <Compile Include="Assets\_Characters\Player\Weapons\WeaponConfig.cs" />
     <Compile Include="Assets\_Characters\Player\Weapons\WeaponPickupPoint.cs" />
     <Compile Include="Assets\_Characters\Scripts\AnimationConstants.cs" />
