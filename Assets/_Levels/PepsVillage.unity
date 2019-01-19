@@ -9703,7 +9703,7 @@ PrefabInstance:
     - target: {fileID: 355961860815135063, guid: e5eac656452034d45a132502d6a09b81,
         type: 3}
       propertyPath: baseDamage
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5eac656452034d45a132502d6a09b81, type: 3}
@@ -11897,11 +11897,15 @@ PrefabInstance:
     - target: {fileID: 3735105487155283971, guid: 7737647c22c1fc64a88d5cd030c352ce,
         type: 3}
       propertyPath: baseDamage
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 178836827, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: navMeshAgentStopingDistance
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 178836827, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
+      propertyPath: collisionDetectionMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}

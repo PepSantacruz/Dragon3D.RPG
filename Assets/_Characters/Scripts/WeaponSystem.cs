@@ -2,9 +2,12 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
+using RPG.Core;
 
 namespace RPG.Characters {
     public class WeaponSystem : MonoBehaviour {
+
+        //TODO Remove, it's in UtilityPrefab
         const float PARTICLE_CLEAN_UP_DELAY = 5.0f;
         protected float PARTICLE_Y_OFFSET = 1.2f;
 
@@ -115,33 +118,27 @@ namespace RPG.Characters {
             transform.LookAt(target.transform);
             animator.SetTrigger(AnimationConstants.ATTACK_TRIGGER);
             SetupAttackAndDeathAnimation();
-            DoDamage();
-        }
-
-        protected virtual void DoDamage() {
             float damageDelay = currentWeaponConfig.GetDamageDelay(); //TODO to know exactly when in the animation we're gona hit
             StartCoroutine(DamageAfterDelay(damageDelay));
         }
 
         IEnumerator DamageAfterDelay(float damageAfterDelay) {
-            yield return new WaitForSecondsRealtime(damageAfterDelay); 
+            yield return new WaitForSecondsRealtime(damageAfterDelay);
+            DoDamage();
+        }
+
+        protected virtual void DoDamage() {
             target.GetComponent<HealthSystem>().TakeDamage(CalculateDamage());
             PlayParticleEffect();
         }
 
-        //TODO Move the instantiate code to an utility static function
         private void PlayParticleEffect() {
-            Vector3 particlePosition = target.transform.position;
-            particlePosition.y += PARTICLE_Y_OFFSET;
-            GameObject particlePrefab = currentWeaponConfig.GetWeaponHitParticlePrefab();
-            GameObject effectPrefab = Instantiate(  //the particle effect configures the local or world coordinates
-                particlePrefab,
-                particlePosition,
-                particlePrefab.transform.rotation);
-            effectPrefab.transform.parent = target.transform;
-
-            effectPrefab.GetComponent<ParticleSystem>().Play();
-            Destroy(effectPrefab, PARTICLE_CLEAN_UP_DELAY);
+            ParticleUtility.PlayParticleEffect(
+                                    target.transform,
+                                    currentWeaponConfig.GetWeaponHitParticlePrefab(),
+                                    target.transform.position,
+                                    ParticleUtility.PARTICLE_STD_Y_OFFSET
+                            );
         }
 
         public void PutWeaponInHand(WeaponConfig weaponConfig) {

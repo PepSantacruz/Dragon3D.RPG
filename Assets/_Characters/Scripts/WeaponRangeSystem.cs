@@ -6,8 +6,7 @@ namespace RPG.Characters {
         [SerializeField] GameObject projectilePrefab;
         [SerializeField] GameObject spawnProjectilePoint;
         [SerializeField] float projectileSpeed;
-
-        //TODO Oerride the coroutine DamageAfterDelay and undo doDamage
+        
         protected override void DoDamage() {
             GameObject player = GameObject.FindWithTag("Player");
 

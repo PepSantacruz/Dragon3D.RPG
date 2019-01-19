@@ -14,24 +14,28 @@ namespace RPG.Characters {
         [SerializeField] Avatar characterAvatar;
         [SerializeField] [Range(0.1f, 1)] float animatorForward = 1f;
 
-        [Header("Audio Setup")]
+        [Header("Audio")]
         [SerializeField] float spatialBlend;
 
-        [Header("CapsuleCollider Setup")]
+        [Header("CapsuleCollider")]
         [SerializeField] Vector3 colliderCenter;
         [SerializeField] float colliderRadius;
         [SerializeField] float colliderHeight;
 
-        [Header("Movement Setup")]
+        [Header("Movement")]
         [SerializeField] float moveSpeedMultiplier = 1.3f;
         [SerializeField] float animationSpeedMultiplier = 1.5f;
         [SerializeField] float movingTurnSpeed = 360;
         [SerializeField] float stationaryTurnSpeed = 180;
         [SerializeField] float moveThreshold = 1f;
 
-        [Header("NavAgent Setup")]
+        [Header("NavAgent")]
         [SerializeField] float navMeshAgentSteeringSpeed = 1.0f;
         [SerializeField] float navMeshAgentStopingDistance = 1.3f;
+
+        [Header("Rigidbody")]
+        
+        [SerializeField] CollisionDetectionMode collisionDetectionMode;
 
         Animator animator;
         Rigidbody rigidBody;
@@ -57,6 +61,7 @@ namespace RPG.Characters {
 
             rigidBody = gameObject.AddComponent<Rigidbody>();
             rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
+            rigidBody.collisionDetectionMode = collisionDetectionMode;
 
             animator = gameObject.AddComponent<Animator>();
             animator.runtimeAnimatorController = animatorController;
