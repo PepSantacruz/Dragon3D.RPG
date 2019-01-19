@@ -12,7 +12,7 @@ namespace RPG.Characters {
         protected float PARTICLE_Y_OFFSET = 1.2f;
 
         [SerializeField] float baseDamage = 10f;
-        [SerializeField] WeaponConfig currentWeaponConfig = null;
+        [SerializeField] protected WeaponConfig currentWeaponConfig = null;
 
         protected Character character;
         Animator animator;

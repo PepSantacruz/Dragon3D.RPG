@@ -11,7 +11,10 @@ namespace RPG.Characters {
             GameObject player = GameObject.FindWithTag("Player");
 
             GameObject newProjectile = Instantiate(projectilePrefab,spawnProjectilePoint.transform.position,Quaternion.identity);
-            newProjectile.GetComponent<Projectile>().damageToDeal = CalculateDamage();
+            Projectile projectile = newProjectile.GetComponent<Projectile>();
+
+            projectile.damageToDeal = CalculateDamage();
+            projectile.particleEffectPrefab = currentWeaponConfig.GetWeaponHitParticlePrefab();
 
             Vector3 targetProjectile = player.transform.position + new Vector3(0, PARTICLE_Y_OFFSET, 0);
 

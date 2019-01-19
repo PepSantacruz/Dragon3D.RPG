@@ -4,17 +4,18 @@ using UnityEngine;
 namespace RPG.Characters {
     public class Projectile : MonoBehaviour {
         public float damageToDeal  { get;  set;}
-
+        public GameObject particleEffectPrefab { get; set; }
 
         void OnCollisionEnter(Collision collision) {
-            HealthSystem healthSystem = collision.gameObject.GetComponent<HealthSystem>();
+            GameObject target = collision.gameObject;
+            HealthSystem healthSystem = target.GetComponent<HealthSystem>();
 
             if (healthSystem)
                 healthSystem.TakeDamage(damageToDeal);
 
             ParticleUtility.PlayParticleEffect(
                                     target.transform,
-                                    currentWeaponConfig.GetWeaponHitParticlePrefab(),
+                                    particleEffectPrefab,
                                     target.transform.position,
                                     ParticleUtility.PARTICLE_STD_Y_OFFSET
                             );
