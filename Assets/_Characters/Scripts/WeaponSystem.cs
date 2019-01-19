@@ -70,8 +70,8 @@ namespace RPG.Characters {
             else {
                 AnimatorOverrideController animatorOverrideController = character.GetAnimatorOverrideController();
                 animator.runtimeAnimatorController = animatorOverrideController;
-                animatorOverrideController[AnimationConstants.DEFAULT_ATTACK] = currentWeaponConfig.GetAttackAnimationClip();
-                animatorOverrideController[AnimationConstants.DEFAULT_DEATH] = currentWeaponConfig.GetDeathAnimationClip();
+                animatorOverrideController[Constants.DEFAULT_ATTACK] = currentWeaponConfig.GetAttackAnimationClip();
+                animatorOverrideController[Constants.DEFAULT_DEATH] = currentWeaponConfig.GetDeathAnimationClip();
             }
         }
 
@@ -116,9 +116,9 @@ namespace RPG.Characters {
         //TODO make abilitybehaviour call this method instead of doing it itself?
         void AttackTargetOnce() {
             transform.LookAt(target.transform);
-            animator.SetTrigger(AnimationConstants.ATTACK_TRIGGER);
+            animator.SetTrigger(Constants.ATTACK_TRIGGER);
             SetupAttackAndDeathAnimation();
-            float damageDelay = currentWeaponConfig.GetDamageDelay(); //TODO to know exactly when in the animation we're gona hit
+            float damageDelay = currentWeaponConfig.GetDamageDelay(); //to know exactly when in the animation we're gona hit
             StartCoroutine(DamageAfterDelay(damageDelay));
         }
 

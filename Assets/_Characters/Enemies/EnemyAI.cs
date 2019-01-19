@@ -28,7 +28,7 @@ namespace RPG.Characters {
         private Vector3 P = new Vector3(0,0,0);
 
         private void Start() {
-            player = FindObjectOfType<PlayerControl>(); //TODO Find player by tag?
+            player = GameObject.FindWithTag(Constants.PLAYER_TAG).GetComponent<PlayerControl>();
             character = GetComponent<Character>();
             weaponSystem = GetComponent<WeaponSystem>();
 

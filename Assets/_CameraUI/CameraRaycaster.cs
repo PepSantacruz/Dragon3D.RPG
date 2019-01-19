@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using RPG.Characters;
-using System;
+using RPG.Core;
 
 namespace RPG.CameraUI {
     public class CameraRaycaster : MonoBehaviour {
@@ -11,18 +11,13 @@ namespace RPG.CameraUI {
         [SerializeField] Texture2D questionCursor = null;
         [SerializeField] Vector2 cursorHotspot = new Vector2(0, 0);
 
-        [SerializeField] GameObject gm; //TODO just for debugging purposes
-
-        const int WALKABLE_LAYER = 9;
-        float maxRaycastDepth = 100f;
-
         public delegate void OnMouseOverTerrain(Vector3 destination);
         public event OnMouseOverTerrain onMouseOverTerrain;
 
         public delegate void OnMouseOverEnemy(EnemyAI enemy);
         public event OnMouseOverEnemy onMouseOverEnemy;
 
-        public void UIButtonClicked(){
+        public void UIButtonClicked() {
             print("Button Clicked");
         }
 
@@ -36,7 +31,7 @@ namespace RPG.CameraUI {
             }
         }
 
-        void PerformRaycasts(){
+        void PerformRaycasts() {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if (RaycastForEnemy(ray)) return;
@@ -48,11 +43,10 @@ namespace RPG.CameraUI {
             Cursor.SetCursor(questionCursor, cursorHotspot, CursorMode.Auto);
         }
 
-        bool RaycastForEnemy(Ray ray){
+        bool RaycastForEnemy(Ray ray) {
             RaycastHit hitInfo;
 
-            if (Physics.Raycast(ray, out hitInfo, maxRaycastDepth)) {
-                gm= hitInfo.collider.gameObject;
+            if (Physics.Raycast(ray, out hitInfo, Constants.MAX_RAYCASTER_DEPTH)) {
                 GameObject gameObjectHit = hitInfo.collider.gameObject;
                 EnemyAI enemyHit = gameObjectHit.GetComponent<EnemyAI>();
                 if (enemyHit) {
@@ -66,8 +60,8 @@ namespace RPG.CameraUI {
 
         bool RaycastForTerrain(Ray ray) {
             RaycastHit hitInfo;
-            LayerMask terrainLayerMask = 1 << WALKABLE_LAYER;
-            bool terrainHit=Physics.Raycast(ray, out hitInfo, maxRaycastDepth,terrainLayerMask);
+            LayerMask terrainLayerMask = 1 << Constants.WALKABLE_LAYER;
+            bool terrainHit = Physics.Raycast(ray, out hitInfo, Constants.MAX_RAYCASTER_DEPTH, terrainLayerMask);
             if (terrainHit) {
                 Cursor.SetCursor(walkCursor, cursorHotspot, CursorMode.Auto);
                 onMouseOverTerrain(hitInfo.point);

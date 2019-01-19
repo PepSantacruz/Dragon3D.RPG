@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using RPG.Core;
 
 namespace RPG.Characters {
     public class WeaponRangeSystem : WeaponSystem {
@@ -8,7 +9,7 @@ namespace RPG.Characters {
         [SerializeField] float projectileSpeed;
         
         protected override void DoDamage() {
-            GameObject player = GameObject.FindWithTag("Player");
+            GameObject player = GameObject.FindWithTag(Constants.PLAYER_TAG);
 
             GameObject newProjectile = Instantiate(projectilePrefab,spawnProjectilePoint.transform.position,Quaternion.identity);
             Projectile projectile = newProjectile.GetComponent<Projectile>();

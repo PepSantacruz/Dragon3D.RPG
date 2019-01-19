@@ -7,8 +7,6 @@ namespace RPG.Characters {
 
         protected AbilityConfig config;
 
-        const float PARTICLE_CLEAN_UP_DELAY = 10.0f;
-
         public void SetConfiguration(AbilityConfig configToSet) {
             config = configToSet;
         }
@@ -29,9 +27,9 @@ namespace RPG.Characters {
             Animator animator = GetComponent<Animator>();
 
             animator.runtimeAnimatorController = animatorOverrideController;
-            animatorOverrideController[AnimationConstants.DEFAULT_ATTACK] = config.GetSpecialAbilityAnimation();
+            animatorOverrideController[Constants.DEFAULT_ATTACK] = config.GetSpecialAbilityAnimation();
 
-            animator.SetTrigger(AnimationConstants.ATTACK_TRIGGER);
+            animator.SetTrigger(Constants.ATTACK_TRIGGER);
 
         }
 

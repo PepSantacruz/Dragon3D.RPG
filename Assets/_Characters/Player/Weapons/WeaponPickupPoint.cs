@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using RPG.Core;
 
 namespace RPG.Characters {
     public class WeaponPickupPoint : MonoBehaviour {
@@ -10,7 +11,7 @@ namespace RPG.Characters {
 
         // Start is called before the first frame update
         void Start() {
-            weaponSystem = GameObject.FindWithTag("Player").GetComponent<WeaponSystem>(); 
+            weaponSystem = GameObject.FindWithTag(Constants.PLAYER_TAG).GetComponent<WeaponSystem>(); 
             audioSource = GetComponent<AudioSource>();
 
             var weaponPrefab = weaponConfig.GetWeaponPrefab();

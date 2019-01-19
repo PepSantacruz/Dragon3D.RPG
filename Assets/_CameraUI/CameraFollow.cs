@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using RPG.Core;
 using UnityEngine;
 
 namespace RPG.CameraUI {
@@ -9,7 +9,7 @@ namespace RPG.CameraUI {
         RectTransform cameraRectTransform;
 
         void Start() {
-            playerTransform = GameObject.FindWithTag("Player").transform;
+            playerTransform = GameObject.FindWithTag(Constants.PLAYER_TAG).transform;
             cameraRectTransform = Camera.main.GetComponent<RectTransform>();
         }
 

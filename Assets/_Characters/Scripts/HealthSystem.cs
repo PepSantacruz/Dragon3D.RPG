@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using RPG.CameraUI;
+using RPG.Core;
 
 namespace RPG.Characters {
     public class HealthSystem : MonoBehaviour {
@@ -55,8 +56,6 @@ namespace RPG.Characters {
 
             currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maximumHealthPoints);
             if (currentHealthPoints <= 0) {
-                GetComponent<Rigidbody>().isKinematic = true; //to prevent player collision when he is dead TODO error new unity version
-
                 StartCoroutine(KillCharacter());
             }
             else {
@@ -78,7 +77,7 @@ namespace RPG.Characters {
 
             audioSource.clip = deathSounds[UnityEngine.Random.Range(0, deathSounds.Length)];
             audioSource.Play();
-            animator.SetTrigger(AnimationConstants.DEATH_TRIGGER);
+            animator.SetTrigger(Constants.DEATH_TRIGGER);
 
             if (playerComponent) {
                 //to prevent the player move when is dead and the uses clicks on terrain

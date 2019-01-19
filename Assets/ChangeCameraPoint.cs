@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using RPG.Core;
 
 namespace RPG.CameraUI {
     public class ChangeCameraPoint : MonoBehaviour {
@@ -14,7 +15,7 @@ namespace RPG.CameraUI {
 
         private void OnTriggerEnter(Collider other) {
        
-            if (other.gameObject.tag == "Player") {
+            if (other.gameObject.tag == Constants.PLAYER_TAG) {
                 StopAllCoroutines();
                 Vector3 oldPointOfView = rectTransformCamera.anchoredPosition3D;
                 StartCoroutine(LerpObject(other.gameObject.transform, rectTransformCamera.anchoredPosition3D, pointOfView));
