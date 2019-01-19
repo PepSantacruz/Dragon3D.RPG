@@ -87,6 +87,7 @@
     <Compile Include="Assets\_Core\AudioTrigger.cs" />
     <Compile Include="Assets\_Core\Constants.cs" />
     <Compile Include="Assets\_Core\ParticleUtility.cs" />
+    <Compile Include="Assets\_Core\SlowMotion.cs" />
     <Compile Include="Assets\_Core\SpinMe.cs" />
     <Compile Include="Assets\_Environment\Water\Water\Scripts\Displace.cs" />
     <Compile Include="Assets\_Environment\Water\Water\Scripts\GerstnerDisplace.cs" />

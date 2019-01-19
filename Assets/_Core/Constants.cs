@@ -16,5 +16,9 @@
         public const string DEFAULT_ATTACK = "DEFAULT ATTACK";
         public const string DEATH_TRIGGER = "Death";
         public const string DEFAULT_DEATH = "DEFAULT DEATH";
+
+        public const float SLOW_MOTION_RATE = 0.05f;
+        public const float SLOW_MOTION_TIME = 0.1f;
+
     }
 }

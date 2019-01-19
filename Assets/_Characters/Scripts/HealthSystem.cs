@@ -16,6 +16,7 @@ namespace RPG.Characters {
         Animator animator;
         AudioSource audioSource;
         Character characterMovement;
+        SlowMotion slowMotion;
 
         float currentHealthPoints;
 
@@ -23,6 +24,7 @@ namespace RPG.Characters {
             animator = GetComponent<Animator>();
             audioSource = GetComponent<AudioSource>();
             characterMovement = GetComponent<Character>();
+            slowMotion = Camera.main.GetComponent<SlowMotion>();
 
             currentHealthPoints = maximumHealthPoints;
         }
@@ -61,7 +63,7 @@ namespace RPG.Characters {
             else {
                 PlayAudioHit();
             }
-
+            slowMotion.SlowTime();
         }
 
         private void PlayAudioHit() {
