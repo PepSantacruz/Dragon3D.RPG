@@ -1,14 +1,13 @@
 ﻿<Properties StartupConfiguration="{792937AF-1406-7EE1-AB09-95A5FA983ADB}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Core/Constants.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Characters/Scripts/HealthSystem.cs">
     <Files>
       <File FileName="Assets/ChangeCameraPoint.cs" Line="3" Column="16" />
-      <File FileName="Assets/_Characters/Enemies/EnemyAI.cs" Line="31" Column="65" />
-      <File FileName="Assets/_Characters/Scripts/Character.cs" Line="10" Column="11" />
-      <File FileName="Assets/_Characters/Scripts/WeaponSystem.cs" Line="119" Column="33" />
-      <File FileName="Assets/_Characters/Scripts/WeaponRangeSystem.cs" Line="2" Column="16" />
-      <File FileName="Assets/_Characters/SpecialAbilitiy/AbilityBehaviour.cs" Line="21" Column="38" />
-      <File FileName="Assets/_Core/Constants.cs" Line="3" Column="17" />
-      <File FileName="Assets/_CameraUI/CameraRaycaster.cs" Line="65" Column="37" />
+      <File FileName="Assets/_Characters/Enemies/EnemyAI.cs" Line="83" Column="36" />
+      <File FileName="Assets/_Characters/Scripts/Character.cs" Line="134" Column="25" />
+      <File FileName="Assets/_Characters/Scripts/WeaponSystem.cs" Line="111" Column="9" />
+      <File FileName="Assets/_Characters/Scripts/WeaponRangeSystem.cs" Line="20" Column="1" />
+      <File FileName="Assets/_Characters/Player/PlayerControl.cs" Line="15" Column="11" />
+      <File FileName="Assets/_Characters/Scripts/HealthSystem.cs" Line="58" Column="44" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

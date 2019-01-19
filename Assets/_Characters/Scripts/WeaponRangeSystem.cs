@@ -17,7 +17,7 @@ namespace RPG.Characters {
             projectile.damageToDeal = CalculateDamage();
             projectile.particleEffectPrefab = currentWeaponConfig.GetWeaponHitParticlePrefab();
 
-            Vector3 targetProjectile = player.transform.position + new Vector3(0, PARTICLE_Y_OFFSET, 0);
+            Vector3 targetProjectile = player.transform.position + new Vector3(0, Constants.PARTICLE_Y_OFFSET, 0);
 
             Vector3 unitVectorToPlayer = (targetProjectile - newProjectile.transform.position).normalized;
             newProjectile.GetComponent<Rigidbody>().velocity = unitVectorToPlayer*projectileSpeed;

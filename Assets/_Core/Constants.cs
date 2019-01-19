@@ -9,6 +9,7 @@
 
         //Particle Effects
         public const float PARTICLE_CLEAN_UP_DELAY = 10.0f;
+        public const float PARTICLE_Y_OFFSET = 1.2f;
 
         //Animation
         public const string ATTACK_TRIGGER = "Attack";

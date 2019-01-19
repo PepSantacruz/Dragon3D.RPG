@@ -10,8 +10,6 @@ namespace RPG.Characters {
     [RequireComponent(typeof(WeaponSystem))]
 
     public class EnemyAI : MonoBehaviour {
-        enum State { idle, attacking, patrolling, chasing };
-
         [SerializeField] float chaseRadius = 10f;
         [SerializeField] PatrollPathContainer patrollPathContainer;
         [SerializeField] float waypointTolerance = 2f;
@@ -21,7 +19,6 @@ namespace RPG.Characters {
         Character character;
         WeaponSystem weaponSystem;
 
-        State state = State.idle;
         float currentWeaponRange;
         float distanceToPlayer;
         int nextWaypointIndex = 0;
@@ -58,7 +55,6 @@ namespace RPG.Characters {
             }
             if (inWeaponCircle) {
                 StopAllCoroutines();
-                state = State.attacking;
                 weaponSystem.AttackTarget(player.gameObject);
             }
         }
@@ -69,8 +65,6 @@ namespace RPG.Characters {
         }
 
         IEnumerator Patrol() {
-            state = State.patrolling;
-
             while (patrollPathContainer != null) {
                 Vector3 nextWaypointPosition = patrollPathContainer.transform.GetChild(nextWaypointIndex).position;
                 character.SetDestination(nextWaypointPosition);
@@ -87,8 +81,6 @@ namespace RPG.Characters {
         }
 
         IEnumerator ChasePlayer() {
-            state = State.chasing;
-
             while (distanceToPlayer >= currentWeaponRange) {
                 //TODO creat a common function with the player control
                 Vector3 A = transform.position; 

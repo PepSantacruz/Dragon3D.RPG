@@ -3,7 +3,6 @@
 namespace RPG.Core {
     public class AudioTrigger : MonoBehaviour {
         [SerializeField] AudioClip clip;
-        [SerializeField] int layerFilter = 12;
         [SerializeField] float distanceToPlayerThreshold = 5f;
         [SerializeField] bool isOneTimeOnly = true;
 

@@ -7,10 +7,6 @@ using RPG.Core;
 namespace RPG.Characters {
     public class WeaponSystem : MonoBehaviour {
 
-        //TODO Remove, it's in UtilityPrefab
-        const float PARTICLE_CLEAN_UP_DELAY = 5.0f;
-        protected float PARTICLE_Y_OFFSET = 1.2f;
-
         [SerializeField] float baseDamage = 10f;
         [SerializeField] protected WeaponConfig currentWeaponConfig = null;
 
@@ -113,7 +109,6 @@ namespace RPG.Characters {
             }
         }
 
-        //TODO make abilitybehaviour call this method instead of doing it itself?
         void AttackTargetOnce() {
             transform.LookAt(target.transform);
             animator.SetTrigger(Constants.ATTACK_TRIGGER);

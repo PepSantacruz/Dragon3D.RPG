@@ -93,7 +93,27 @@ namespace RPG.Characters {
             if (playerComponent && playerComponent.isActiveAndEnabled)
                 SceneManager.LoadScene(0);
             else
-                Destroy(gameObject, deathVanishSeconds);
+                StartCoroutine(FadeTo(0, deathVanishSeconds));
+        }
+
+        IEnumerator FadeTo(float aValue, float aTime) {
+            SkinnedMeshRenderer[] skinnedMeshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
+            MeshRenderer[] mesheshRenderers = GetComponentsInChildren<MeshRenderer>();
+
+            float alpha = skinnedMeshRenderers[0].material.color.a;
+            for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime) {
+                Color newColor = new Color(1, 1, 1, Mathf.Lerp(alpha, aValue, t));
+
+                foreach (SkinnedMeshRenderer skinnedMeshRenderer in skinnedMeshRenderers) 
+                    skinnedMeshRenderer.material.color = newColor;
+                
+                foreach (MeshRenderer mesheshRenderer in mesheshRenderers)
+                    mesheshRenderer.material.color = newColor; 
+
+                yield return null;
+            }
+
+            Destroy(gameObject);
 
         }
     }

@@ -6,10 +6,10 @@ using RPG.Core;
 namespace RPG.CameraUI {
     public class CameraRaycaster : MonoBehaviour {
 
-        [SerializeField] public Texture2D walkCursor = null;
-        [SerializeField] Texture2D swordCursor = null;
-        [SerializeField] Texture2D questionCursor = null;
-        [SerializeField] Vector2 cursorHotspot = new Vector2(0, 0);
+        [SerializeField] public Texture2D walkCursor;
+        [SerializeField] Texture2D swordCursor;
+        [SerializeField] Texture2D questionCursor;
+        [SerializeField] Vector2 cursorHotspot;
 
         public delegate void OnMouseOverTerrain(Vector3 destination);
         public event OnMouseOverTerrain onMouseOverTerrain;

@@ -62,6 +62,7 @@ namespace RPG.Characters {
             rigidBody = gameObject.AddComponent<Rigidbody>();
             rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
             rigidBody.collisionDetectionMode = collisionDetectionMode;
+            rigidBody.mass = Mathf.Epsilon;
 
             animator = gameObject.AddComponent<Animator>();
             animator.runtimeAnimatorController = animatorController;

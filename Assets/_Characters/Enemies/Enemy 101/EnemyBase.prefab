@@ -68,7 +68,7 @@ MonoBehaviour:
   spatialBlend: 0
   colliderCenter: {x: 0, y: 1.092766, z: 0}
   colliderRadius: 0.2
-  colliderHeight: 1.7
+  colliderHeight: 2
   moveSpeedMultiplier: 0.95
   animationSpeedMultiplier: 1.5
   movingTurnSpeed: 360
@@ -76,6 +76,7 @@ MonoBehaviour:
   moveThreshold: 1
   navMeshAgentSteeringSpeed: 1
   navMeshAgentStopingDistance: 0.5
+  collisionDetectionMode: 1
 --- !u!114 &977898731211564898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,30 +130,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 85fb9b15c60854a019095241b831ea14, type: 3}
   - {fileID: 8300000, guid: 731acff73b464488a9991ceb1b8565a0, type: 3}
   - {fileID: 8300000, guid: fb9cb4ccb92aa47b68fda46b7106cdae, type: 3}
---- !u!114 &972596207861932742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972596209593789111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a98c76f3095db45edaf6356a9f84dfe7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6772138941285654842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7607827231671094963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a98c76f3095db45edaf6356a9f84dfe7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &921821323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -399,18 +376,6 @@ PrefabInstance:
 --- !u!4 &972596209594057471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 435482, guid: 679ff741e12a7e740819ede24a7000b7,
-    type: 3}
-  m_PrefabInstance: {fileID: 972596209593640933}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &972596209593789111 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 183634, guid: 679ff741e12a7e740819ede24a7000b7,
-    type: 3}
-  m_PrefabInstance: {fileID: 972596209593640933}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7607827231671094963 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7271964943140055382, guid: 679ff741e12a7e740819ede24a7000b7,
     type: 3}
   m_PrefabInstance: {fileID: 972596209593640933}
   m_PrefabAsset: {fileID: 0}
