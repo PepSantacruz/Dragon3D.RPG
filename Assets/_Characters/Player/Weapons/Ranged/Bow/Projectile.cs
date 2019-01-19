@@ -9,16 +9,20 @@ namespace RPG.Characters {
         void OnCollisionEnter(Collision collision) {
             GameObject target = collision.gameObject;
             HealthSystem healthSystem = target.GetComponent<HealthSystem>();
+            SlowMotion slowMotion = Camera.main.GetComponent<SlowMotion>();
 
-            if (healthSystem)
+            if (healthSystem) {
                 healthSystem.TakeDamage(damageToDeal);
-
-            ParticleUtility.PlayParticleEffect(
+                slowMotion.SlowTime();
+                ParticleUtility.PlayParticleEffect(
                                     target.transform,
                                     particleEffectPrefab,
                                     target.transform.position,
                                     ParticleUtility.PARTICLE_STD_Y_OFFSET
                             );
+            }
+
+
             Destroy(gameObject);
         }
     }

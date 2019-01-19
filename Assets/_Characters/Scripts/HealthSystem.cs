@@ -102,21 +102,38 @@ namespace RPG.Characters {
             SkinnedMeshRenderer[] skinnedMeshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
             MeshRenderer[] mesheshRenderers = GetComponentsInChildren<MeshRenderer>();
 
+            foreach (SkinnedMeshRenderer skinnedMeshRenderer in skinnedMeshRenderers)
+                ChangeRendererMode(skinnedMeshRenderer.material);
+
+            foreach (MeshRenderer mesheshRenderer in mesheshRenderers)
+                ChangeRendererMode(mesheshRenderer.material);
+
+
             float alpha = skinnedMeshRenderers[0].material.color.a;
             for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime) {
                 Color newColor = new Color(1, 1, 1, Mathf.Lerp(alpha, aValue, t));
 
-                foreach (SkinnedMeshRenderer skinnedMeshRenderer in skinnedMeshRenderers) 
+                foreach (SkinnedMeshRenderer skinnedMeshRenderer in skinnedMeshRenderers)
                     skinnedMeshRenderer.material.color = newColor;
-                
+
                 foreach (MeshRenderer mesheshRenderer in mesheshRenderers)
-                    mesheshRenderer.material.color = newColor; 
+                    mesheshRenderer.material.color = newColor;
 
                 yield return null;
             }
 
             Destroy(gameObject);
 
+        }
+
+        private static void ChangeRendererMode(Material material) {
+            material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
+            material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            material.SetInt("_ZWrite", 0);
+            material.DisableKeyword("_ALPHATEST_ON");
+            material.EnableKeyword("_ALPHABLEND_ON");
+            material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+            material.renderQueue = 3000;
         }
     }
 }

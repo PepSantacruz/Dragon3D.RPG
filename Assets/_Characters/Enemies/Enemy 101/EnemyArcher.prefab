@@ -49,6 +49,18 @@ MonoBehaviour:
     type: 3}
   spawnProjectilePoint: {fileID: 689532523738708380}
   projectileSpeed: 60
+--- !u!114 &8397894454038921917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555663922139886678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98c76f3095db45edaf6356a9f84dfe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2220401838610144840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -226,6 +238,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 972596207861932742, guid: de9dfdcc1fbb94adb980dbafa7bb87fc, type: 3}
     - {fileID: 977898731211564898, guid: de9dfdcc1fbb94adb980dbafa7bb87fc, type: 3}
+    - {fileID: 1663916916063932839, guid: de9dfdcc1fbb94adb980dbafa7bb87fc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: de9dfdcc1fbb94adb980dbafa7bb87fc, type: 3}
 --- !u!1 &1418397128926913942 stripped
 GameObject:
@@ -236,6 +249,12 @@ GameObject:
 --- !u!4 &1418397128926913941 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 972596208489216989, guid: de9dfdcc1fbb94adb980dbafa7bb87fc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2220401838610144840}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1555663922139886678 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 812521144492141086, guid: de9dfdcc1fbb94adb980dbafa7bb87fc,
     type: 3}
   m_PrefabInstance: {fileID: 2220401838610144840}
   m_PrefabAsset: {fileID: 0}

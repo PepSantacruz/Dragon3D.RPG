@@ -20,4 +20,4 @@ MonoBehaviour:
   audioEffects:
   - {fileID: 8300000, guid: b6a6c015273624a59975f6b09f3e78d0, type: 3}
   radius: 5
-  damageToEachTarget: 10
+  damageToEachTarget: 30
