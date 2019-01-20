@@ -81,9 +81,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7114b237792df4521aeab2583e7025b6, type: 3}
   - {fileID: 8300000, guid: f9da745dcc0ae4ac8a9d0f49c4b473c2, type: 3}
   deathSounds:
-  - {fileID: 8300000, guid: 631ef0286be7f45b2a86d38541e8a470, type: 3}
-  - {fileID: 8300000, guid: 95bfbb8d1b2a64ea2957a92c43598c1b, type: 3}
-  - {fileID: 8300000, guid: d0660ce3ce8524a608fce689c5521362, type: 3}
+  - {fileID: 8300000, guid: 86ecd826dd4474114a4f33503a3a6d00, type: 3}
 --- !u!114 &178836827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +110,7 @@ MonoBehaviour:
   moveThreshold: 1
   navMeshAgentSteeringSpeed: 1
   navMeshAgentStopingDistance: 0.5
-  continuousDynamicCollision: 1
+  collisionDetectionMode: 0
 --- !u!114 &8687568338715952814
 MonoBehaviour:
   m_ObjectHideFlags: 0

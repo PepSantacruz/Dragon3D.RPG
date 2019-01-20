@@ -150,6 +150,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22100000, guid: 74708f122a8504bde9da09fba4c68c8c,
         type: 2}
+    - target: {fileID: 5332946869827005972, guid: de9dfdcc1fbb94adb980dbafa7bb87fc,
+        type: 3}
+      propertyPath: deathSounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5332946869827005972, guid: de9dfdcc1fbb94adb980dbafa7bb87fc,
+        type: 3}
+      propertyPath: deathSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 13c7974f3623a467e83d8d23520fa5f0, type: 3}
     - target: {fileID: 2654359365122532564, guid: de9dfdcc1fbb94adb980dbafa7bb87fc,
         type: 3}
       propertyPath: m_FillAmount
