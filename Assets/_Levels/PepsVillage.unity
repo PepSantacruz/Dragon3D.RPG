@@ -633,7 +633,7 @@ PrefabInstance:
     - target: {fileID: 554570177024930877, guid: c489d0cdf8d0141b39b3613996abcedb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 56.344833
+      value: 58.88
       objectReference: {fileID: 0}
     - target: {fileID: 554570177024930877, guid: c489d0cdf8d0141b39b3613996abcedb,
         type: 3}
@@ -643,7 +643,7 @@ PrefabInstance:
     - target: {fileID: 554570177024930877, guid: c489d0cdf8d0141b39b3613996abcedb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -72.81811
+      value: -73.31
       objectReference: {fileID: 0}
     - target: {fileID: 554570177024930877, guid: c489d0cdf8d0141b39b3613996abcedb,
         type: 3}
@@ -689,6 +689,11 @@ PrefabInstance:
         type: 3}
       propertyPath: navMeshAgentStopingDistance
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 554570177024930876, guid: c489d0cdf8d0141b39b3613996abcedb,
+        type: 3}
+      propertyPath: colliderRadius
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 554570175980364161, guid: c489d0cdf8d0141b39b3613996abcedb,
         type: 3}
@@ -8661,7 +8666,7 @@ PrefabInstance:
     - target: {fileID: 554570177024930877, guid: c489d0cdf8d0141b39b3613996abcedb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 56.28
+      value: 49.1
       objectReference: {fileID: 0}
     - target: {fileID: 554570177024930877, guid: c489d0cdf8d0141b39b3613996abcedb,
         type: 3}
@@ -8671,7 +8676,7 @@ PrefabInstance:
     - target: {fileID: 554570177024930877, guid: c489d0cdf8d0141b39b3613996abcedb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -74.1
+      value: -72.73
       objectReference: {fileID: 0}
     - target: {fileID: 554570177024930877, guid: c489d0cdf8d0141b39b3613996abcedb,
         type: 3}
@@ -14213,7 +14218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2112412867
 Transform:
   m_ObjectHideFlags: 0

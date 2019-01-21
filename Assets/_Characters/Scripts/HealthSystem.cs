@@ -89,6 +89,7 @@ namespace RPG.Characters {
                 //to prevent the enemy to follow the player while he is dead 
                 GetComponent<EnemyAI>().enabled = false;
             }
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
             yield return new WaitForSecondsRealtime(audioSource.clip.length);
 
@@ -123,7 +124,6 @@ namespace RPG.Characters {
             }
 
             Destroy(gameObject);
-
         }
 
         private static void ChangeRendererMode(Material material) {

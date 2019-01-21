@@ -20,7 +20,8 @@ namespace RPG.Characters {
         void Start() {
             SetUpReferencesToComponents();
             PutWeaponInHand(currentWeaponConfig);
-            SetupAttackAndDeathAnimation();
+            currentWeaponConfig.Initialize();
+            //SetupAttackAndDeathAnimation();
         }
 
         void Update() {
@@ -61,7 +62,7 @@ namespace RPG.Characters {
 
             if (!character.GetAnimatorOverrideController()) {
                 Debug.Break();
-                Debug.LogAssertion("Provide " +gameObject+" with an animation Override Controller");
+                Debug.LogAssertion("Provide " + gameObject + " with an animation Override Controller");
             }
             else {
                 AnimatorOverrideController animatorOverrideController = character.GetAnimatorOverrideController();
@@ -74,8 +75,8 @@ namespace RPG.Characters {
         GameObject RequestDominantHand() {
             DominantHand[] dominantHands = GetComponentsInChildren<DominantHand>();
             int numberOfDominantHands = dominantHands.Length;
-            Assert.IsFalse(numberOfDominantHands <= 0, "No DominantHand script found in "+gameObject+", please add one");
-            Assert.IsFalse(numberOfDominantHands > 1, "Multiple DominantHand script found in "+gameObject+", please remove " + (numberOfDominantHands - 1));
+            Assert.IsFalse(numberOfDominantHands <= 0, "No DominantHand script found in " + gameObject + ", please add one");
+            Assert.IsFalse(numberOfDominantHands > 1, "Multiple DominantHand script found in " + gameObject + ", please remove " + (numberOfDominantHands - 1));
 
             return dominantHands[0].gameObject;
         }
@@ -118,7 +119,7 @@ namespace RPG.Characters {
         }
 
         IEnumerator DamageAfterDelay(float damageAfterDelay) {
-            yield return new WaitForSecondsRealtime(damageAfterDelay);
+            yield return new WaitForSeconds(damageAfterDelay);
             DoDamage();
         }
 

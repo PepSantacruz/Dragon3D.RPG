@@ -14,13 +14,20 @@ namespace RPG.Characters {
         [SerializeField] float weaponDamage = 10f;
         [SerializeField] float damageDelay = .5f;
 
+        //as script object, the variables store in disk its values
+        bool initialized = false;
+
         public Transform weaponTransform;
 
-        public float GetMinTimeBetweenAnimationCycles(){
+        public void Initialize() {
+            initialized = false;
+        }
+
+        public float GetMinTimeBetweenAnimationCycles() {
             return timeBetweenAnimationCycles;
         }
 
-        public float GetMaxAttackRange(){
+        public float GetMaxAttackRange() {
             return maxAttackRange;
         }
 
@@ -36,6 +43,11 @@ namespace RPG.Characters {
 
         //So that asset pack cannot cause crashes 
         private void RemoveAnimationEvents() {
+            if (!initialized) {
+                initialized = true;
+                damageDelay = attackAnimation.events[0].time-0.1f;
+            }
+
             attackAnimation.events = new AnimationEvent[0];
             deathAnimation.events = new AnimationEvent[0];
         }
