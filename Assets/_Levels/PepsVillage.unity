@@ -6540,8 +6540,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2112412867}
-  - {fileID: 1573373173}
   - {fileID: 288908862}
+  - {fileID: 1573373173}
   - {fileID: 1889811553}
   - {fileID: 583649004}
   - {fileID: 2127335081}
@@ -10574,7 +10574,7 @@ PrefabInstance:
     - target: {fileID: 554570177024930877, guid: c489d0cdf8d0141b39b3613996abcedb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 554570177024930877, guid: c489d0cdf8d0141b39b3613996abcedb,
         type: 3}
@@ -13734,7 +13734,7 @@ PrefabInstance:
     - target: {fileID: 1418397128926913941, guid: e5eac656452034d45a132502d6a09b81,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1418397128926913941, guid: e5eac656452034d45a132502d6a09b81,
         type: 3}
@@ -14218,7 +14218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2112412867
 Transform:
   m_ObjectHideFlags: 0

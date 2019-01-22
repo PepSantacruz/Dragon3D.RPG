@@ -7,20 +7,30 @@ namespace RPG.Characters {
 
         [SerializeField] GameObject weaponPrefab;
         [SerializeField] GameObject weaponHitParticlePrefab;
-        [SerializeField] AnimationClip attackAnimation;
+        [SerializeField] AnimationClip[] attackAnimation;
         [SerializeField] AnimationClip deathAnimation;
         [SerializeField] float timeBetweenAnimationCycles = 0.5f;
         [SerializeField] float maxAttackRange = 2f;
         [SerializeField] float weaponDamage = 10f;
-        [SerializeField] float damageDelay = .5f;
+        [SerializeField] float currentDamageDelay = .5f;
 
-        //as script object, the variables store in disk its values
+        //as an script object, the variables store in disk its values
         bool initialized = false;
+        float[] damageDelayAttackAnimation;
+        int currentDamageAttackAnimationIndex;
+
 
         public Transform weaponTransform;
 
         public void Initialize() {
             initialized = false;
+            damageDelayAttackAnimation = new float[attackAnimation.Length];
+
+            //TODO adjust the constant 0.1f
+            for (int i = 0; i < attackAnimation.Length; i++) {
+                float time = attackAnimation[i].events[0].time - 0.1f;
+                damageDelayAttackAnimation[i] = time;
+            }
         }
 
         public float GetMinTimeBetweenAnimationCycles() {
@@ -32,24 +42,20 @@ namespace RPG.Characters {
         }
 
         public AnimationClip GetAttackAnimationClip() {
-            RemoveAnimationEvents();
-            return attackAnimation;
+            currentDamageAttackAnimationIndex = Random.Range(0, attackAnimation.Length);
+
+            RemoveAnimationEvents(attackAnimation[currentDamageAttackAnimationIndex]);
+            return attackAnimation[currentDamageAttackAnimationIndex];
         }
 
         public AnimationClip GetDeathAnimationClip() {
-            RemoveAnimationEvents();
+            //RemoveAnimationEvents(deathAnimation);
             return deathAnimation;
         }
 
         //So that asset pack cannot cause crashes 
-        private void RemoveAnimationEvents() {
-            if (!initialized) {
-                initialized = true;
-                damageDelay = attackAnimation.events[0].time-0.1f;
-            }
-
-            attackAnimation.events = new AnimationEvent[0];
-            deathAnimation.events = new AnimationEvent[0];
+        private void RemoveAnimationEvents(AnimationClip animation) {
+            animation.events = new AnimationEvent[0];
         }
 
         public GameObject GetWeaponPrefab() {
@@ -65,7 +71,7 @@ namespace RPG.Characters {
         }
 
         public float GetDamageDelay() {
-            return damageDelay;
+            return damageDelayAttackAnimation[currentDamageAttackAnimationIndex];
         }
     }
 }

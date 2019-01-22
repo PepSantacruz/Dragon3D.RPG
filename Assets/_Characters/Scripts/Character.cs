@@ -83,8 +83,8 @@ namespace RPG.Characters {
             }
             else {
                 Move(Vector3.zero);
-                if (!isAlive)
-                    SetDestination(transform.position);
+               // if (!isAlive)
+                   // SetDestination(transform.position);
             }
         }
 

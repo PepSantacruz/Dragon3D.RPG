@@ -16,11 +16,14 @@ MonoBehaviour:
     type: 3}
   weaponHitParticlePrefab: {fileID: 1977060658541122, guid: b6f092410f55844eba35dd42b7e29649,
     type: 3}
-  attackAnimation: {fileID: 7400000, guid: d82669b37833c5f4db716b82428a5ad6, type: 3}
+  attackAnimation:
+  - {fileID: 7400000, guid: d82669b37833c5f4db716b82428a5ad6, type: 3}
+  - {fileID: 7400000, guid: 4cc7a6346b1003244b110b3324155da7, type: 3}
+  - {fileID: 7400000, guid: 475796453e56ae447b098689c94bcfb5, type: 3}
   deathAnimation: {fileID: 7400000, guid: 9a26352c93a81e947b73b8e47cc931bb, type: 3}
   timeBetweenAnimationCycles: 0
   maxAttackRange: 2.14
   weaponDamage: 25
-  damageDelay: 0.15
+  currentDamageDelay: 0.5
   weaponTransform: {fileID: 4850878898023034, guid: 3b77baa13762942d7b93b571e259b20e,
     type: 3}
