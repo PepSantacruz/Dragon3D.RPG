@@ -20,5 +20,6 @@
         public const float SLOW_MOTION_RATE = 0.05f;
         public const float SLOW_MOTION_TIME = 0.1f;
         public const float ANIMATION_HIT_OFFSET = 0.1f;
+        public const float ATTACK_TIME_OFFSET = 0.5f;
     }
 }

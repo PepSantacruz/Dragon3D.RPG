@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
 using RPG.Core;
+using Random = UnityEngine.Random;
 
 namespace RPG.Characters {
     public class WeaponSystem : MonoBehaviour {
@@ -97,7 +98,7 @@ namespace RPG.Characters {
             while (attackerStillAlive && targetStillAlive) {
                 float animationClipTime = currentWeaponConfig.GetDeathAnimationClip().length;
                 animationClipTime /= character.GetAnimationSpeedMultiplier();
-                float timeToWait = animationClipTime + currentWeaponConfig.GetMinTimeBetweenAnimationCycles();
+                float timeToWait = animationClipTime + currentWeaponConfig.GetMinTimeBetweenAnimationCycles() + Random.Range(-Constants.ATTACK_TIME_OFFSET,Constants.ATTACK_TIME_OFFSET) ;
 
                 bool isTimeToHitAgain = Time.time - lastHitTime > timeToWait;
 
@@ -111,7 +112,6 @@ namespace RPG.Characters {
         }
 
         void AttackTargetOnce() {
-            character.ActivateRigidbody();
             transform.LookAt(target.transform);
             animator.SetTrigger(Constants.ATTACK_TRIGGER);
             SetupAttackAndDeathAnimation();

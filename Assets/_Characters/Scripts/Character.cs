@@ -78,8 +78,7 @@ namespace RPG.Characters {
         }
 
         void Update() {
-            if (navAgent.remainingDistance > navAgent.stoppingDistance && isAlive) {
-                ActivateRigidbody();
+            if ((navAgent.remainingDistance > navAgent.stoppingDistance) && isAlive) {
                 Move(navAgent.desiredVelocity);
             }
             else {
@@ -89,15 +88,6 @@ namespace RPG.Characters {
             }
         }
 
-        private void DeactivateRigidbody() {
-            rigidBody.isKinematic = true;
-            rigidBody.detectCollisions = false;
-        }
-
-        public void ActivateRigidbody() {
-            rigidBody.isKinematic = false;
-            rigidBody.detectCollisions = true;
-        }
 
         //Callback! don't delete it
         void OnAnimatorMove() {

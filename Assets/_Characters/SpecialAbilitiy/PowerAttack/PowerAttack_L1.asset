@@ -19,4 +19,4 @@ MonoBehaviour:
     type: 3}
   audioEffects:
   - {fileID: 8300000, guid: b4460942253d9431e8ee15f34aa275ff, type: 3}
-  extraDamage: 75
+  extraDamage: 100

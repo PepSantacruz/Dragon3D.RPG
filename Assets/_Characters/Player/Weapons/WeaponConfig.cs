@@ -13,10 +13,8 @@ namespace RPG.Characters {
         [SerializeField] float timeBetweenAnimationCycles = 0.5f;
         [SerializeField] float maxAttackRange = 2f;
         [SerializeField] float weaponDamage = 10f;
-        [SerializeField] float currentDamageDelay = .5f;
 
         //as an script object, the variables store in disk its values
-        bool initialized = false;
         float[] damageDelayAttackAnimation;
         int currentDamageAttackAnimationIndex;
 
@@ -24,13 +22,13 @@ namespace RPG.Characters {
         public Transform weaponTransform;
 
         public void Initialize() {
-            initialized = false;
             damageDelayAttackAnimation = new float[attackAnimation.Length];
 
-            //TODO adjust the constant 0.1f
             for (int i = 0; i < attackAnimation.Length; i++) {
-                float time = attackAnimation[i].events[0].time - Constants.ANIMATION_HIT_OFFSET;
-                damageDelayAttackAnimation[i] = time;
+                if (attackAnimation[i].events.Length>0) {
+                    float time = attackAnimation[i].events[0].time - Constants.ANIMATION_HIT_OFFSET;
+                    damageDelayAttackAnimation[i] = time;
+                }
             }
         }
 

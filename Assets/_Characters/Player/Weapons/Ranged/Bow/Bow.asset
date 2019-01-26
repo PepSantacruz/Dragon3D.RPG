@@ -25,8 +25,7 @@ MonoBehaviour:
   - {fileID: 7400000, guid: 6c06abe464d25514d84efe52dcfa0139, type: 3}
   deathAnimation: {fileID: 7400000, guid: 677509311bebcd54a89ef50613d1cfa7, type: 3}
   timeBetweenAnimationCycles: 1
-  maxAttackRange: 10
+  maxAttackRange: 15.03
   weaponDamage: 10
-  currentDamageDelay: 0.5
   weaponTransform: {fileID: 871964232764239830, guid: e3f079692b7a241b79c13ad56c12bfe7,
     type: 3}
