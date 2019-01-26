@@ -111,6 +111,7 @@ namespace RPG.Characters {
         }
 
         void AttackTargetOnce() {
+            character.ActivateRigidbody();
             transform.LookAt(target.transform);
             animator.SetTrigger(Constants.ATTACK_TRIGGER);
             SetupAttackAndDeathAnimation();

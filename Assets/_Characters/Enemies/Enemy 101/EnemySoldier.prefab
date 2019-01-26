@@ -78,11 +78,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22100000, guid: e72bae29eaffb436983daf0a4e1d660c,
         type: 2}
-    - target: {fileID: 5332946869827005972, guid: de9dfdcc1fbb94adb980dbafa7bb87fc,
-        type: 3}
-      propertyPath: deathSounds.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 4fd2954cf79ae4a319c56ae22e2e42ac, type: 3}
     - target: {fileID: 812521144492141180, guid: de9dfdcc1fbb94adb980dbafa7bb87fc,
         type: 3}
       propertyPath: m_IsActive

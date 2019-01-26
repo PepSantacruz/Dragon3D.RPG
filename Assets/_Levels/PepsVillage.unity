@@ -8373,6 +8373,11 @@ PrefabInstance:
       propertyPath: m_WarningMessage
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8494968211934298097, guid: 64fe15f0876cc401d9316058ec920043,
+        type: 3}
+      propertyPath: deathSounds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64fe15f0876cc401d9316058ec920043, type: 3}
 --- !u!1001 &1159456234
