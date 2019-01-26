@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using RPG.Core;
 
 namespace RPG.Characters {
 
@@ -28,7 +29,7 @@ namespace RPG.Characters {
 
             //TODO adjust the constant 0.1f
             for (int i = 0; i < attackAnimation.Length; i++) {
-                float time = attackAnimation[i].events[0].time - 0.1f;
+                float time = attackAnimation[i].events[0].time - Constants.ANIMATION_HIT_OFFSET;
                 damageDelayAttackAnimation[i] = time;
             }
         }

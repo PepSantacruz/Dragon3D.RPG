@@ -510,7 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d01a256f9e7404d5db0b30bdd802ada3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 6ec773b242aef469a868cbb13b0f3871, type: 3}
+  clip: {fileID: 0}
   distanceToPlayerThreshold: 3
   isOneTimeOnly: 1
 --- !u!1 &1444464754

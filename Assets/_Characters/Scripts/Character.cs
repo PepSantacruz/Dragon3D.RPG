@@ -34,7 +34,7 @@ namespace RPG.Characters {
         [SerializeField] float navMeshAgentStopingDistance = 1.3f;
 
         [Header("Rigidbody")]
-        
+
         [SerializeField] CollisionDetectionMode collisionDetectionMode;
 
         Animator animator;
@@ -83,8 +83,8 @@ namespace RPG.Characters {
             }
             else {
                 Move(Vector3.zero);
-               // if (!isAlive)
-                   // SetDestination(transform.position);
+                if (!isAlive)
+                    SetDestination(transform.position);
             }
         }
 
@@ -148,7 +148,7 @@ namespace RPG.Characters {
         }
 
         public void setMaximumAnimatorForward() {
-            currentAnimatorForward = 1; 
+            currentAnimatorForward = 1;
         }
 
         public void setSelectedAnimatorForward() {
