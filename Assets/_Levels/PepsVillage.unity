@@ -12043,6 +12043,12 @@ PrefabInstance:
       propertyPath: baseDamage
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3735105487155283971, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 3}
+      propertyPath: currentWeaponConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: 80974093b15194e5a828c6e5ee386aab,
+        type: 2}
     - target: {fileID: 178836827, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: navMeshAgentStopingDistance
       value: 0.5

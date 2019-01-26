@@ -67,6 +67,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224239718930571731, guid: de9dfdcc1fbb94adb980dbafa7bb87fc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.55
+      objectReference: {fileID: 0}
     - target: {fileID: 972596208489216988, guid: de9dfdcc1fbb94adb980dbafa7bb87fc,
         type: 3}
       propertyPath: animatorOverrideController

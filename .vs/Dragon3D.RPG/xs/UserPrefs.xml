@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{792937AF-1406-7EE1-AB09-95A5FA983ADB}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Characters/Scripts/Character.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Characters/Player/Weapons/WeaponConfig.cs">
     <Files>
       <File FileName="Assets/ChangeCameraPoint.cs" Line="3" Column="16" />
       <File FileName="Assets/_Characters/Enemies/EnemyAI.cs" Line="83" Column="36" />
@@ -10,7 +10,7 @@
       <File FileName="Assets/_Characters/Scripts/HealthSystem.cs" Line="92" Column="84" />
       <File FileName="Assets/_Core/SlowMotion.cs" Line="9" Column="43" />
       <File FileName="Assets/_Characters/Player/Weapons/Ranged/Bow/Projectile.cs" Line="16" Column="39" />
-      <File FileName="Assets/_Characters/Player/Weapons/WeaponConfig.cs" Line="58" Column="54" />
+      <File FileName="Assets/_Characters/Player/Weapons/WeaponConfig.cs" Line="31" Column="1" />
       <File FileName="Assets/_CameraUI/CameraRaycaster.cs" Line="67" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>

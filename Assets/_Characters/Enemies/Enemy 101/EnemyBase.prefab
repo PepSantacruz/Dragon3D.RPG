@@ -124,9 +124,18 @@ MonoBehaviour:
   deathVanishSeconds: 2
   healthBar: {fileID: 2654359365122532564}
   damageSounds:
-  - {fileID: 8300000, guid: 36e34ee827e2f40e492cb4087f1ed5cf, type: 3}
+  - {fileID: 8300000, guid: 39c0b3527e9784262b2a93563fdd734a, type: 3}
+  - {fileID: 8300000, guid: feaba2b29a1094c1696924d21a7ffadd, type: 3}
+  - {fileID: 8300000, guid: 2fdb62410643f4de093f811fa51e97e6, type: 3}
+  - {fileID: 8300000, guid: 95cafa4219e844c9eb94c2097381d6b8, type: 3}
+  - {fileID: 8300000, guid: 10cc1ebdcd3c243f29a6ffbd790aaed8, type: 3}
   deathSounds:
   - {fileID: 8300000, guid: 86ecd826dd4474114a4f33503a3a6d00, type: 3}
+  - {fileID: 8300000, guid: 0771327b81dfc46b38db0b3b6e2e98f9, type: 3}
+  - {fileID: 8300000, guid: 85fb9b15c60854a019095241b831ea14, type: 3}
+  - {fileID: 8300000, guid: 731acff73b464488a9991ceb1b8565a0, type: 3}
+  - {fileID: 8300000, guid: fb9cb4ccb92aa47b68fda46b7106cdae, type: 3}
+  - {fileID: 8300000, guid: 13c7974f3623a467e83d8d23520fa5f0, type: 3}
 --- !u!1001 &921821323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -253,6 +262,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 224618958594901938, guid: 9a9d70d10b9331d469e57254147e0430,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 224618958594901938, guid: 9a9d70d10b9331d469e57254147e0430,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.58
+      objectReference: {fileID: 0}
     - target: {fileID: 2654359364423238751, guid: 9a9d70d10b9331d469e57254147e0430,
         type: 3}
       propertyPath: m_Sprite
@@ -263,16 +282,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FillAmount
       value: 0.485
-      objectReference: {fileID: 0}
-    - target: {fileID: 224618958594901938, guid: 9a9d70d10b9331d469e57254147e0430,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 224618958594901938, guid: 9a9d70d10b9331d469e57254147e0430,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.58
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a9d70d10b9331d469e57254147e0430, type: 3}
