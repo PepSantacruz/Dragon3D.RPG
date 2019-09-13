@@ -3,10 +3,12 @@ using UnityEngine.AI;
 using RPG.CameraUI;
 using System;
 
-namespace RPG.Characters {
+namespace RPG.Characters
+{
 
     [SelectionBase]
-    public class Character : MonoBehaviour {
+    public class Character : MonoBehaviour
+    {
         //TODO create a collider just for the cursor click on enemy to attack
         [Header("Animator Setup")]
         [SerializeField] RuntimeAnimatorController animatorController;
@@ -46,11 +48,13 @@ namespace RPG.Characters {
         float forwardAmount;
         bool isAlive = true;
 
-        void Awake() {
+        void Awake()
+        {
             AddRequiredComponents();
         }
 
-        void AddRequiredComponents() {
+        void AddRequiredComponents()
+        {
             CapsuleCollider capsuleCollider = gameObject.AddComponent<CapsuleCollider>();
             capsuleCollider.center = colliderCenter;
             capsuleCollider.radius = colliderRadius;
@@ -77,23 +81,30 @@ namespace RPG.Characters {
             navAgent.updatePosition = true;
         }
 
-        void Update() {
-            if ((navAgent.remainingDistance > navAgent.stoppingDistance) && isAlive) {
+        void Update()
+        {
+
+            if (isAlive && (navAgent.remainingDistance > navAgent.stoppingDistance) )
+            {
                 Move(navAgent.desiredVelocity);
             }
-            else {
+            else
+            {
                 Move(Vector3.zero);
                 if (!isAlive)
                     SetDestination(transform.position);
             }
+
         }
 
 
         //Callback! don't delete it
-        void OnAnimatorMove() {
+        void OnAnimatorMove()
+        {
             // we implement this function to override the default root motion.
             // this allows us to modify the positional speed before it's applied.
-            if (Time.deltaTime > 0) {
+            if (Time.deltaTime > 0 && isAlive)
+            {
                 Vector3 velocity = (animator.deltaPosition * moveSpeedMultiplier) / Time.deltaTime;
 
                 // we preserve the existing y part of the current velocity.
@@ -102,13 +113,15 @@ namespace RPG.Characters {
             }
         }
 
-        void Move(Vector3 movement) {
+        void Move(Vector3 movement)
+        {
             SetupForwardAndTurn(movement);
             ApplyExtraTurnRotation();
             UpdateAnimator();
         }
 
-        void SetupForwardAndTurn(Vector3 move) {
+        void SetupForwardAndTurn(Vector3 move)
+        {
             // convert the world relative moveInput vector into a local-relative
             // turn amount and forward amount required to head in the desired
             // direction.
@@ -120,39 +133,48 @@ namespace RPG.Characters {
             forwardAmount = localMove.z;
         }
 
-        void ApplyExtraTurnRotation() {
+        void ApplyExtraTurnRotation()
+        {
             // help the character turn faster (this is in addition to root rotation in the animation)
             float turnSpeed = Mathf.Lerp(stationaryTurnSpeed, movingTurnSpeed, forwardAmount);
             transform.Rotate(0, turnAmount * turnSpeed * Time.deltaTime, 0);
         }
 
-        void UpdateAnimator() {
+        void UpdateAnimator()
+        {
             animator.SetFloat("Forward", forwardAmount * currentAnimatorForward, 0.1f, Time.deltaTime);
             animator.SetFloat("Turn", turnAmount, 0.1f, Time.deltaTime);
             animator.speed = animationSpeedMultiplier;
         }
 
-        public void Kill() {
+        public void Kill()
+        {
             isAlive = false;
         }
 
-        public void SetDestination(Vector3 worldPosition) {
-            navAgent.destination = worldPosition;
+        public void SetDestination(Vector3 worldPosition)
+        {
+            if (isAlive)
+                navAgent.destination = worldPosition;
         }
 
-        public AnimatorOverrideController GetAnimatorOverrideController() {
+        public AnimatorOverrideController GetAnimatorOverrideController()
+        {
             return animatorOverrideController;
         }
 
-        public float GetAnimationSpeedMultiplier() {
+        public float GetAnimationSpeedMultiplier()
+        {
             return animator.speed;
         }
 
-        public void setMaximumAnimatorForward() {
+        public void setMaximumAnimatorForward()
+        {
             currentAnimatorForward = 1;
         }
 
-        public void setSelectedAnimatorForward() {
+        public void setSelectedAnimatorForward()
+        {
             currentAnimatorForward = animatorForward;
         }
     }

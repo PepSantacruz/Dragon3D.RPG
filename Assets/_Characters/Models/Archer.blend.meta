@@ -1,69 +1,179 @@
 fileFormatVersion: 2
 guid: 867694a5858127940bb9ecb81fec5742
-timeCreated: 1493914631
-licenseType: Free
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: Armature
-    100004: Arrows
-    100006: Foot_L
-    100008: Foot_R
-    100010: Hand_L
-    100012: Hand_R
-    100014: Head
-    100016: Hero
-    100018: Hips
-    100020: Lower_Arm_L
-    100022: Lower_Arm_R
-    100024: Lower_Leg_l
-    100026: Lower_Leg_r
-    100028: Neck
-    100030: Shoulder_L
-    100032: Shoulder_R
-    100034: Spine
-    100036: Upper_Arm_L
-    100038: Upper_Arm_R
-    100040: Upper_Leg_L
-    100042: Upper_Leg_R
-    100044: Archer
-    400000: //RootNode
-    400002: Armature
-    400004: Arrows
-    400006: Foot_L
-    400008: Foot_R
-    400010: Hand_L
-    400012: Hand_R
-    400014: Head
-    400016: Hero
-    400018: Hips
-    400020: Lower_Arm_L
-    400022: Lower_Arm_R
-    400024: Lower_Leg_l
-    400026: Lower_Leg_r
-    400028: Neck
-    400030: Shoulder_L
-    400032: Shoulder_R
-    400034: Spine
-    400036: Upper_Arm_L
-    400038: Upper_Arm_R
-    400040: Upper_Leg_L
-    400042: Upper_Leg_R
-    400044: Archer
-    2300000: Arrows
-    3300000: Arrows
-    4300000: Hero
-    4300002: Arrows
-    4300004: Archer
-    7400000: Default Take
-    9500000: //RootNode
-    13700000: Hero
-    13700002: Archer
+  serializedVersion: 25
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: Armature
+  - first:
+      1: 100004
+    second: Arrows
+  - first:
+      1: 100006
+    second: Foot_L
+  - first:
+      1: 100008
+    second: Foot_R
+  - first:
+      1: 100010
+    second: Hand_L
+  - first:
+      1: 100012
+    second: Hand_R
+  - first:
+      1: 100014
+    second: Head
+  - first:
+      1: 100016
+    second: Hero
+  - first:
+      1: 100018
+    second: Hips
+  - first:
+      1: 100020
+    second: Lower_Arm_L
+  - first:
+      1: 100022
+    second: Lower_Arm_R
+  - first:
+      1: 100024
+    second: Lower_Leg_l
+  - first:
+      1: 100026
+    second: Lower_Leg_r
+  - first:
+      1: 100028
+    second: Neck
+  - first:
+      1: 100030
+    second: Shoulder_L
+  - first:
+      1: 100032
+    second: Shoulder_R
+  - first:
+      1: 100034
+    second: Spine
+  - first:
+      1: 100036
+    second: Upper_Arm_L
+  - first:
+      1: 100038
+    second: Upper_Arm_R
+  - first:
+      1: 100040
+    second: Upper_Leg_L
+  - first:
+      1: 100042
+    second: Upper_Leg_R
+  - first:
+      1: 100044
+    second: Archer
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: Armature
+  - first:
+      4: 400004
+    second: Arrows
+  - first:
+      4: 400006
+    second: Foot_L
+  - first:
+      4: 400008
+    second: Foot_R
+  - first:
+      4: 400010
+    second: Hand_L
+  - first:
+      4: 400012
+    second: Hand_R
+  - first:
+      4: 400014
+    second: Head
+  - first:
+      4: 400016
+    second: Hero
+  - first:
+      4: 400018
+    second: Hips
+  - first:
+      4: 400020
+    second: Lower_Arm_L
+  - first:
+      4: 400022
+    second: Lower_Arm_R
+  - first:
+      4: 400024
+    second: Lower_Leg_l
+  - first:
+      4: 400026
+    second: Lower_Leg_r
+  - first:
+      4: 400028
+    second: Neck
+  - first:
+      4: 400030
+    second: Shoulder_L
+  - first:
+      4: 400032
+    second: Shoulder_R
+  - first:
+      4: 400034
+    second: Spine
+  - first:
+      4: 400036
+    second: Upper_Arm_L
+  - first:
+      4: 400038
+    second: Upper_Arm_R
+  - first:
+      4: 400040
+    second: Upper_Leg_L
+  - first:
+      4: 400042
+    second: Upper_Leg_R
+  - first:
+      4: 400044
+    second: Archer
+  - first:
+      23: 2300000
+    second: Arrows
+  - first:
+      33: 3300000
+    second: Arrows
+  - first:
+      43: 4300000
+    second: Hero
+  - first:
+      43: 4300002
+    second: Arrows
+  - first:
+      43: 4300004
+    second: Archer
+  - first:
+      74: 7400000
+    second: Default Take
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Hero
+  - first:
+      137: 13700002
+    second: Archer
+  externalObjects: {}
   materials:
     importMaterials: 0
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -76,12 +186,15 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -89,13 +202,22 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -105,10 +227,15 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 0
   copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human:
     - boneName: Hips
       humanName: Hips
@@ -372,8 +499,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1

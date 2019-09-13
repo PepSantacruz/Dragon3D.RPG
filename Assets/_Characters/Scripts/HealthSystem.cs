@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using RPG.CameraUI;
 using RPG.Core;
+using UnityEngine.AI;
 
 namespace RPG.Characters {
     public class HealthSystem : MonoBehaviour {
@@ -90,6 +91,9 @@ namespace RPG.Characters {
                 GetComponent<EnemyAI>().enabled = false;
             }
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            Destroy(GetComponent<NavMeshAgent>());
+            Destroy(GetComponent<CapsuleCollider>());
+            Destroy(GetComponent<Rigidbody>());
 
             yield return new WaitForSecondsRealtime(audioSource.clip.length);
 
